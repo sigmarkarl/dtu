@@ -454,7 +454,7 @@
   \vspace*{\aboveskipchk}%
   \vspace{\dropfromtop}%
   \hbox to \textwidth{%
-  {\helvetica\itshape\bfseries\fontsize{19}{12}\selectfont\includegraphics[scale=0.25]{dtu-logo.jpg}
+  {\helvetica\itshape\bfseries\fontsize{19}{12}\selectfont\includegraphics[scale=0.5]{dtu-logo.jpg}
     \hfil
     \if@appnotes Algorithms in Bioinformatics\hfil\fi
     }%
