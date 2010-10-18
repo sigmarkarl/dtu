@@ -1,0 +1,17 @@
+\begin{thebibliography}{}
+
+\bibitem[Ambs {\em et~al.}(2008)Ambs, Prueitt, Yi, Hudson, Howe, Petrocca,
+  Wallace, Liu, Volinia, Calin, Yfantis, Stephens, and Croce]{ambs2008}
+Ambs, S., Prueitt, R.~L., Yi, M., Hudson, R.~S., Howe, T.~M., Petrocca, F.,
+  Wallace, T.~A., Liu, C.-G., Volinia, S., Calin, G.~A., Yfantis, H.~G.,
+  Stephens, R.~M., and Croce, C.~M. (2008).
+\newblock Genomic profiling of micro{R}{N}{A} and messenger {R}{N}{A} reveals
+  deregulated micro{R}{N}{A} expression in prostate cancer.
+\newblock {\em Cancer Res\/}, {\bf 68}(15), 6162--70.
+
+\bibitem[Griffiths-Jones(2006)Griffiths-Jones]{mirbase2006}
+Griffiths-Jones, S. (2006).
+\newblock mirbase: the microrna sequence database.
+\newblock {\em Methods Mol Biol\/}, {\bf 342}, 129--138.
+
+\end{thebibliography}
