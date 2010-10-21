@@ -25,7 +25,8 @@ smm_big=tsmm[tsmm$Size>2000,]
 c = 1
 while (c < (nrow(smm_small))) {
 	c1 = c + (nlambda -1 )
-	lines(spline(smm_small[c:c1,c(1,3)],n=100),type="l",col="red")
+#	lines(spline(smm_small[c:c1,c(1,3)],n=100),type="l",col="red")
+	lines(smm_small[c:c1,c(1,3)],type="l",col="red")
 	lines(smm_small[c:c1,c(1,3)],type="p",pch=2,col="red")
 	c   = c+ nlambda
 #	col = col+1
@@ -33,7 +34,8 @@ while (c < (nrow(smm_small))) {
 c = 1
 while (c < (nrow(smm_normal))) {
 	c1 = c + (nlambda -1 )
-	lines(spline(smm_normal[c:c1,c(1,3)],n=100),type="l",col="green")
+#	lines(spline(smm_normal[c:c1,c(1,3)],n=100),type="l",col="green")
+	lines(smm_normal[c:c1,c(1,3)],type="l",col="green")
 	lines(smm_normal[c:c1,c(1,3)],type="p",pch=1,col="green")
 	c   = c+ nlambda
 #	col = col+1
@@ -41,7 +43,8 @@ while (c < (nrow(smm_normal))) {
 c = 1
 while (c < (nrow(smm_big))) {
 	c1 = c + (nlambda -1 )
-	lines(spline(smm_big[c:c1,c(1,3)],n=100),type="l",col="black")
+#	lines(spline(smm_big[c:c1,c(1,3)],n=100),type="l",col="black")
+	lines(smm_big[c:c1,c(1,3)],type="l",col="black")
 	lines(smm_big[c:c1,c(1,3)],type="p",pch=5,col="black")
 	c   = c+ nlambda
 #	col = col+1
