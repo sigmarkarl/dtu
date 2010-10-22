@@ -1,4 +1,7 @@
 \documentclass{bioinfo}
+
+\usepackage{subfigure}
+
 \copyrightyear{2010}
 \pubyear{2010}
 
@@ -20,28 +23,59 @@
 
 \section{Summary}
 We look at two Stabilization matrix methods \cite{SMM} used for predicting binding affinity of immunogenic peptides to major histocompatibility complex \cite{wiki:MHC} (MHC) molecules.
-The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089.
+\par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089.
+\par We studied the relsult of different 
 
 \end{abstract}
 
 \section*{Introduction}
 
+\subsection*{Stabilisation Matrix Method}
+Blabla bla.
+\begin{equation}
+\label{eq:general}
+E = \frac{1}{2} \sum_i{(O_i-t_i)^2} + \lambda \sum_l{w_i^2} \\
+\end{equation}
+
+\subsection*{Cross Validation}
+Bla bla bla. BlaBlaBla.
+
 \section*{Material and Methods}
 
-We were given semi-completed code for the implementation of the Stabilization matrix method. The minimization procedures were gradient descent in one case and monte carlo in the other. The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089. In addition to finishing the code we added some optimizations like skipping unnecessary memory allocations at performance critical locations. We ran the matrix creation on each 35 MHC molecules to get the broadest perspective.
-The data for each MHC molecule was splitted into five parts, equally (or nearly equally) sized. Each part was then used for the validation of the model trained on the rest (4/5) of the data, resulting in 5 iterations to be used for (5-fold) cross-validation.
-The lambda value controls the.
-
+We were given semi-completed code for the implementation of the Stabilization matrix method. The minimization procedures were gradient descent in one case and monte carlo in the other. 
+\par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089. In addition to finishing the code we added some optimizations like skipping unnecessary memory allocations at performance critical locations. 
+\par We ran the matrix creation on each 35 MHC molecules to get the broadest perspective.
+\par The data for each MHC molecule was splited into five parts, equally (or nearly equally) sized. Each part was then used for the validation by the Leave One Out cross validation method (LOO-CV) \cite{wiki:crossval}. So each part was trained on the rest (4/5) of the data, resulting in 5 iterations to be used for the evaluation.
+\par In order to find the optimal $\lambda$ value we evaluate the correlation of all the 35 molecules with both algorithms with different $\lambda$ parameter. To reduce the running time of the procedure we splitted the list of the 35 dataset in 7 different jobs taking care of 5 dataset each. 
+\par As noted in Figure \ref{fig:01} and in Figure \ref{fig:02} the use of the $\lambda$ value suppresses the effect of noise in the measured data. In the case of zero value $\lambda$, the optimal entries for the weight vector \textit{w} minimize the difference between predicted and measured values.  Minimizing with a non-zero value for $\lambda$ results in a shift of the optimal entries in \textit{w} towards values closer to zero. It should be noted here that the $\lambda$ value used as a parameter in the code is the per-target normalized $\lambda$ value, not the global one.
 
 
 \section*{Results}
 
 
+Figure \ref{fig:01} shows the trend for Pearson's correlation coefficient (PCC, prediction accuracy) using different $\lambda$ values for various data sizes.
+\begin{figure}[!tpb]
+\centerline{\includegraphics[width=9cm]{fig/smm_l005_ppc_size.pdf}}
+\caption{Pearson's correlation coefficent  from the SMM Gradient Decent,of different sample using increasing values of $\lambda$. The sample were grouped by the size of the dataset. We can see how dataset of similar size show a similar trend of the Pearson correlation $\lambda$ depending.}
+\label{fig:01}
+\end{figure}
+As a general rule, as the data size gets larger the less important the effect of a non-zero $\lambda$ becomes. For large data sets a $\lambda$ value of zero seems to give the best results. A large dataset should average out the noise. Similar graph showing results from the Monte Carlo version says the same story (Figure \ref{fig:02}).
+For the small datasets an optimal $\lambda$ value is  less than 0.01. Next we run the smm algorithms on a data from four different kinds of MHC molecules showing the error as a function of iterations. Here the default $\lambda$ value of 0.05 is used (Figure 3).
 
 \begin{figure}[!tpb]
-\centerline{\includegraphics[width=9cm]{fig/smm_l_ppc_size.pdf}}
-\caption{blablabla}\label{fig:01}
+\centerline{\includegraphics[width=9cm]{fig/smm_mc_l005_ppc_size.pdf}}
+\caption{Pearson's correlation coefficent from the SMM Monte Calro, of different sample using increasing values of $\lambda$. The sample were grouped by the size of the dataset. We can see how dataset of similar size show a similar trend of the Pearson correlation $\lambda$ depending.}
+\label{fig:02}
 \end{figure}
+
+\begin{figure}[!tpb]
+\centerline{\includegraphics[width=9cm]{fig/barplot.pdf}}
+\caption{Barplot showing the Pearson Correlation for each training set, for each evaluation on the test set and the correlation of the concatenate evaluation among the 5 test set}
+\label{fig:04}
+\end{figure}
+
+
+
 
 
 
@@ -60,3 +94,4 @@ The lambda value controls the.
 
 \end{application}
 \end{document}
+v

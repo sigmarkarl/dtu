@@ -2,6 +2,7 @@
 \newcommand\lastmodifieddate{2003/02/08}
 \newcommand\versionnumber{0.1}
 
+
 % Are we printing crop marks?
 \newif\if@cropmarkson \@cropmarksontrue
 
@@ -47,7 +48,7 @@
 \reversemarginpar
 
 \renewcommand\normalsize{%
-   \@setfontsize\normalsize{9}{11}%
+   \@setfontsize\normalsize{10}{11}%
    \abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@
    \abovedisplayshortskip \z@ \@plus3\p@
    \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
@@ -57,7 +58,7 @@
 \let\@bls\baselineskip
 
 \newcommand\small{%
-    \@setfontsize\small{9}{11}%
+    \@setfontsize\small{9}{10}%
     \abovedisplayskip 11\p@ minus 3\p@
     \belowdisplayskip \abovedisplayskip
     \abovedisplayshortskip \z@ plus 2\p@

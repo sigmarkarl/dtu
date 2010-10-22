@@ -2,8 +2,8 @@
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20101021155859)
-/ModDate (D:20101021155859)
+/CreationDate (D:20101022143018)
+/ModDate (D:20101022143018)
 /Title (R Graphics Output)
 /Producer (R 2.11.1)
 /Creator (R)
@@ -92,7 +92,7 @@ S
 Q q
 BT
 0.000 0.000 0.000 rg
-/F3 1 Tf 14.00 0.00 -0.00 14.00 173.43 685.45 Tm [(P) 30 (ear) 15 (son correlation trend in SMM on lambda v) 20 (alue c) 10 (hanging)] TJ
+/F3 1 Tf 14.00 0.00 -0.00 14.00 226.51 685.45 Tm [(P) 30 (ear) 15 (son correlation in SMM Gradient Decent)] TJ
 ET
 BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 373.07 18.72 Tm (l) Tj
@@ -492,7 +492,7 @@ Q
 endstream
 endobj
 7 0 obj
-7826
+7799
 endobj
 3 0 obj
 <<
@@ -508,7 +508,7 @@ endobj
 <<
 /ProcSet [/PDF /Text]
 /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >>
-/ExtGState << >>
+/ExtGState << /GSais 12 0 R >>
 >>
 endobj
 8 0 obj
@@ -542,26 +542,33 @@ endobj
 /BaseFont /Helvetica-Bold
 /Encoding 8 0 R
 >> endobj
+12 0 obj
+<<
+/Type /ExtGState
+/AIS false
+>>
+endobj
 xref
-0 12
+0 13
 0000000000 65535 f 
 0000000021 00000 n 
 0000000164 00000 n 
-0000008192 00000 n 
-0000008275 00000 n 
+0000008165 00000 n 
+0000008248 00000 n 
 0000000213 00000 n 
 0000000293 00000 n 
-0000008172 00000 n 
-0000008379 00000 n 
-0000008636 00000 n 
-0000008719 00000 n 
-0000008816 00000 n 
+0000008145 00000 n 
+0000008366 00000 n 
+0000008623 00000 n 
+0000008706 00000 n 
+0000008803 00000 n 
+0000008905 00000 n 
 trailer
 <<
-/Size 12
+/Size 13
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-8918
+8955
 %%EOF
