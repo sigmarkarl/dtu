@@ -29,22 +29,23 @@ The testing data available was from 35 different MHC molecules from HLA-A and HL
 
 \section*{Introduction}
 
-
-Blabla bla
-
+\subsection*{Stabilisation Matrix Method}
+Blabla bla.
 \begin{equation}
-\begin{centering}
 \label{eq:general}
-E = \frac{1}{2} \sum_i{(O_i-t_i)^2} + \lambda \sum_l{w_i^2}
-\end{centering}
+E = \frac{1}{2} \sum_i{(O_i-t_i)^2} + \lambda \sum_l{w_i^2} \\
 \end{equation}
 
-BlaBlaBla
+\subsection*{Cross Validation}
+Bla bla bla. BlaBlaBla.
+
 \section*{Material and Methods}
 
-We were given semi-completed code for the implementation of the Stabilization matrix method. The minimization procedures were gradient descent in one case and monte carlo in the other. The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089. In addition to finishing the code we added some optimizations like skipping unnecessary memory allocations at performance critical locations. We ran the matrix creation on each 35 MHC molecules to get the broadest perspective.
-The data for each MHC molecule was splited into five parts, equally (or nearly equally) sized. Each part was then used for the validation of the model trained on the rest (4/5) of the data, resulting in 5 iterations to be used for (5-fold) cross-validation.
-As noted in [1] the use of the $\lambda$ value suppresses the effect of noise in the measured data. In the case of zero value $\lambda$, the optimal entries for the weight vector w minimize the difference between predicted and measured values.  Minimizing with a non-zero value for $\lambda$ results in a shift of the optimal entries in w towards values closer to zero. It should be noted here that the $\lambda$ value used as a parameter in the code is the per\_target normalized $\lambda$ value, not the global one.
+We were given semi-completed code for the implementation of the Stabilization matrix method. The minimization procedures were gradient descent in one case and monte carlo in the other. 
+\par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089. In addition to finishing the code we added some optimizations like skipping unnecessary memory allocations at performance critical locations. 
+\par We ran the matrix creation on each 35 MHC molecules to get the broadest perspective.
+\par The data for each MHC molecule was splited into five parts, equally (or nearly equally) sized. Each part was then used for the validation by the Leave One Out cross validation method (LOO-CV) \ref{wiki:crossval}. So each part was trained on the rest (4/5) of the data, resulting in 5 iterations to be used for the evaluation.
+As noted in Figure \ref{fig:01} in and Figure \ref{fig:02} the use of the $\lambda$ value suppresses the effect of noise in the measured data. In the case of zero value $\lambda$, the optimal entries for the weight vector \textit{w} minimize the difference between predicted and measured values.  Minimizing with a non-zero value for $\lambda$ results in a shift of the optimal entries in \textit{w} towards values closer to zero. It should be noted here that the $\lambda$ value used as a parameter in the code is the per-target normalized $\lambda$ value, not the global one.
 
 
 \section*{Results}

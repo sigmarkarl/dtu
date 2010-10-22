@@ -15,7 +15,7 @@ tsmm = tsmm[order(tsmm[,"Size"]),]
 
 pdf("smm_l005_ppc_size.pdf",width=10,height=10)
 
-plot (x=c(0,0.1),y=c(min_smm,max_smm),xlab="l",ylab="PCC",type="n")
+plot (x=c(0,0.1),y=c(min_smm,max_smm),xlab="l",ylab="PCC",type="n",main="Pearson correlation in SMM Gradient Decent")
 #,main="Pearson correlation trend in SMM on lambda value changing")
 nlambda = 8
 col=0
@@ -56,7 +56,7 @@ dev.off()
 
 #SMM Monte Carlo
 
-tsmm = read.table("tab_smm005.txt",header=F,sep="\t",as.is=T)
+tsmm = read.table("tab_smm_mc_005.txt",header=F,sep="\t",as.is=T)
 names (tsmm) = c("l","Size","PCC")
 
 max_smm=max(tsmm[,"PCC"])
@@ -69,7 +69,7 @@ tsmm = tsmm[order(tsmm[,"Size"]),]
 
 pdf("smm_mc_l005_ppc_size.pdf",width=10,height=10)
 
-plot (x=c(0,0.1),y=c(min_smm,max_smm),xlab="l",ylab="PCC",type="n")
+plot (x=c(0,0.1),y=c(min_smm,max_smm),xlab="l",ylab="PCC",type="n",main="Pearson correlation in SMM Monte Carlo")
 #main="Pearson correlation trend in SMM on lambda value changing")
 nlambda = 8
 col=0

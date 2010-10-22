@@ -1,7 +1,7 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.10.12)  22 OCT 2010 14:18
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.10.12)  22 OCT 2010 14:57
 entering extended mode
  %&-line parsing enabled.
-**algo
+**algo.tex
 (./algo.tex
 LaTeX2e <2005/12/01>
 Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
@@ -271,87 +271,96 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 24.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 35.
+(Font)              size <7> substituted on input line 32.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <7.5> not available
-(Font)              size <7> substituted on input line 35.
+(Font)              size <7> substituted on input line 32.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 35.
+(Font)              size <7> substituted on input line 32.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 35.
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
 (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
 
 LaTeX Font Warning: Font shape `U/msa/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 35.
+(Font)              size <7> substituted on input line 32.
 
-LaTeX Font Info:    Try loading font information for U+msb on input line 35.
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
 
 LaTeX Font Warning: Font shape `U/msb/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 35.
+(Font)              size <7> substituted on input line 32.
 
 
-Underfull \hbox (badness 2735) in paragraph at lines 45--48
+Underfull \hbox (badness 2735) in paragraph at lines 44--45
 \OT1/ptm/m/n/10 of the Stabilization matrix method. The minimization
  []
+
+
+Underfull \hbox (badness 2393) in paragraph at lines 45--46
+\OT1/ptm/m/n/10 molecules from HLA-A and HLA-B, with number of
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 47.
+
+LaTeX Warning: Reference `wiki:crossval' on page 1 undefined on input line 47.
 
 <fig/smm_l005_ppc_size.pdf, id=2, 722.7pt x 722.7pt>
 File: fig/smm_l005_ppc_size.pdf Graphic file (type pdf)
 
 <use fig/smm_l005_ppc_size.pdf>
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 56.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 57.
 
-Underfull \hbox (badness 1028) in paragraph at lines 53--61
+Underfull \hbox (badness 1028) in paragraph at lines 54--62
 \OT1/ptm/m/n/10 (PCC, prediction accuracy) using different $\OML/cmm/m/it/10 ^^
 U$ \OT1/ptm/m/n/10 values for
  []
 
-<fig/smm_mc_l005_ppc_size.pdf, id=3, 722.7pt x 722.7pt>
-File: fig/smm_mc_l005_ppc_size.pdf Graphic file (type pdf)
-
-<use fig/smm_mc_l005_ppc_size.pdf> (./algo.bbl
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 8.
-
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 62.
 (/usr/share/texmf/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 62.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 8.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 62.
  [1
 
 {/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
- <./dtu-logo.jpg> <./fig/smm_l005_ppc_size.pdf>])
-Overfull \vbox (110.35478pt too high) has occurred while \output is active []
+ <./dtu-logo.jpg> <./fig/smm_l005_ppc_size.pdf>]
+<fig/smm_mc_l005_ppc_size.pdf, id=29, 722.7pt x 722.7pt>
+File: fig/smm_mc_l005_ppc_size.pdf Graphic file (type pdf)
 
-Extra height:0.0pt when 200.44672pt
+<use fig/smm_mc_l005_ppc_size.pdf> (./algo.bbl)
+Overfull \vbox (65.85478pt too high) has occurred while \output is active []
 
-Overfull \vbox (110.35478pt too high) has occurred while \output is active []
+Extra height:0.0pt when 244.94672pt
 
-(2)Left:200.44672pt Right:70.09195pt Output:200.44672pt
+Overfull \vbox (65.85478pt too high) has occurred while \output is active []
+
+(2)Left:244.94672pt Right:159.09195pt Output:244.94672pt
 - LAST -
 Extra skip:0.0pt
-Left:200.44672pt
-Right:70.09195pt
-Output:200.44672pt
+Left:244.94672pt
+Right:159.09195pt
+Output:244.94672pt
 
-Overfull \vbox (110.35478pt too high) has occurred while \output is active []
+Overfull \vbox (65.85478pt too high) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 87.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 88.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 87.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 88.
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][] 
@@ -372,15 +381,18 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 2480 strings out of 256216
- 28294 string characters out of 1917071
+ 2484 strings out of 256216
+ 28336 string characters out of 1917071
  85019 words of memory out of 1500000
- 5703 multiletter control sequences out of 10000+200000
- 37363 words of font info for 69 fonts, out of 1200000 for 2000
+ 5705 multiletter control sequences out of 10000+200000
+ 40673 words of font info for 73 fonts, out of 1200000 for 2000
  649 hyphenation exceptions out of 8191
- 34i,11n,26p,552b,368s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 34i,11n,26p,604b,290s stack positions out of 5000i,500n,6000p,200000b,15000s
 {/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/b
 luesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/
 share/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/blue
@@ -392,9 +404,9 @@ c/uhvbo8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share
 /texmf/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texmf/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/
 texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on algo.pdf (2 pages, 117046 bytes).
+Output written on algo.pdf (2 pages, 122043 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 87 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
