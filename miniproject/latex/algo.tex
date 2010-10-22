@@ -54,7 +54,7 @@ E = \frac{1}{2} \sum_i{(O_i-t_i)^2} + \lambda \sum_l{w_i^2} \\
 We were given semi-completed code for the implementation of the Stabilization matrix method. The minimization procedures were Gradient descent in one case and Monte Carlo in the other. 
 \par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089. In addition to finishing the code we added some optimizations like skipping unnecessary memory allocations at performance critical locations.
 \par We ran the matrix creation on each 35 MHC molecules to get the broadest perspective. The code did run fast enough for us to be able to search for optimal $\lambda$ value with brute force. The $\lambda$ values we tested were 0, 0.002, 0.005, 0.01, 0.02, 0.03, 0.05 and 0.1. For largest data sets the optimal lambda values were the ones close to zero, 0.002 and 0.005.
-\par Regardless the size of the data, for the two implementations the optimal value of $\lambda$ is different. In Figure \ref{fig:07} all the 35 Pearson correlation coefficient are include. As we can see the Monte Carlo is better with smaller value of $\lambda$ (around 0.005 and 0.01), the gradient decent version have the optimal $\lambda$ value slightly bigger( best $\lambda$ around 0.02) see Figure \ref{fig:02}.
+\par Regardless the size of the data, for the two implementations the optimal value of $\lambda$ is different. In Figure \ref{fig:07} all the 35 Pearson correlation coefficient are include. As we can see the Monte Carlo is better with smaller value of $\lambda$ (around 0.005 and 0.01), the gradient decent version have the optimal $\lambda$ value slightly bigger (best $\lambda$ around 0.02) see Figure \ref{fig:02}.
 
 
 
