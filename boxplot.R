@@ -7,9 +7,9 @@ names (tsmm) = c("l","Size","PCC")
 tsmm_mc = read.table("tab_smm_mc_005.txt",header=F,sep="\t",as.is=T)
 names (tsmm_mc) = c("l","Size","PCC")
 
-tsmm_sub = tsmm[tsmm$l==0.01,]
+tsmm_sub = tsmm[tsmm$l==0.02,]
 tsmm_mc_sub = tsmm_mc[tsmm_mc$l==0.005,]
 
 pdf("boxplot.pdf",width=10,height=10)
-boxplot(tsmm_mc$PCC,tsmm$PCC)
+boxplot(tsmm_mc$PCC,tsmm$PCC,widh=0.1,boxwex=0.5,col=c("red","blue"),outline=F,names=c("Monte Carlo","Gradient decent"),ylab="PCC")
 dev.off()
