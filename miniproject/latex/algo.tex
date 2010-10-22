@@ -23,7 +23,7 @@
 \section{Summary}
 We look at two Stabilization matrix methods \cite{SMM} used for predicting binding affinity of immunogenic peptides to major histocompatibility complex \cite{wiki:MHC} (MHC) molecules.
 \par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089.
-\par In order to avoid Overfitting \cite{wiki:overfit} We studied the relsults of the Monte Carlo and the gradient decent implementations of the SMM, to find the optimal setting of the algorithms.
+\par Finally we studied the relsults of the Monte Carlo and the gradient decent implementations of the SMM, to find the optimal setting of the algorithms.
 
 \end{abstract}
 
@@ -40,6 +40,11 @@ E = \frac{1}{2} \sum_i{(O_i-t_i)^2} + \lambda \sum_l{w_i^2} \\
 Bla bla bla. BlaBlaBla.
 
 \subsection*{Overfitting}
+The overftting problem is one of the most serious problem in neural network training. 
+The literatue doean't contains many systematic investigation of the problem or comparison of different statistical methods that should be used to solve the problem
+\par To stop training is the most common solution
+
+
 \section*{Material and Methods}
 
 We were given semi-completed code for the implementation of the Stabilization matrix method. The minimization procedures were gradient descent in one case and monte carlo in the other. 
@@ -68,13 +73,13 @@ Figure \ref{fig:01} shows the trend for Pearson's correlation coefficient (PCC, 
 
 \begin{figure}[!tpb]
 \centerline{\includegraphics[width=9cm]{fig/smm_error.png}}
-\caption{To put Sigmar fig}
+\caption{Error trend for dataset of different size in function of the number of cycle of the SMM gradient decent algorithm}
 \label{fig:03}
 \end{figure}
 
 \begin{figure}[!tpb]
 \centerline{\includegraphics[width=9cm]{fig/smm_mc_error.png}}
-\caption{To put Sigmar fig2}
+\caption{Error trend for dataset of different size in function of the number of cycle of the SMM Monte Carlo algorithm}
 \label{fig:04}
 \end{figure}
 
