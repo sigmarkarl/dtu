@@ -97,8 +97,13 @@ Figure \ref{fig:01} shows the trend for Pearson's correlation coefficient (PCC, 
 
 \par The gradient descent version of the smm algorithm is both performing faster and better than the monte carlo version. The speed of the convergence is determined by the derived slope in gradient descent. The monte carlo version lowers the temperature not in the context of a slope.
 
-
-
+\section*{Discussion}
+\begin{figure}[!tpb]
+\centerline{\includegraphics[width=9cm]{overfitting_not.pdf}}
+\caption{When training the Monte Carlo version of the algorithm with a $\lambda$ of 0.05, the mean square error for the testing seems to follow the training error pretty well. In this case an early stopping to prevent overfitting is unnecessary}
+\label{fig:05}
+\end{figure}
+\par We made some adjustments to the c code to be able to compare the mean squre error (MSE) of the training and testing results. The gradient descent version converged in just one or two iterations and in the Monte Carlo the testing MSE did not seem to decay with more iterations, indicating that preventing overfitting with early stopping would not be practical.
 
 
 
