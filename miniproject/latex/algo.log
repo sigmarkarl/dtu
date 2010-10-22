@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.10.12)  22 OCT 2010 15:42
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.10.12)  22 OCT 2010 16:04
 entering extended mode
  %&-line parsing enabled.
 **algo
@@ -186,116 +186,85 @@ Package: natbib 2000/07/24 7.0a (PWD)
 \bibsep=\skip55
 LaTeX Info: Redefining \cite on input line 508.
 \c@NAT@ctr=\count105
-))
-(/usr/share/texmf/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
-
-
-Package subfigure Warning: Your document class has a bad definition
- of \endfigure, most likely
- \let\endfigure=\end@float
- which has now been changed to
- \def\endfigure{\end@float}
- because otherwise subsequent changes to \end@float
- (like done by several packages changing float behaviour)
- can't take effect on \endfigure.
- Please complain to your document class author.
-
-\subfigtopskip=\skip56
-\subfigcapskip=\skip57
-\subfigcaptopadj=\dimen121
-\subfigbottomskip=\skip58
-\subfigcapmargin=\dimen122
-\subfiglabelskip=\skip59
-\c@subfigure=\count106
-\c@lofdepth=\count107
-\c@subtable=\count108
-\c@lotdepth=\count109
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-(/usr/share/texmf/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip60
-\subfig@bottom=\skip61
-) (./algo.aux)
+)) (./algo.aux)
 \openout1 = `algo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 7.
 
 (/usr/share/texmf/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 20.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 19.
 
 (/usr/share/texmf/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 19.
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 19.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 19.
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <19> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 19.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <19> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 19.
 
 <dtu-logo.jpg, id=1, 140.525pt x 114.4275pt>
 File: dtu-logo.jpg Graphic file (type jpg)
  <use dtu-logo.jpg>
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 19.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 19.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <16> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 19.
 
-Underfull \hbox (badness 10000) detected at line 20
+Underfull \hbox (badness 10000) detected at line 19
 []
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 24.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 23.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 33.
+(Font)              size <7> substituted on input line 32.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <7.5> not available
-(Font)              size <7> substituted on input line 33.
+(Font)              size <7> substituted on input line 32.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 33.
+(Font)              size <7> substituted on input line 32.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 33.
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
 (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
 
 LaTeX Font Warning: Font shape `U/msa/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 33.
+(Font)              size <7> substituted on input line 32.
 
-LaTeX Font Info:    Try loading font information for U+msb on input line 33.
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
 
 LaTeX Font Warning: Font shape `U/msb/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 33.
+(Font)              size <7> substituted on input line 32.
 
 
 Underfull \hbox (badness 2735) in paragraph at lines 45--46
@@ -312,36 +281,41 @@ File: fig/smm_l005_ppc_size.pdf Graphic file (type pdf)
 
 <use fig/smm_l005_ppc_size.pdf>
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 59.
-
-Underfull \hbox (badness 1028) in paragraph at lines 56--64
-\OT1/ptm/m/n/10 (PCC, prediction accuracy) using different $\OML/cmm/m/it/10 ^^
-U$ \OT1/ptm/m/n/10 values for
- []
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 53.
 
 <fig/smm_mc_l005_ppc_size.pdf, id=3, 722.7pt x 722.7pt>
 File: fig/smm_mc_l005_ppc_size.pdf Graphic file (type pdf)
 
-<use fig/smm_mc_l005_ppc_size.pdf> <fig/barplot.pdf, id=4, 722.7pt x 722.7pt>
-File: fig/barplot.pdf Graphic file (type pdf)
+<use fig/smm_mc_l005_ppc_size.pdf>
+Underfull \hbox (badness 1028) in paragraph at lines 66--67
+\OT1/ptm/m/n/10 (PCC, prediction accuracy) using different $\OML/cmm/m/it/10 ^^
+U$ \OT1/ptm/m/n/10 values for
+ []
 
-<use fig/barplot.pdf> (./algo.bbl)
-Extra height:20.09195pt when 436.24953pt
-Extra height:0.0pt when 437.24953pt
-(2)Left:437.24953pt Right:425.25687pt Output:437.24953pt
+<fig/barplot.pdf, id=4, 722.7pt x 722.7pt>
+File: fig/barplot.pdf Graphic file (type pdf)
+ <use fig/barplot.pdf> (./algo.bbl)
+Extra height:11.51544pt when 458.44876pt
+Extra height:11.51544pt when 459.44876pt
+Extra height:11.51544pt when 460.44876pt
+Extra height:11.51544pt when 461.44876pt
+Extra height:11.51544pt when 462.44876pt
+Extra height:0.0pt when 463.44876pt
+(2)Left:463.44876pt Right:444.51544pt Output:463.44876pt
 - LAST -
 Extra skip:0.0pt
-Left:437.24953pt
-Right:425.25687pt
-Output:437.24953pt
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 96.
- (/usr/share/texmf/tex/latex/psnfss/omsphv.fd
+Left:463.44876pt
+Right:444.51544pt
+Output:463.44876pt
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 98.
+
+(/usr/share/texmf/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 98.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 96.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 98.
  [1
 
 {/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}
@@ -1385,9 +1359,9 @@ Output:612.20224pt
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 96.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 98.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 96.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 98.
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][] 
@@ -1409,10 +1383,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 2489 strings out of 256216
- 28419 string characters out of 1917071
- 91019 words of memory out of 1500000
- 5709 multiletter control sequences out of 10000+200000
+ 2332 strings out of 256216
+ 26292 string characters out of 1917071
+ 91950 words of memory out of 1500000
+ 5558 multiletter control sequences out of 10000+200000
  40673 words of font info for 73 fonts, out of 1200000 for 2000
  649 hyphenation exceptions out of 8191
  34i,11n,26p,605b,289s stack positions out of 5000i,500n,6000p,200000b,15000s
@@ -1427,7 +1401,7 @@ c/uhvbo8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share
 /texmf/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texmf/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/
 texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on algo.pdf (2 pages, 125142 bytes).
+Output written on algo.pdf (2 pages, 126019 bytes).
 PDF statistics:
  92 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
