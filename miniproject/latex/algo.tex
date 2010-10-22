@@ -21,7 +21,7 @@
 \begin{abstract}
 
 \section{Summary}
-We look at two Stabilization matrix methods \cite{SMM} used for predicting binding affinity of immunogenic peptides to major histocompatibility complex \cite{wiki:MHC} (MHC) molecules.
+We look at two Stabilization matrix methods \cite{SMM} used for predicting binding \cite{netMHC} affinity of immunogenic peptides to major histocompatibility complex \cite{wiki:MHC} (MHC) molecules.
 \par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089.
 \par Finally we studied the relsults of the Monte Carlo and the gradient decent implementations of the SMM, to find the optimal setting of the algorithms.
 
@@ -96,7 +96,7 @@ Figure \ref{fig:01} shows the trend for Pearson's correlation coefficient (PCC, 
 \end{figure}
 
 \par The gradient descent version of the smm algorithm is both performing faster and better than the monte carlo version. The speed of the convergence is determined by the derived slope in gradient descent. The monte carlo version lowers the temperature not in the context of a slope.
-\par From the barplot in Figure \ref{fig:05} we can see how the 5-fold concatenate evluation it is not better than all the single fold evaluation, but it is seems more an average of all them.
+\par From the barplot in Figure \ref{fig:05} we can see how the 5-fold concatenate evluation it is not better than all the single fold evaluation, but it is seems more an average of all them.b
 
 
 
