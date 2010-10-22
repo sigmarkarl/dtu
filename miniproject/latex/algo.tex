@@ -127,13 +127,9 @@ Figure \ref{fig:01} shows the trend for Pearson's correlation coefficient (PCC, 
 \label{fig:05}
 \end{figure}
 
-\par We made some adjustments to the c code to be able to compare the mean square error (MSE) of the training and testing results in each cycle. The gradient descent version converged in most cases in just one or two iterations. In Monte Carlo the testing MSE did not seem to decay with continuing iterations, indicating that preventing overfitting with early stopping would not be practical in that case Figure \ref{fig:05}.
-
 
 
 \section*{Discussion}
-
-
 
 \begin{figure}[!tpb]
 \centerline{\includegraphics[width=9cm]{fig/boxplot.pdf}}
@@ -146,6 +142,9 @@ Figure \ref{fig:01} shows the trend for Pearson's correlation coefficient (PCC, 
 
 \par We generally can assume that the gradient decent implementation performs better than the Monte Carlo SMM implementation. 
 \par From Figure \ref{fig:06} we can easily see that even if performed with the optimal $\lambda$ value we have lower Pearson correlation coefficients values in the Monte Carlo implementation than in the gradient decent.
+
+
+\par We made some adjustments to the c code to be able to compare the mean square error (MSE) of the training and testing results in each cycle. The gradient descent version converged in most cases in just one or two iterations. In Monte Carlo the testing MSE did not seem to decay with continuing iterations, indicating that preventing overfitting with early stopping would not be practical in that case Figure \ref{fig:05}.
 
 \newpage
 
