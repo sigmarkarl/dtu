@@ -1,5 +1,6 @@
 \documentclass{bioinfo}
 
+\usepackage{subfigure}
 
 \copyrightyear{2010}
 \pubyear{2010}
@@ -63,7 +64,7 @@ We were given semi-completed code for the implementation of the Stabilization ma
 
 \begin{figure}[!tpb]
 \centerline{\includegraphics[width=9cm]{fig/smm_mc_l005_ppc_size.pdf}}
-\caption{Pearson's correlation coefficent from the SMM Monte Calro, of different sample using increasing values of $\lambda$. The sample were grouped by the size of the dataset. We can see how dataset of similar size show a similar trend of the Pearson correlation $\lambda$ depending.}
+\caption{Pearson's correlation coefficent from the SMM Monte Carlo, of different sample using increasing values of $\lambda$. The sample were grouped by the size of the dataset. We can see how dataset of similar size show a similar trend of the Pearson correlation $\lambda$ depending.}
 \label{fig:02}
 \end{figure}
 \par We also evaluate each single group of peptide binding data. From the barplot in Figure \ref{fig:05} we can see how the 5-fold concatenate evluation it is not better than all the single fold evaluation, but it is seems more an average of all them.
@@ -96,16 +97,52 @@ Figure \ref{fig:01} shows the trend for Pearson's correlation coefficient (PCC, 
 \par For the small datasets an optimal $\lambda$ value is  less than 0.01. Next we run the smm algorithms on a data from five different kinds of MHC molecules (with different data sizes) showing the error as a function of iterations. For the smm algorithm using gradient descent and 500 iterations, a default lambda value of 0.05 is used (Figure \ref{fig:03}). Similar chart is shown for the monte carlo version of the algorithm in Figure \ref{fig:04} showing 12000 iterations. The reason for showing different data sizes on the same chart is just for showing the trends in the two different algorithms. The gradient descent method converges much faster to an optimal value than the monte carlo method. The data sizes and percentage of number of binding peptides are shown in the parantheses right by the names of the lines representing each MHC molecule.
 
 \par The gradient descent version of the smm algorithm is both performing faster and better than the monte carlo version. The speed of the convergence is determined by the derived slope in gradient descent. The monte carlo version lowers the temperature not in the context of a slope.
-
-\section*{Discussion}
 \begin{figure}[!tpb]
 \centerline{\includegraphics[width=9cm]{overfitting_not.pdf}}
 \caption{When training the Monte Carlo version of the algorithm with a $\lambda$ of 0.05, the mean square error for the testing seems to follow the training error pretty well. In this case an early stopping to prevent overfitting is unnecessary}
 \label{fig:05}
 \end{figure}
+
+\section*{Discussion}
+
+
+
+\begin{figure}[!tpb]
+\centerline{\includegraphics[width=9cm]{fig/boxplot.pdf}}
+\caption{Boxplot of the evaluate Pearson correlations obtained with SMM Monte carlo and Gradient decent at the respective best $\lambda$ values for all the 35 datasets.}
+\label{fig:06}
+\end{figure}
+
+
+%\begin{figure}[!tpb]
+%\centerline{\includegraphics[width=9cm]{fig/choice_lambda.pdf}}
+%\caption{Boxplot of the evaluate Pearson correlations obtained with SMM Monte carlo and Gradient decent at the respective best $\lambda$ values for all the 35 datasets.}
+%\label{fig:07}
+%\end{figure}
+%\begin{figure}[!tpb]
+%\centerline{\includegraphics[width=9cm]{fig/choice_lambda_mc.pdf}}
+%\caption{Boxplot of the evaluate Pearson correlations obtained with SMM Monte carlo and Gradient decent at the respective best $\lambda$ values for all the 35 datasets.}
+%\label{fig:08}
+%\end{figure}
+
+\begin{figure}[!tpb]
+\begin{center}
+\subfigure[Gradient decent]{
+	\label{fig:08}
+	\includegraphics[width=4cm]{fig/choice_lambda.pdf}
+	}
+\subfigure[Monte Carlo]{
+	\label{fig:09}
+	\includegraphics[width=4cm]{fig/choice_lambda_mc.pdf}
+	}
+\end{center}
+\caption{Prova doppia}
+\label{fig:07}
+\end{figure}
 \par We made some adjustments to the c code to be able to compare the mean squre error (MSE) of the training and testing results. The gradient descent version converged in just one or two iterations and in the Monte Carlo the testing MSE did not seem to decay with more iterations, indicating that preventing overfitting with early stopping would not be practical.
 
-
+\par We generally can assume that the gradient decent implementation performs better than the Monte Carlo SMM implementation. 
+\par Fom Figure \ref{fig:06} we can easilly see that even if performed with the optimal $\lambda$ value we have lower pearson correlation coefficents values in the Monte Carlo implementation than in the gradient decent.
 
 
 
