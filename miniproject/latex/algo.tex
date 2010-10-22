@@ -22,7 +22,7 @@
 \begin{abstract}
 
 \section{Summary}
-We look at two Stabilization matrix methods \cite{SMM} used for predicting binding \cite{netMHC} affinity of immunogenic peptides to major histocompatibility complex \cite{wiki:MHC} (MHC) molecules.
+We look at Stabilization matrix methods using two different kinds of minimizations procedures \cite{SMM} for predicting binding \cite{netMHC} affinity of immunogenic peptides to major histocompatibility complex \cite{wiki:MHC} (MHC) molecules.
 \par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089.
 \par Finally we studied the relsults of the Monte Carlo and the gradient decent implementations of the SMM, to find the optimal setting of the algorithms.
 
@@ -37,9 +37,10 @@ In simple mathematical terms the SMM algorithm tries to minimize the difference 
 \| H w - y_{meas}\| + ^tw \Lambda w \rightarrow minimum \\
 \end{equation}
 
-In this case the L2 norm is used. The second term suppresses the effect of noise in the experimental data \cite{SMM}. The regulation parameter lambda is used to deal with over-fitting in the SMM algorithms \cite{wiki:overfit}.
+In this case the L2 norm is used. The second term suppresses the effect of noise in the experimental data \cite{SMM}. The regulation parameter \lambda is used to deal with over-fitting in the SMM algorithms \cite{wiki:overfit}. In the context of the smm algorithm, H is a matrix encoding the peptides, w is the prediction (position specific scoring) matrix and y_{meas} is vector containing the measured binding affinity of the peptides.
 \par Over-fitting occurs when a statistical model describes random error or noise instead of the underlying relationship \cite{Hobohm}. A model having too many degrees of freedom, in relation to the amount of data available is susceptible to over-fitting. A model which has been overfit will generally have poor predictive performance. Among common methods of avoiding over-fitting are early stopping and cross-validation.
-\par In other words, the training is stopped based on test set performance (when it starts decaying). Cross-validation is about combining models. In K-fold cross-validation, the original sample is randomly partitioned into K subsamples. Of the K subsamples, a single subsample is retained as the validation data for testing the model, and the remaining K − 1 subsamples are used as training data. The cross-validation process is then repeated K times (the folds), with each of the K subsamples used exactly once as the validation data \cite{wiki:crossval}.
+\par In early stopping, the training is stopped based on test set performance (when it starts decaying). Cross-validation is about combining models. In K-fold cross-validation, the original sample is randomly partitioned into K subsamples. Of the K subsamples, a single subsample is retained as the validation data for testing the model, and the remaining K − 1 subsamples are used as training data. The cross-validation process is then repeated K times (the folds), with each of the K subsamples used exactly once as the validation data \cite{wiki:crossval}.
+\par In terms of the smm algorithm, the solution is not found by simple matrix inversion using \ref{eq:01}. The system of linear equations is under- or overdetermined and an approximate solution is to be located on the solution hypersurface that can contain local minimas. Equation \ref{eq:02} shows how the error used in the minimization procedure is calculated. O and t being the prediction output and the measurement respectively.
 
 \begin{equation}
 \label{eq:general}
@@ -49,8 +50,8 @@ E = \frac{1}{2} \sum_i{(O_i-t_i)^2} + \lambda \sum_l{w_i^2} \\
 
 \section*{Material and Methods}
 
-We were given semi-completed code for the implementation of the Stabilization matrix method. The minimization procedures were gradient descent in one case and monte carlo in the other. 
-\par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089. In addition to finishing the code we added some optimizations like skipping unnecessary memory allocations at performance critical locations. 
+We were given semi-completed code for the implementation of the Stabilization matrix method. The minimization procedures were Gradient descent in one case and Monte Carlo in the other. 
+\par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089. In addition to finishing the code we added some optimizations like skipping unnecessary memory allocations at performance critical locations.
 \par We ran the matrix creation on each 35 MHC molecules to get the broadest perspective.
 \par The data for each MHC molecule was splited into five parts, equally (or nearly equally) sized. Each part was then used for the validation by the Leave One Out cross validation method (LOO-CV) \cite{wiki:crossval}. So each part was trained on the rest (4/5) of the data, resulting in 5 iterations to be used for the evaluation.
 \begin{figure}[!tpb]
@@ -102,6 +103,10 @@ Figure \ref{fig:01} shows the trend for Pearson's correlation coefficient (PCC, 
 \caption{When training the Monte Carlo version of the algorithm with a $\lambda$ of 0.05, the mean square error for the testing seems to follow the training error pretty well. In this case an early stopping to prevent overfitting is unnecessary}
 \label{fig:05}
 \end{figure}
+<<<<<<< HEAD
+=======
+\par We made some adjustments to the c code to be able to compare the mean squre error (MSE) of the training and testing results in each cycle. The gradient descent version converged in most cases in just one or two iterations. In Monte Carlo the testing MSE did not seem to decay with continuing iterations, indicating that preventing overfitting with early stopping would not be practical in that case \ref{fig:05}.
+>>>>>>> 85379f190ddfdf2ae386d5c7b9160df8b1a2fc75
 
 \section*{Discussion}
 
