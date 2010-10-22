@@ -53,13 +53,10 @@ E = \frac{1}{2} \sum_i{(O_i-t_i)^2} + \lambda \sum_l{w_i^2} \\
 
 We were given semi-completed code for the implementation of the Stabilization matrix method. The minimization procedures were Gradient descent in one case and Monte Carlo in the other. 
 \par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089. In addition to finishing the code we added some optimizations like skipping unnecessary memory allocations at performance critical locations.
-<<<<<<< HEAD
 \par We ran the matrix creation on each 35 MHC molecules to get the broadest perspective. The code did run fast enough for us to be able to search for optimal $\lambda$ value with brute force. The $\lambda$ values we tested were 0, 0.002, 0.005, 0.01, 0.02, 0.03, 0.05 and 0.1. For largest data sets the optimal lambda values were the ones close to zero, 0.002 and 0.005.
-\par Regardless the size of the data, for the two implementations the optimal value of $\lambda$ is different. In Figure \ref{fig:07} all the 35 Pearson correlation coefficient are include. As we can see the Monte Carlo is better with smaller value of $\lambda$ (around 0.005 and 0.01), the gradient decent version have the optimal $\lambda$ value slightly bigger( best $\lambda$ around 0.02).
-=======
-\par We ran the matrix creation on each 35 MHC molecules to get the broadest perspective. The code did run fast enough for us to be able to search for optimal $\lambda$ value by brute force. The $\lambda$ values we tested were 0, 0.002, 0.005, 0.01, 0.02, 0.03, 0.05 and 0.1. For the largest data sets the optimal lambda values were the ones close to zero, 0.002 and 0.005.
-\par Regardless the size of the data, for the two implementations the optimal value of $\lambda$ is different. In Figure \ref{fig:07} all the 35 Pearson correlation coefficents are included. As we can see the Monte Carlo is better with smaller value of $\lambda$ (around 0.005 and 0.01), the gradient decent version have a slightly larger optimal $\lambda$ value (best $\lambda$ around 0.002) see Figure \ref{fig:02}.
->>>>>>> 531bfa3650e2ec3ff96a3c0e958b3417a908f8e5
+\par Regardless the size of the data, for the two implementations the optimal value of $\lambda$ is different. In Figure \ref{fig:07} all the 35 Pearson correlation coefficient are include. As we can see the Monte Carlo is better with smaller value of $\lambda$ (around 0.005 and 0.01), the gradient decent version have the optimal $\lambda$ value slightly bigger( best $\lambda$ around 0.02) see Figure \ref{fig:02}.
+
+
 
 \begin{figure}[!tpb]
 \begin{center}
@@ -125,7 +122,7 @@ Figure \ref{fig:01} shows the trend for Pearson's correlation coefficient (PCC, 
 
 \par The gradient descent version of the SMM algorithm is both performing faster and better than the Monte Carlo version. The speed of the convergence is determined by the derived slope in gradient descent. The Monte Carlo version lowers the temperature not in the context of a slope.
 \begin{figure}[!tpb]
-\centerline{\includegraphics[width=9cm]{overfitting_not.pdf}}
+\centerline{\includegraphics[width=9cm]{fig/overfitting_not.png}}
 \caption{When training the Monte Carlo version of the algorithm with a $\lambda$ of 0.05, the mean square error for the testing seems to follow the training error pretty well. In this case an early stopping to prevent overfitting is unnecessary}
 \label{fig:05}
 \end{figure}
