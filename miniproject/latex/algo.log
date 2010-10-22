@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.10.12)  22 OCT 2010 16:43
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.10.12)  22 OCT 2010 16:51
 entering extended mode
  %&-line parsing enabled.
 **algo
@@ -279,39 +279,34 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 File: fig/smm_mc_l005_ppc_size.pdf Graphic file (type pdf)
 
 <use fig/smm_mc_l005_ppc_size.pdf>
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 70.
- (/usr/share/texmf/tex/latex/psnfss/omsphv.fd
+<fig/smm_error.png, id=4, 737.75626pt x 536.0025pt>
+File: fig/smm_error.png Graphic file (type png)
+ <use fig/smm_error.png>
+<fig/smm_mc_error.png, id=5, 752.8125pt x 546.04pt>
+File: fig/smm_mc_error.png Graphic file (type png)
+ <use fig/smm_mc_error.png>
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 82.
+
+(/usr/share/texmf/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
  [1
 
 {/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
- <./dtu-logo.jpg> <./fig/smm_l005_ppc_size.pdf>] <fig/barplot.pdf, id=30, 722.7
-pt x 722.7pt>
+ <./dtu-logo.jpg> <./fig/smm_l005_ppc_size.pdf>]
+<fig/barplot.pdf, id=32, 722.7pt x 722.7pt>
 File: fig/barplot.pdf Graphic file (type pdf)
+ <use fig/barplot.pdf> (./algo.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<use fig/barplot.pdf>
-File: fig/barplot.pdf Graphic file (type pdf)
- <use fig/barplot.pdf>
-File: fig/barplot.pdf Graphic file (type pdf)
- <use fig/barplot.pdf> (./algo.bbl)
-Extra height:280.8015pt when 589.95996pt
-Extra height:280.8015pt when 590.95996pt
-Extra height:0.0pt when 591.95996pt
-(2)Left:591.95996pt Right:585.11844pt Output:591.95996pt
-- LAST -
-Extra skip:0.0pt
-Left:591.95996pt
-Right:585.11844pt
-Output:591.95996pt
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 109.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 8.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 109.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 8.
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][] 
@@ -325,25 +320,56 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][] 
  []
 
-[2 <./fig/smm_mc_l005_ppc_size.pdf> <./fig/barplot.pdf>]
+[2 <./fig/smm_mc_l005_ppc_size.pdf> <./fig/smm_error.png (PNG copy)> <./fig/smm
+_mc_error.png (PNG copy)> <./fig/barplot.pdf>])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+Extra height:10.0pt when 48.75772pt
 
-Overfull \vbox (145.40076pt too high) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:0.0pt when 155.40074pt
+Extra height:10.0pt when 49.75772pt
 
-Overfull \vbox (145.40076pt too high) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(2)Left:155.40074pt Right:10.0pt Output:155.40074pt
+Extra height:10.0pt when 50.75772pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 51.75772pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 52.75772pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 53.75772pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 54.75772pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 55.75772pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 56.75772pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:0.0pt when 57.75772pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+(2)Left:57.75772pt Right:57.51544pt Output:57.75772pt
 - LAST -
 Extra skip:0.0pt
-Left:155.40074pt
-Right:10.0pt
-Output:155.40074pt
-
-Overfull \vbox (145.40076pt too high) has occurred while \output is active []
-
+Left:57.75772pt
+Right:57.51544pt
+Output:57.75772pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -363,15 +389,18 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 2338 strings out of 256216
- 26340 string characters out of 1917071
+ 2349 strings out of 256216
+ 26559 string characters out of 1917071
  85948 words of memory out of 1500000
- 5562 multiletter control sequences out of 10000+200000
+ 5570 multiletter control sequences out of 10000+200000
  41400 words of font info for 75 fonts, out of 1200000 for 2000
  649 hyphenation exceptions out of 8191
- 34i,12n,26p,923b,284s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 34i,12n,26p,923b,340s stack positions out of 5000i,500n,6000p,200000b,15000s
 {/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/b
 luesky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi8.pfb></usr/sh
 are/texmf/fonts/type1/bluesky/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/bluesk
@@ -383,9 +412,9 @@ hvbo8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/te
 xmf/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texmf/fonts/type1/urw/time
 s/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/tex
 mf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on algo.pdf (3 pages, 128895 bytes).
+Output written on algo.pdf (3 pages, 177739 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
+ 97 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
