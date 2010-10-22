@@ -1,5 +1,16 @@
 \begin{thebibliography}{1}
 
+\bibitem{netMHC}
+C.~Lundegaard, K.~Lamberth, M.~Harndahl, S.~Buus, O.~Lund, and M.~Nielsen.
+\newblock Net{M}{H}{C}-3.0: accurate web accessible predictions of human, mouse
+  and monkey {M}{H}{C} class {I} affinities for peptides of length 8-11.
+\newblock {\em Nucleic Acids Res}, 36(Web Server issue):W509--12, 2008.
+
+\bibitem{Hobohm}
+N.~Morten.
+\newblock Dealing with sequence redundancy.
+\newblock {\em Class lecture}, 2010.
+
 \bibitem{SMM}
 B.~Peters and A.~Sette.
 \newblock Generating quantitative models describing the sequence specificity of

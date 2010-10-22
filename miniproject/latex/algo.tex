@@ -40,10 +40,10 @@ In this case the L2 norm is used. The second term suppresses the effect of noise
 \par Over-fitting occurs when a statistical model describes random error or noise instead of the underlying relationship \cite{Hobohm}. A model having too many degrees of freedom, in relation to the amount of data available is susceptible to over-fitting. A model which has been overfit will generally have poor predictive performance. Among common methods of avoiding over-fitting are early stopping and cross-validation.
 \par In other words, the training is stopped based on test set performance (when it starts decaying). Cross-validation is about combining models. In K-fold cross-validation, the original sample is randomly partitioned into K subsamples. Of the K subsamples, a single subsample is retained as the validation data for testing the model, and the remaining K − 1 subsamples are used as training data. The cross-validation process is then repeated K times (the folds), with each of the K subsamples used exactly once as the validation data \cite{wiki:crossval}.
 
-%\begin{equation}
-%\label{eq:general}
-%E = \frac{1}{2} \sum_i{(O_i-t_i)^2} + \lambda \sum_l{w_i^2} \\
-%\end{equation}
+\begin{equation}
+\label{eq:general}
+E = \frac{1}{2} \sum_i{(O_i-t_i)^2} + \lambda \sum_l{w_i^2} \\
+\end{equation}
 
 
 \section*{Material and Methods}
