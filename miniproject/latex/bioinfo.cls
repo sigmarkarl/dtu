@@ -48,7 +48,7 @@
 \reversemarginpar
 
 \renewcommand\normalsize{%
-   \@setfontsize\normalsize{10}{11}%
+   \@setfontsize\normalsize{9}{11}%
    \abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@
    \abovedisplayshortskip \z@ \@plus3\p@
    \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
@@ -58,7 +58,7 @@
 \let\@bls\baselineskip
 
 \newcommand\small{%
-    \@setfontsize\small{9}{10}%
+    \@setfontsize\small{9}{11}%
     \abovedisplayskip 11\p@ minus 3\p@
     \belowdisplayskip \abovedisplayskip
     \abovedisplayshortskip \z@ plus 2\p@
@@ -455,7 +455,7 @@
   \vspace*{\aboveskipchk}%
   \vspace{\dropfromtop}%
   \hbox to \textwidth{%
-  {\helvetica\itshape\bfseries\fontsize{19}{12}\selectfont\includegraphics[scale=0.5]{dtu-logo.jpg}
+  {\helvetica\itshape\bfseries\fontsize{19}{12}\selectfont\includegraphics[scale=0.3]{dtu-logo.jpg}
     \hfil
     \if@appnotes Algorithms in Bioinformatics\hfil\fi
     }%

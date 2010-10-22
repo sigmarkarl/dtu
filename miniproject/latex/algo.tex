@@ -66,14 +66,26 @@ We were given semi-completed code for the implementation of the Stabilization ma
 Figure \ref{fig:01} shows the trend for Pearson's correlation coefficient (PCC, prediction accuracy) using different $\lambda$ values for various data sizes.
 
 
-As a general rule, as the data size gets larger the less important the effect of a non-zero $\lambda$ becomes. For large data sets a $\lambda$ value of zero seems to give the best results. A large dataset should average out the noise. Similar graph showing results from the Monte Carlo version says the same story (Figure \ref{fig:02}).
-For the small datasets an optimal $\lambda$ value is  less than 0.01. Next we run the smm algorithms on a data from four different kinds of MHC molecules showing the error as a function of iterations. Here the default $\lambda$ value of 0.05 is used (Figure 3).
+\begin{figure}[!tpb]
+\centerline{\includegraphics[width=9cm]{fig/smm_error.png}}
+\caption{To put Sigmar fig}
+\label{fig:03}
+\end{figure}
+
+\begin{figure}[!tpb]
+\centerline{\includegraphics[width=9cm]{fig/smm_mc_error.png}}
+\caption{To put Sigmar fig2}
+\label{fig:04}
+\end{figure}
+
+\par As a general rule, as the data size gets larger the less important the effect of a non-zero $\lambda$ becomes. For large data sets a $\lambda$ value of zero seems to give the best results. A large dataset should average out the noise. Similar graph showing results from the Monte Carlo version says the same story (Figure \ref{fig:02}).
+\par For the small datasets an optimal $\lambda$ value is  less than 0.01. Next we run the smm algorithms on a data from five different kinds of MHC molecules (with different data sizes) showing the error as a function of iterations. For the smm algorithm using gradient descent and 500 iterations, a default lambda value of 0.05 is used (Figure \ref{fig:03}). Similar chart is shown for the monte carlo version of the algorithm in Figure \ref{fig:04} showing 12000 iterations. The reason for showing different data sizes on the same chart is just for showing the trends in the two different algorithms. The gradient descent method converges much faster to an optimal value than the monte carlo method. The data sizes and percentage of number of binding peptides are shown in the parantheses right by the names of the lines representing each MHC molecule.
 
 
 \begin{figure}[!tpb]
 \centerline{\includegraphics[width=9cm]{fig/barplot.pdf}}
 \caption{Barplot showing the Pearson Correlation for each training set, for each evaluation on the test set and the correlation of the concatenate evaluation among the 5 test set}
-\label{fig:04}
+\label{fig:05}
 \end{figure}
 
 
@@ -96,4 +108,3 @@ For the small datasets an optimal $\lambda$ value is  less than 0.01. Next we ru
 
 \end{application}
 \end{document}
-v
