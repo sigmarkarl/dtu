@@ -52,7 +52,7 @@ E = \frac{1}{2} \sum_i{(O_i-t_i)^2} + \lambda \sum_l{w_i^2} \\
 
 We were given semi-completed code for the implementation of the Stabilization matrix method. The minimization procedures were Gradient descent in one case and Monte Carlo in the other. 
 \par The testing data available was from 35 different MHC molecules from HLA-A and HLA-B, with number of peptides ranging from 59 to 3089. In addition to finishing the code we added some optimizations like skipping unnecessary memory allocations at performance critical locations.
-\par We ran the matrix creation on each 35 MHC molecules to get the broadest perspective.
+\par We ran the matrix creation on each 35 MHC molecules to get the broadest perspective. The code did run fast enough for us to be able to search for optimal $\lambda$ value with brute force. The $\lambda$ values we tested were 0, 0.002, 0.005, 0.01, 0.02, 0.03, 0.05 and 0.1. For largest data sets the optimal lambda values were the ones close to zero, 0.002 and 0.005
 \par The data for each MHC molecule was splited into five parts, equally (or nearly equally) sized. Each part was then used for the validation by the Leave One Out cross validation method (LOO-CV) \cite{wiki:crossval}. So each part was trained on the rest (4/5) of the data, resulting in 5 iterations to be used for the evaluation.
 \begin{figure}[!tpb]
 \centerline{\includegraphics[width=9cm]{fig/smm_l005_ppc_size.pdf}}
