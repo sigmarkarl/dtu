@@ -1,0 +1,103 @@
+\RequirePackage{calc}
+
+\beamertemplatenumberedballsectiontoc
+
+%% Theme
+
+\newlength\framesep
+\setlength\framesep{0.05\paperwidth}
+\setbeamersize{%
+  sidebar width left=\framesep,
+  sidebar width right=\framesep,
+  text margin left=0.6\framesep,
+  text margin right=0.6\framesep,
+}
+
+\setbeamertemplate{background}{%
+  \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\paperheight}
+    \begin{pgfscope}
+      \pgfsetlinewidth{0.4bp}
+      \pgfpathmoveto{\pgfpoint{\framesep}{\framesep}}
+      \pgfpathlineto{\pgfpoint{\paperwidth-\framesep}{\framesep}}
+      \pgfpathlineto{\pgfpoint{\paperwidth-\framesep}{\paperheight-\framesep}}
+      \pgfpathlineto{\pgfpoint{\framesep}{\paperheight-\framesep}}
+      \pgfpathlineto{\pgfpoint{\framesep}{\framesep}}
+      \pgfusepath{stroke}
+      \pgfsetdash{{3.0pt}{3.0pt}}{0.0pt}
+      \pgfpathmoveto{\pgfpoint{0pt}{0.8\paperheight}}
+      \pgfpathlineto{\pgfpoint{\paperwidth}{0.8\paperheight}}
+      \pgfusepath{stroke}
+    \end{pgfscope}
+  \end{pgfpicture}%
+}
+
+\makeatletter
+\newlength\frametitleheight
+\setlength\frametitleheight{0.2\paperheight-1.4\framesep}
+\setbeamertemplate{frametitle}
+{\vspace*{1.1\framesep}\leavevmode
+  \begin{beamercolorbox}[wd=\textwidth,
+                         ht=\frametitleheight,
+                         dp=0ex,
+                         leftskip=-0.4\framesep,
+                         rightskip=-0.4\framesep]{frametitle}%
+    \null\vfill
+    \usebeamerfont{frametitle}%
+    \insertframetitle
+  \end{beamercolorbox}%
+  \ifx\insertframesubtitle\@empty\par%
+  \else
+     \usebeamerfont{framesubtitle}\par%
+      \begin{beamercolorbox}[wd=\textwidth,
+                           leftskip=-0.4\framesep,
+                           rightskip=-0.4\framesep]{framesubtitle}%
+      \usebeamerfont{framesubtitle}%
+      \insertframesubtitle
+    \end{beamercolorbox}%
+    \vskip-4pt
+  \fi
+}
+\makeatother
+%\setbeamertemplate{beamerboxes}{width=\textwidth}%
+
+\pgfdeclareimage[width=0.8\framesep]{smalldtulogo}{dtu_logo}%
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,
+                         ht=2ex,
+                         dp=0.2\framesep,
+                         leftskip=1.1\framesep,
+                         rightskip=1.1\framesep]{footline}
+    \insertshortinstitute
+    \hfill
+    \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}
+}
+\setbeamertemplate{sidebar right}{%
+   \vspace{\logoposition}%
+   \llap{%
+     \setlength\fboxsep{0pt}%
+     \parbox[b][0pt]{\framesep}{%
+       \hspace{0.1\framesep}%
+       \pgfuseimage{smalldtulogo}%
+       \hspace{1.1\framesep}%
+     }
+   }%
+   \vfill
+   \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+   \vskip2pt%
+}
+
+\newlength\logoposition
+\setlength\logoposition{\paperheight-1.1\framesep}
+
+\setbeamertemplate{sidebar left}{%
+   \vspace{\logoposition}%
+   \rlap{%
+     \setlength\fboxsep{0pt}%
+     \parbox[b][0pt]{2\framesep}{%
+       \hspace{1.1\framesep}%
+       \insertlogo
+       \hspace{0.1\framesep}%
+       }%
+     }%
+}
