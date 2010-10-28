@@ -4,11 +4,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,textcomp}
 \usepackage{breakurl}
-<<<<<<< HEAD
 \usepackage{graphicx}
-=======
 
->>>>>>> 1ebd7038aa0f547e7c3bb59a4dafae5a1ffd49b6
 \usetheme{Singapore}
 
 \usepackage[formats]{listings}
@@ -74,50 +71,44 @@ inline void update_weight(float *w,float *inp,float d_o,int n) {
 	Running the algorithms for all the 35 alleles with different $\lambda$ values we improved the overlall running time by parallelisng the processes.
 	\par In short, a script performed the algorithms with all the needed $\lambda$ at the same time on different groups of alleles
   \end{block}
-
-<<<<<<< HEAD
-\begin{frame}[fragile,plain]
-\frametitle{Training vs testing Pearson correlation coefficient}
-We added the ability to be able to watch testing PCC and MSE for each step in the training (in addition to the training values). The purpose of this was to be able to investigate over-fitting.
-		\begin{figure}
-		\centering
-			\includegraphics[width=90mm,height=60mm]{fig/pcc2.pdf}
-			\caption{Training vs testing PCC}
-		\end{figure}
 \end{frame}
 
-\begin{frame}[fragile,plain]
+\begin{frame}
+\frametitle{Training vs testing Pearson correlation coefficient}
+We added the ability to watch testing PCC and MSE for each step in the training (in addition to the training values). The purpose of this was to be able to investigate over-fitting.
+		\begin{figure}
+		\centering Training vs testing PCC
+			\includegraphics[width=90mm,height=60mm]{fig/pcc2.pdf}
+		\end{figure}
+\end{frame}
+\section{Error}
+\begin{frame}
 \frametitle{Difference in error values for Monto Carlo and Gradient Descent implementations for 12000 and 500 iterations respectively}
 \begin{columns}[t] % Align the columns at the top
-    \column{0.4\textwidth}
+    \column{0.5\textwidth}
 		\begin{figure}
-		\centering
+		\centering Gradient decent
 			\includegraphics[width=40mm,height=40mm]{fig/smm_error.png}
-			\caption{Gradient decent}
 		\end{figure}
-  	\column{0.6\textwidth}
+  	\column{0.5\textwidth}
 		\begin{figure}
-			\centering
+			\centering Monte Carlo
 			\includegraphics[width=40mm,height=40mm]{fig/smm_mc_error.png}
-			\caption{Monte Carlo}
 		\end{figure}
   \end{columns}
 \end{frame}
 
-=======
-\end{frame}
->>>>>>> 1ebd7038aa0f547e7c3bb59a4dafae5a1ffd49b6
-\section{Correlation and $\lambda$}
+\section{Size and Pearson Correlation}
 \begin{frame}
   \frametitle{Size depending Pearson correlation coefficent}
   \begin{columns}[t] % Align the columns at the top
-    \column{0.4\textwidth}
+    \column{0.5\textwidth}
 		\centering Gradient Decent
 		\begin{figure}
 		\centering
 			\includegraphics[width=40mm,height=40mm]{fig/smm_l005_ppc_size.pdf}
 		\end{figure}
-  	\column{0.6\textwidth}
+  	\column{0.5\textwidth}
 		\centering Monte Carlo
 		\begin{figure}
 			\centering
@@ -126,7 +117,7 @@ We added the ability to be able to watch testing PCC and MSE for each step in th
   \end{columns}
 \end{frame}
 
-\begin{frame}[plain]
+\begin{frame}
   \frametitle{Choice of best $\lambda$ value for gradient decent}
 	\begin{figure}
 	\centering
@@ -134,44 +125,49 @@ We added the ability to be able to watch testing PCC and MSE for each step in th
 	\end{figure}
 \end{frame}
 
-\begin{frame}[plain]
+\section{Optimal $\lambda$ value}
+\begin{frame}
   \frametitle{Choice of best $\lambda$ value for Monte Carlo}
 	\begin{figure}
 		\centering
 		\includegraphics[width=70mm,height=70mm]{fig/choice_lambda_mc.pdf}
 	\end{figure}
 \end{frame}
+
 \section{Evaluation}
 \begin{frame}
   \frametitle{Evaluation}
   \begin{columns}[t] % Align the columns at the top
-    \column{0.4\textwidth}
+    \column{0.7\textwidth}
 		\begin{figure}
 		\centering
-			\includegraphics[width=40mm,height=40mm]{fig/barplot.pdf}
+			\includegraphics[width=70mm,height=70mm]{fig/barplot.pdf}
 		\end{figure}
-  	\column{0.6\textwidth}
+  	\column{0.3\textwidth}
 		\centering
 		\begin{block}\centering
 		blablabla
 		\end{block}
   \end{columns}
-
 \end{frame}
+
 \section{Conclusion}
 \begin{frame}
-\begin{itemize}
-\item 1 \pause
-\item 2 \pause
-\item 3
-\end{itemize}
-\end{frame}
-\begin{frame}[plain]
-	\begin{figure}
-	\centering
-	\includegraphics[width=80mm,height=80mm]{fig/boxplot.pdf}
-	\caption{blablabla}
-	\end{figure}
+  \begin{columns}[t] % Align the columns at the top
+    \column{0.5\textwidth}
+		\begin{figure}
+		\centering
+			\includegraphics[width=50mm,height=50mm]{fig/boxplot.pdf}
+		\end{figure}
+  	\column{0.5\textwidth}
+		\centering
+		\begin{itemize}
+			\item 1
+			\item 2 
+			\item 3
+			\end{itemize}
+  \end{columns}
+
 \end{frame}
 
 \end{document} 
