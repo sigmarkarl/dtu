@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,textcomp}
 \usepackage{breakurl}
+\usepackage{graphicx}
 \usetheme{Singapore}
 \usepackage[formats]{listings}
 \lstdefineformat{C}{% 
@@ -63,6 +64,34 @@ inline void update_weight(float *w,float *inp,float d_o,int n) {
 	}
 }
   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+\frametitle{Training vs testing Pearson correlation coefficient}
+We added the ability to be able to watch testing PCC and MSE for each step in the training (in addition to the training values). The purpose of this was to be able to investigate over-fitting.
+		\begin{figure}
+		\centering
+			\includegraphics[width=90mm,height=60mm]{fig/pcc2.pdf}
+			\caption{Training vs testing PCC}
+		\end{figure}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+\frametitle{Difference in error values for Monto Carlo and Gradient Descent implementations for 12000 and 500 iterations respectively}
+\begin{columns}[t] % Align the columns at the top
+    \column{0.4\textwidth}
+		\begin{figure}
+		\centering
+			\includegraphics[width=40mm,height=40mm]{fig/smm_error.png}
+			\caption{Gradient decent}
+		\end{figure}
+  	\column{0.6\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=40mm,height=40mm]{fig/smm_mc_error.png}
+			\caption{Monte Carlo}
+		\end{figure}
+  \end{columns}
 \end{frame}
 
 \section{Correlation and $\lambda$}
