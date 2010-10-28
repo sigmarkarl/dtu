@@ -138,13 +138,12 @@ We added the ability to watch testing PCC and MSE for each step in the training 
 \begin{frame}
   \frametitle{Evaluation}
   \begin{columns}[t] % Align the columns at the top
-    \column{0.7\textwidth}
+    \column{0.6\textwidth}
 		\begin{figure}
 		\centering
-			\includegraphics[width=70mm,height=70mm]{fig/barplot.pdf}
+			\includegraphics[width=60mm,height=60mm]{fig/barplot.pdf}
 		\end{figure}
-  	\column{0.3\textwidth}
-		\centering
+  	\column{0.5\textwidth}
 		\begin{block}\centering
 		This figure shows the difference between the prediction quality on the training vs testing data for each step in the K-fold cross-validation. The bar to the right shows the prediction quality on the concatinated data.
 		\end{block}
@@ -163,6 +162,9 @@ We added the ability to watch testing PCC and MSE for each step in the training 
 		\centering
 		\begin{block}{Conlclusion}
 			The Gradient Descent was both faster and created more efficient models than the Monte Carlo one.
+		\end{block}
+		\begin{block}\centering
+			Not only we have better correlation with gradient decent, but also the results are included in a smaller range. The algorithms at optimal $\lambda$ is less depending on the size or other differencies in the data.
 		\end{block}
   \end{columns}
 \end{frame}
