@@ -5,7 +5,10 @@
 \usepackage{lmodern,textcomp}
 \usepackage{breakurl}
 \usepackage{graphicx}
+<<<<<<< HEAD
 
+=======
+>>>>>>> cad747f53cf2f02a0d7dfa0022952226305f6c60
 \usetheme{Singapore}
 
 \usepackage[formats]{listings}
@@ -73,7 +76,11 @@ inline void update_weight(float *w,float *inp,float d_o,int n) {
   \end{block}
 \end{frame}
 
+<<<<<<< HEAD
 \begin{frame}
+=======
+\begin{frame}[fragile,plain]
+>>>>>>> cad747f53cf2f02a0d7dfa0022952226305f6c60
 \frametitle{Training vs testing Pearson correlation coefficient}
 We added the ability to watch testing PCC and MSE for each step in the training (in addition to the training values). The purpose of this was to be able to investigate over-fitting.
 		\begin{figure}
@@ -98,7 +105,11 @@ We added the ability to watch testing PCC and MSE for each step in the training 
   \end{columns}
 \end{frame}
 
+<<<<<<< HEAD
 \section{Size and Pearson Correlation}
+=======
+\section{Correlation and $\lambda$}
+>>>>>>> cad747f53cf2f02a0d7dfa0022952226305f6c60
 \begin{frame}
   \frametitle{Size depending Pearson correlation coefficent}
   \begin{columns}[t] % Align the columns at the top
@@ -146,13 +157,14 @@ We added the ability to watch testing PCC and MSE for each step in the training 
   	\column{0.3\textwidth}
 		\centering
 		\begin{block}\centering
-		blablabla
+		This figure shows the difference between the prediction quality on the training vs testing data for each step in the K-fold cross-validation. The bar to the right shows the prediction quality on the concatinated data.
 		\end{block}
   \end{columns}
 \end{frame}
 
 \section{Conclusion}
 \begin{frame}
+<<<<<<< HEAD
   \begin{columns}[t] % Align the columns at the top
     \column{0.5\textwidth}
 		\begin{figure}
@@ -168,6 +180,21 @@ We added the ability to watch testing PCC and MSE for each step in the training 
 			\end{itemize}
   \end{columns}
 
+=======
+\frametitle{Conclusions}
+\begin{itemize}
+\item 1 The Gradient Descent was both faster and created more efficient models than the Monte Carlo one.
+\item 2 \pause
+\item 3
+\end{itemize}
+\end{frame}
+\begin{frame}[plain]
+	\begin{figure}
+	\centering
+	\includegraphics[width=80mm,height=80mm]{fig/boxplot.pdf}
+	\caption{blablabla}
+	\end{figure}
+>>>>>>> cad747f53cf2f02a0d7dfa0022952226305f6c60
 \end{frame}
 
 \end{document} 
