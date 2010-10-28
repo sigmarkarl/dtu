@@ -4,7 +4,9 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,textcomp}
 \usepackage{breakurl}
+
 \usetheme{Singapore}
+
 \usepackage[formats]{listings}
 \lstdefineformat{C}{% 
 	\{=\newline\string\newline\indent,% 
@@ -63,42 +65,45 @@ inline void update_weight(float *w,float *inp,float d_o,int n) {
 	}
 }
   \end{lstlisting}
-\end{frame}
+  \pause
+  \begin{block}\centering
+	Running the algorithms for all the 35 alleles with different $\lambda$ values we improved the overlall running time by parallelisng the processes.
+	\par In short, a script performed the algorithms with all the needed $\lambda$ at the same time on different groups of alleles
+  \end{block}
 
+\end{frame}
 \section{Correlation and $\lambda$}
 \begin{frame}
   \frametitle{Size depending Pearson correlation coefficent}
   \begin{columns}[t] % Align the columns at the top
     \column{0.4\textwidth}
+		\centering Gradient Decent
 		\begin{figure}
 		\centering
 			\includegraphics[width=40mm,height=40mm]{fig/smm_l005_ppc_size.pdf}
-			\caption{Gradient decent}
 		\end{figure}
   	\column{0.6\textwidth}
+		\centering Monte Carlo
 		\begin{figure}
 			\centering
 			\includegraphics[width=40mm,height=40mm]{fig/smm_mc_l005_ppc_size.pdf}
-			\caption{Monte Carlo}
 		\end{figure}
   \end{columns}
 \end{frame}
 
 \begin{frame}[plain]
-  \frametitle{Choice of best $\lambda$ value}
+  \frametitle{Choice of best $\lambda$ value for gradient decent}
 	\begin{figure}
 	\centering
 		\includegraphics[width=70mm,height=70mm]{fig/choice_lambda.pdf}
-		\caption{Gradient decent}
 	\end{figure}
 \end{frame}
 
 \begin{frame}[plain]
-  \frametitle{Choice of best $\lambda$ value}
+  \frametitle{Choice of best $\lambda$ value for Monte Carlo}
 	\begin{figure}
 		\centering
 		\includegraphics[width=70mm,height=70mm]{fig/choice_lambda_mc.pdf}
-		\caption{Monte Carlo}
 	\end{figure}
 \end{frame}
 
