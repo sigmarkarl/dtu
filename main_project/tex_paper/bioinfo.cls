@@ -457,12 +457,12 @@
   \hbox to \textwidth{%
   {\helvetica\itshape\bfseries\fontsize{19}{12}\selectfont\includegraphics[scale=0.3]{dtu-logo.jpg}
     \hfil
-    \if@appnotes Comparative Genomics\hfil\fi
+    \if@appnotes Algorithms in Bioinformatics\hfil\fi
     }%
 \enskip  \parbox[b]{11.3pc}{%
     \helvetica
     \flushright\fontsize{8}{10}\fontshape{it}\selectfont
-        \#27104 project\  \@pubyear\\
+        project\ no. 02 \@pubyear\\
         \hfill Pages \thepagerange
   }}
   \rule{\textwidth}{1\p@}\par%
