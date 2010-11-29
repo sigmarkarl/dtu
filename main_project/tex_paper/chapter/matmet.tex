@@ -1,21 +1,27 @@
 %Material and Methods
 
-PSSM
+\subsection*{PSSM}
 A Position-specific scoring matrix, also called position weight matrix is a commonly used representation of motifs in biological sequences. It has one row for each symbol in the alphabet (each amino acid, for instance) and one column for each position in the motif. The score is the sum of position-specific scores for each symbol in the substring.
 
-
+\begin{equation}
+s = \sum_{1\leq j\leq n}{m_{s_j,j}} \\
+\end{equation}
 
 j represents position in the substring, sj is the symbol at position j in the substring and msj,j is the corresponding score in the weight matrix. The weight matrix is constructed using log-odds score
 
-
+\begin{equation}
+W_{ij} = \log{ (\frac{p_{ij}}{q_j}) }
+\end{equation}
 
 i being the position in the morif and j the amino acid. qj is the background frequency for amno acid j
 The information content of a PSSM is an indicator of how different its distribution is from a uniform distribution and is calculated using Shannon's discrete entropy law (the sum part of the equation)
 
-
+\begin{equation}
+I = \log{ 20 } + \sum_{ij}{ p_{ij}\log{p_{ij}} }
+\end{equation}
 
 where pi,j is the probability of symbol i in position j.
-\subsection*{PSSM} scores can be interpreted as the sum of binding energies for all nucleotides or amino acids (symbols of the substring) aligned with the PSSM and can as such be used to estimate MHC peptide binding affinity.
+PSSM scores can be interpreted as the sum of binding energies for all nucleotides or amino acids (symbols of the substring) aligned with the PSSM and can as such be used to estimate MHC peptide binding affinity.
 
 \subsection*{SVM}
 Support vector machines is a set of supervised learning methods used for classification and regression analysis. The standard SVM is non-probabilistic binary linear classifier. It constructs a hyperplane where the seperation is where there is largest distance to the nearest training data point of any class. Nonlinear classification can be achived by  mapping the original space to a higher dimensional feature space and/or select a kernel function to suit the problem. The kernel function plays the role of the dot product in the feature space.
