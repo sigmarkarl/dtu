@@ -23,72 +23,21 @@
 \begin{abstract}
 
    \input{chapter/abstract}
-The identification of MHC binding peptides for consideration as potential T-cell epitopes has application in peptide vaccine design and immunotherapy. 
-Determination of MHC binding using experimental measures is time-consuming and expensive. 
-Therefore, efficient prediction models are required that facilitate systematic computational scanning of microbial genome for candidate T cell epitopes. 
-These prediction models are either sequence or structure based. 
-This review provides a comparative analysis on machine learing methods support vector machine (SVM) and artificial neural networks (ANN).
+
 
 \end{abstract}
 
 \section*{Introduction}
    \input{chapter/introduction}
-It took 20 years for scientist to understand the  physiological role of MHC molecules in peptide presentation to T lymochytes. 
-MHC molecules were initially defined as antigens that stimulate an organism’s immunologic response to transplanted organs and tissues. MHC proteins are found in all higher vertebrates. 
-In humans the MHC molecules are called Human Leukocyte Antigens (HLA).
-There are two classes of MHC molecules. Each human cell expresses 6 MHC class-I alleles or one HLA-A, B and C allele from each progenitor and 6-8 class-II alleles.
-One of the features of MHC is the exceptional allelic diversity. HLA-A and HLA-B have roughly 1000 and 1600 alleles respectively. 
-The most obvious evolutionary reason for this would be the benefit of diversity in defence of pathogens. 
-There is less than 1% chance that a MHC molecule presents a peptide and different hosts sample different peptides from same pathogen. 
-The more diverse MHC molecule the more diversity in presented peptides. As few humans share the same set of HLA alleles, different persons react differently to a pathogen infection. 
-This increases the likelihood that at least some individuals of a population will survive an epidemic.
-Class-I molecules are present in every cell but Class-II are found on certain immune cells, like macrophages and B-cells. 
-These so called antigen-presenting cells (APCs) ingest microbes, destroy them, and digest them into fragments, which are in turn presented by the MHC molecules on the surface of the cell.
-The MHC proteins serve to alert the immune system if foreign material is present inside a cell. 
-They achieve this by displaying fragmented pieces of anigens on the host cell surface. These antigens can be self or non-self. 
-If a host cell was infected by a bacterium or virus, or wascancerous, it may  display the antigens on its surface.
-Cells constantly process endogenous proteins and present them within the context of MHC Class-I. 
-Immune effector cells are trained not to react to self peptides during a complex process taking place in the thymus.
-Only certain types of peptides bind to certain types of MHC molecules. Most peptides selected by class-I molecules are 8 to 10 residues long. 
-Somewhat longer for class-II molecules. The antigenic peptide is located in a cleft existing between the α1 and α2 regions in the heavy chain of the MHC protein.
-A CTL based vaccine must include epitopes specific to each HLA allele in a population. Also it must deal with pathogen diversity, e.g. it must consist of around 1000 HLA class I epitopes. 
-Less than 70 HLA alleles have been characterized by binding data. Apart from predicting peptide binders in a protein sequence, it is still  mostly unsolved task of how to select the immunognic proteins in large pathogens.
-The classification of MHC peptide binding is a highly complex task as the mechanics of binding are not fully understood. 
-This makes the problem an ideal task for machine learning methods. We compare binding data classification results from PSSM and the machine learing methods support vector machines (SVM) and artifical neural networks (ANN).
-Using amino acid properties such as hydropathy index, side-chain polarity or charge and isoelectric point is not sufficient for classification although they can give clues on which locations on the peptide are more important to succesful binding than others. 
-Structural properties of the MHC molecule are therefore important in governing the binding affinity.
-Some efforts are being made using molecular dynamics simulation and crystal structure data with no experimental data for training, although these have not proved succesful.
+
 
 \section*{Material and Methods}
    \input{chapter/matmet}
-PSSM
-A Position-specific scoring matrix, also called position weight matrix is a commonly used representation of motifs in biological sequences. It has one row for each symbol in the alphabet (each amino acid, for instance) and one column for each position in the motif. The score is the sum of position-specific scores for each symbol in the substring.
 
-
-
-j represents position in the substring, sj is the symbol at position j in the substring and msj,j is the corresponding score in the weight matrix. The weight matrix is constructed using log-odds score
-
-
-
-i being the position in the morif and j the amino acid. qj is the background frequency for amno acid j
-The information content of a PSSM is an indicator of how different its distribution is from a uniform distribution and is calculated using Shannon's discrete entropy law (the sum part of the equation)
-
-
-
-where pi,j is the probability of symbol i in position j.
-\subsection*{PSSM} scores can be interpreted as the sum of binding energies for all nucleotides or amino acids (symbols of the substring) aligned with the PSSM and can as such be used to estimate MHC peptide binding affinity.
-
-\subsection*{SVM}
-Support vector machines is a set of supervised learning methods used for classification and regression analysis. The standard SVM is non-probabilistic binary linear classifier. It constructs a hyperplane where the seperation is where there is largest distance to the nearest training data point of any class. Nonlinear classification can be achived by  mapping the original space to a higher dimensional feature space and/or select a kernel function to suit the problem. The kernel function plays the role of the dot product in the feature space.
-
-\subsection*{ANN}
-We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were most readlily available for us.
 
 \section*{Results}
    \input{chapter/results}
-C programs from the course were used to estimate MHC binding affinity with PSSM. 
-Here a threshold must be used to limit included peptides to the ones that actually bind to the MHC molecule. 
-In the machine learing methods non-binding data is also be valuable in the estimation.
+
 
 
 \section*{Discussion}
