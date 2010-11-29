@@ -1,0 +1,15 @@
+Our update\_weight implementation, optimization mainly involving join of parameters and removal of memory allocation.
+ \begin{lstlisting}[basicstyle=\scriptsize,format=C]
+
+inline void update_weight(float *w,float *inp,float d_o,int n) {
+int j;
+float p_etad_o = p_eta * d_o;
+for ( j=0; j<n; j++ ) {w[j] -= p_etad_o * inp[j] + p_eta2lambda * w[j];
+}
+}
+  \end{lstlisting}
+  \pause
+  \begin{block}\centering
+Running the algorithms for all the 35 alleles with different $\lambda$ values we improved the overlall running time by parallelisng the processes.
+\par In short, a script performed the algorithms with all the needed $\lambda$ at the same time on different groups of alleles
+  \end{block}
