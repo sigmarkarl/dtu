@@ -1,0 +1,26 @@
+#! /bin/tcsh -f
+
+foreach a ( $argv)
+
+foreach x (0 1 2 3 4)
+
+cat SMM/$a/f00$x | gawk '$2> 0.426' | src/pep2mat -sw -- > SW$a$x.mat
+cat SMM/$a/f00$x | gawk '$2> 0.426' | src/pep2mat  -- > $a$x.mat
+cat SMM/$a/f00$x | gawk '$2> 0.426' | src/pep2mat -sw -nb -- > NBSW$a$x.mat
+
+echo "PSSM SW\t$a\t$x"
+src/pep2score -mat SW$a$x.mat  SMM/$a/c00$x | grep -v "#" | gawk '{print $2,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
+
+echo "PSSM No BL\t$a\t$x"
+src/pep2score -mat NBSW$a$x.mat  SMM/$a/c00$x | grep -v "#" | gawk '{print $2,$3}' | src/xycorr  | gawk '{OFS = "\t" ; print $5,$7}'
+
+echo "PSSM\t$a\t$x"
+src/pep2score -mat $a$x.mat  SMM/$a/c00$x | grep -v "#" | gawk '{print $2,$3}' | src/xycorr  | gawk '{OFS = "\t" ; print $5,$7}'
+
+
+rm $a$x.mat
+rm SW$a$x.mat
+rm NBSW$a$x.mat
+
+end
+end
