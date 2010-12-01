@@ -1,0 +1,71 @@
+#! /bin/tcsh -f
+
+foreach a ( $argv)
+
+foreach x (0 1 2 3 4)
+
+src/seq2inp SMM/$a/c00$x | grep -v "#" > sp_c00$x 
+src/seq2inp -bl SMM/$a/c000 | grep -v "#" > b_c00$x
+
+src/seq2inp SMM/$a/f00$x | grep -v "#" > sp_f00$x
+src/seq2inp -bl SMM/$a/f000 | grep -v "#" > b_f00$x
+
+src/nnbackprop -nh 10 -tf sp_c00$x -syn 10_sp_syn_dat_$x sp_f00$x > /dev/null
+echo 10_sp_syn_dat_$x >> list_10_sp
+
+src/nnbackprop -nh 10 -tf b_c00$x -syn 10_b_syn_dat_$x b_f00$x > /dev/null
+echo 10_b_syn_dat_$x >> list_10_b
+
+src/nnbackprop -nh 2 -tf sp_c00$x -syn 2_sp_syn_dat_$x sp_f00$x > /dev/null 
+echo 2_sp_syn_dat_$x >> list_2_sp
+
+src/nnbackprop -nh 2 -tf b_c00$x -syn 2_b_syn_dat_$x b_f00$x > /dev/null
+echo 2_b_syn_dat_$x >> list_2_b
+
+src/nnbackprop -nh 1 -tf sp_c00$x -syn 1_sp_syn_dat_$x sp_f00$x > /dev/null
+echo 1_sp_syn_dat_$x >> list_1_sp
+
+src/nnbackprop -nh 1 -tf b_c00$x -syn 1_b_syn_dat_$x b_f00$x > /dev/null
+echo 1_b_syn_dat_$x >> list_1_b
+end
+
+foreach x (0 1 2 3 4)
+
+echo "NN 10HL\t$a\t$x"
+src/nnforward list_10_sp  sp_c00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
+
+echo "NN Blosum 10HL\t$a\t$x"
+src/nnforward list_10_b  b_c00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
+
+echo "NN 2HL\t$a\t$x"
+src/nnforward list_2_sp  sp_c00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
+
+echo "NN 2HL Blosum\t$a\t$x"
+src/nnforward list_2_b  b_c00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
+
+echo "NN 1HL\t$a\t$x"
+src/nnforward  list_1_sp sp_c00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
+
+echo "NN 1HL Blosum\t$a\t$x"
+src/nnforward list_1_b  b_c00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
+
+end
+rm list_10_b
+rm list_2_b
+rm list_1_b
+rm list_10_sp
+rm list_2_sp
+rm list_1_sp
+end
+
+rm sp_c00*
+rm b_c00*
+rm sp_f00*
+rm b_f00*
+rm 10_sp_syn_dat_* 
+rm 10_b_syn_dat_* 
+rm 2_sp_syn_dat_* 
+rm 2_b_syn_dat_* 
+rm 1_sp_syn_dat_* 
+rm 1_b_syn_dat_* 
+

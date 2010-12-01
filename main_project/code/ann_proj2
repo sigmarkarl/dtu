@@ -20,11 +20,6 @@ src/nnforward -s sp_syn_dat_$x  sp_f00$x | grep -v "#" | gawk '{print $1,$3}' | 
 echo "NN Blosum\t$a\t$x"
 src/nnforward -s b_syn_dat_$x  b_f00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
 
-echo "NN\t$a\t$x"
-src/nnforward -s sp_syn_dat_$x  sp_f00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
-
-echo "NN Blosum\t$a\t$x"
-src/nnforward -s b_syn_dat_$x  b_f00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
 
 
 
