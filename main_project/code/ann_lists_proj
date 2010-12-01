@@ -5,10 +5,10 @@ foreach a ( $argv)
 foreach x (0 1 2 3 4)
 
 src/seq2inp SMM/$a/c00$x | grep -v "#" > sp_c00$x 
-src/seq2inp -bl SMM/$a/c000 | grep -v "#" > b_c00$x
+src/seq2inp -bl SMM/$a/c00$x | grep -v "#" > b_c00$x
 
 src/seq2inp SMM/$a/f00$x | grep -v "#" > sp_f00$x
-src/seq2inp -bl SMM/$a/f000 | grep -v "#" > b_f00$x
+src/seq2inp -bl SMM/$a/f00$x | grep -v "#" > b_f00$x
 
 src/nnbackprop -nh 10 -tf sp_c00$x -syn 10_sp_syn_dat_$x sp_f00$x > /dev/null
 echo 10_sp_syn_dat_$x >> list_10_sp
