@@ -24,7 +24,65 @@ where pi,j is the probability of symbol i in position j.
 PSSM scores can be interpreted as the sum of binding energies for all nucleotides or amino acids (symbols of the substring) aligned with the PSSM and can as such be used to estimate MHC peptide binding affinity.
 
 \subsection*{SVM}
-Support vector machines is a set of supervised learning methods used for classification and regression analysis. The standard SVM is non-probabilistic binary linear classifier. It constructs a hyperplane where the seperation is where there is largest distance to the nearest training data point of any class. Nonlinear classification can be achived by  mapping the original space to a higher dimensional feature space and/or select a kernel function to suit the problem. The kernel function plays the role of the dot product in the feature space.
+Support vector machines is a set of supervised learning methods used for classification and regression analysis. 
+The standard SVM is non-probabilistic binary linear classifier. 
+It constructs a hyperplane where the seperation is where there is largest distance to the nearest training data point of any class. 
+Nonlinear classification can be achived by  mapping the original space to a higher dimensional feature space and/or select a kernel function to suit the problem. 
+The kernel function plays the role of the dot product in the feature space.
+
+In the linear SVM we want to find the maximum-margin hyperplane that divides the points having (class) y$_{i}$ = 1 from those having y$_i$  -1. Any hyperplane can be written as the set of points satisfying
+
+\begin{equation}
+\mathbf{w \cdot x} - b = 0
+\end{equation}
+
+We want to choose the  and b to maximize the margin, or distance between the parallel hyperplanes that are as far apart as possible while still separating the data. These hyperplanes can be described by the equations
+
+\begin{equation}
+\mathbf{w \cdot x} - b = 1
+\end{equation}
+
+and
+
+\begin{equation}
+\mathbf{w \cdot x} - b = -1
+\end{equation}
+
+The distance between these two hyperplanes is $\frac{2}{||w||}$, so we wan't to minimize $||w||$.
+To prevent data points falling into the margin, we add the following constraint:
+
+\begin{equation}
+c_i(\mathbf{w \cdot x} - b) \geq 1, for all 1 \leq i \leq n
+\end{equation}
+
+Substituting $||w||$ with $\frac{1}{2}||w||^2$ makes this quadratic optimization problem. 
+The solution involves constructing a dual problem where 
+a Lagrange multiplier $\alpha_i$ 
+is associated with every 
+constraint in the primary problem. Mathematically put Find $\alpha_1…\alpha_N$
+such that
+
+\begin{equation}
+\mathbf{Q(\alpha)} = \sum_{i=1}^{n}{\alpha_i} - \frac{1}{2}\sum_{i,j}{\alpha_i\alpha_j y_i y_j \mathbf{x_i^T x_j} }
+\end{equation}
+
+is maximized knowing $\mathbf{w} = \sum_{i}{ \alpha_i y_i \mathbf{x_i} }$ and $\sum_{i}{\alpha_i y_i} = 0$ and $\alpha_i \geq 0$ for all $\alpha_i$.
 
 \subsection*{ANN}
 We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were most readlily available for us.
+
+Sequence weighting methods can be used to reduce redundancy and emphasize diversity. In the case of MHC peptide binding it can be used to compensate for poor or biased sampling of sequence space.
+
+Simply put, the weight on a peptide k at position p is
+
+\begin{equation}
+w_{kp} = \frac{1}{r\cdot s}
+\end{equation}
+
+where r is the number of different amino acids in the column p, and s is the number of occurence of amino acids a in that column. The weight of the sequence k is then the sum of the weights over all positions
+
+\begin{equation}
+w_{k} = \sum_{p}{\frac{1}{r_p \cdot s_p}}
+\end{equations}
+
+
