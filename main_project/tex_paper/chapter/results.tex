@@ -8,15 +8,6 @@ In the machine learning methods non-binding data is also be valuable in the esti
 
 All entries from the training data set with binding affinity over 0.426 are feeded into a program. 
 This value means that the peptide successfully binds to the MHC molecule. All peptides should be of same length.
-The Blosum frequency substitution matrix, is a
-conditional probability matrix of matching amino
-acids j given you have amino acid i
-
-\begin{equation}
-P(j|i) = \frac{P_ij}{Q_i}
-\end{equation}
-
-The matrix is used to. The result is a PSSM matrix. 
 
 Experimental data from the HLA-A*0201 allele is randomly split up in training and evaluation sections, the evaluation section being 1/5 of the training data size (618 peptides vs 2471 peptides in the training set).
 For 5 different samplings we get a Pearson correlation coefficients of {0.75323,, 0.78415, 0.78009, 0.78896, 0.76480}, the average being 0.774.
