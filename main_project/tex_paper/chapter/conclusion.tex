@@ -1,2 +1,11 @@
 %Conclusion
-
+As to be expected the prediction performance of the machine learning algorithms was better when trained on the larger datasets.
+Also a great difference in the number of binding vs non-binding peptides generally degraded the performance.
+The trend for the larger datasets was the 10 hidden-layer non-blosum matrix encoded data was performing best. 
+This could demonstrate that the large datasets are covering more the space of binding/non-binding data and training without using blosum matrix encoding is more accurate.
+It is a little difficult to see from the graphs but for the small datasets, using the blosum matrix increased the predictive performance.
+For some peptides, BLOSUM encoding with a four
+neuron hidden layer can best predict the
+peptide/MHC binding, for other peptides a sparse
+encoded network with zero hidden neurons performs
+the best.

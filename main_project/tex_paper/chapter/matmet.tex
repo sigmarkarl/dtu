@@ -161,7 +161,7 @@ Then the weights are varied for example with the gradient descent method
 \Delta w = -\epsilon \frac{\delta E}{\delta w}
 \end{equation}
 
-\subsection{Overfitting}
+\subsection*{Overfitting}
 Overfitting occurs when a statistical model describes random error or noise instead of the underlying relationship.
 This can happen when a model is excessively complex, such as having too many parameters relative to the number of observations.
 To prevent overfitting a cross-validated training is used. 1/5 of the data is preserved for testing and 4/5 for training. 
@@ -174,9 +174,9 @@ As a result our network could give slightly too good results on the testing data
 We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were readily available to us.
 To get a better grasp on the the expected quality of the results in the machine learning methods we did evaluate the fraction between binding and non-binding peptides in the dataset for each data {\ref{ftable}}
 
-\begin{table}
+\begin{tabular}{ rlll }
 \label{ftable}
-Allele	&	# binders &	# non-binders & fraction of binders vs. non-binders \\
+Allele	&	binders &	non-binders & fraction of binders vs. non-binders \\
 A2402	&	99	&	197	&	50\%	\\
 A2301	&	49	&	104	&	47\%	\\
 A0202	&	649	&	1447	&	45\%	\\
@@ -212,6 +212,6 @@ A2601	&	53	&	672	&	8\%	\\
 B2705	&	56	&	969	&	6\%	\\
 B4001	&	40	&	1078	&	4\%	\\
 B0801	&	20	&	708	&	3\%	\\
-\end{table}
+\end{tabular}
 
 In the PSSM case only the binders are used, so datasets with few of them could give bad results.
