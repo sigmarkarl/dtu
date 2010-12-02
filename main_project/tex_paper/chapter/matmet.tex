@@ -1,30 +1,26 @@
 %Material and Methods
 
 \subsection*{PSSM}
-A Position-specific scoring matrix, also called position weight matrix is a commonly used representation of motifs in biological sequences. It has one row for each symbol in the alphabet (each amino acid, for instance) and one column for each position in the motif. The score is the sum of position-specific scores for each symbol in the substring.
-
-\begin{equation}
-s = \sum_{1\leq j\leq n}{W_{i,j}} \\
-\end{equation}
-
-j represents position in the substring, i is the symbol at position j in the substring and $W_{ij}$ is the corresponding score in the weight matrix. The weight matrix is constructed using log-odds score
+A Position-specific scoring matrix, also called position weight matrix is a commonly used representation of motifs in biological sequences. 
+It has one row for each symbol in the alphabet (amino acid, for instance) and one column for each position in the motif.
+The weight matrix is constructed using log-odds score
 
 \begin{equation}
 W_{ij} = \log{ (\frac{p_{ij}}{q_j}) }
 \end{equation}
 
-i being the position in the motif and j the amino acid. qj is the background frequency for amno acid j
-The information content of a PSSM is an indicator of how different its distribution is from a uniform distribution and is calculated using Shannon's discrete entropy law (the sum part of the equation)
+i being the position in the motif and j the amino acid. $q_j$ is the background frequency for amno acid j. 
+The score of a sequence is simply the sum of the position-specific scores for each symbol in the substring.
 
 \begin{equation}
-\label{info}
-I = \log{ 20 } + \sum_{a}{ p_{a}\log{p_{a}} }
+s = \sum_{i}{W_{i}} \\
 \end{equation}
 
-where $p_a$ is the probability of the symbol in sequence a (for some position in the peptide).
-PSSM scores can be interpreted as the sum of binding energies for all nucleotides or amino acids (symbols of the substring) aligned with the PSSM and can as such be used to estimate MHC peptide binding affinity.
-Sequence weighting methods can be used to reduce redundancy and emphasize diversity. In the case of MHC peptide binding it can be used to compensate for poor or biased sampling of sequence space.
+where j represents position in the substring, i is the symbol at position j in the substring and $W_{i}$ is the corresponding score in the weight matrix.
 
+PSSM scores can be interpreted as the sum of binding energies for all nucleotides or amino acids aligned with the PSSM and can as such be used to estimate MHC peptide binding affinity.
+
+Sequence weighting can be used to reduce redundancy and emphasize diversity. In the case of MHC peptide binding it is used to compensate for poor or biased sampling of sequence space.
 Simply put, the weight on a peptide k at position p is
 
 \begin{equation}
@@ -43,7 +39,16 @@ Pseudo count is used to compensate for few data points and is estimated as
 g_b = \sum{f_a}{q_{b|a}}
 \end{equation}
 
-where $f_a$ is the observed amino acid frequency. The $q_{a|b}$ is the probability of amino acid b given amino acid a and is aquired from a blosum substitution frequency matrix.
+where $f_a$ is the observed amino acid frequency. The $q_{a|b}$ is the probability of amino acid b given amino acid a and is aquired from a Blosum substitution frequency matrix.
+The Blosum substitution matrix, is a
+conditional probability matrix of matching amino
+acids j given you have amino acid i
+
+\begin{equation}
+P(j|i) = \frac{P_ij}{Q_i}
+\end{equation}
+
+the matrix is used to for the pseudo count in creation of the PSSM matrix. 
 
 Psuedo counts are important when only limited data is available. With large datasets only the observation should count:
 
@@ -53,20 +58,30 @@ p_a = \frac{\alpha \cdot f_a + \beta \cdot g_a}{\alpha + \beta}
 
 $\alpha$ is the effective number of sequences and $\beta$ is the weight on prior and concerns the size of the data set when pseudo count are taken into account.
 
+The information content of a position in a peptide an indicator of how different its distribution is from a uniform distribution and is calculated using Shannon's discrete entropy law (the sum part of the equation \ref{info})
+
+\begin{equation}
+\label{info}
+I = \log{ 20 } + \sum_{a}{ p_{a}\log{p_{a}} }
+\end{equation}
+
+where $p_a$ is the probability of the symbol a in sequence (for some position in the peptide). The information content is used to estimate which positions in a peptide are more important to the MHC binding than others 
+(and to construct so called sequence logos).
+
 \subsection*{SVM}
 Support vector machines is a set of supervised learning methods used for classification and regression analysis. 
 The standard SVM is non-probabilistic binary linear classifier. 
 It constructs a hyperplane where the separation is where there is largest distance to the nearest training data point of any class. 
 Nonlinear classification can be achived by  mapping the original space to a higher dimensional feature space and/or select a kernel function to suit the problem. 
-The kernel function plays the role of the dot product in the feature space.
+The kernel function then plays the role of the dot product in the feature space.
 
-In the linear SVM we want to find the maximum-margin hyperplane that divides the points having (class) $y_{i}$ = 1 from those having $y_i$  -1. Any hyperplane can be written as the set of points satisfying
+In the linear SVM we want to find the maximum-margin hyperplane that divides the points having (class) $y_{i}$ = 1 from those having $y_i = -1$. Any hyperplane can be written as the set of points \b{x} satisfying
 
 \begin{equation}
 \mathbf{w \cdot x} - b = 0
 \end{equation}
 
-We want to choose the  and b to maximize the margin, or distance between the parallel hyperplanes that are as far apart as possible while still separating the data. These hyperplanes can be described by the equations
+We want to choose the \b{w} and b to maximize the margin, or distance between the parallel hyperplanes that are as far apart as possible while still separating the data. These hyperplanes can be described by the equations
 
 \begin{equation}
 \mathbf{w \cdot x} - b = 1
@@ -82,14 +97,16 @@ The distance between these two hyperplanes is $\frac{2}{||w||}$, so we wan't to 
 To prevent data points falling into the margin, we add the following constraint:
 
 \begin{equation}
-c_i(\mathbf{w \cdot x} - b) \geq 1, for all 1 \leq i \leq n
+y_i(\mathbf{w \cdot x} - b) \geq 1, for all 1 \leq i \leq n
 \end{equation}
 
-Substituting $||w||$ with $\frac{1}{2}||w||^2$ makes this quadratic optimization problem. 
+where $y_i$ is the class point i belongs to.
+
+Substituting $||w||$ with $\frac{1}{2}||w||^2$ makes this a quadratic optimization problem. 
 The solution involves constructing a dual problem where 
 a Lagrange multiplier $\alpha_i$ 
 is associated with every 
-constraint in the primary problem. Mathematically put Find $\alpha_1…\alpha_N$
+constraint in the primary problem. Mathematically put, find $\alpha_1 \cdots \alpha_n$
 such that
 
 \begin{equation}
@@ -117,19 +134,19 @@ correlations into account. Similar to equation \ref{info} a mutual information i
 I = \sum_{a,b}{ p_{ab}\log{ \frac{ p_{ab} }{ p_a \cdot p_b } } }
 \end{equation}
 
-where $p_ab$ is the probability of having amino acids of type a and b in certain positions of the peptide. $p_a$ and $p_b$ is the probabilities of having the corresponding amino acids in the relevat positions in the peptide.
-Having sequence correlations demands the classifier to be able to do model an non-linear function (XOR function). Neural network achieve this by adding a hidden layer/neurons.
-
-The sigmoid function is used for the output of each neuron:
-
-\begin{equation}
-O = \frac{1}{1+\exp{(-o)}}
-\end{equation}
+where $p_{ab}$ is the probability of having amino acids of type a and b in certain positions of the peptide. $p_a$ and $p_b$ are the probabilities of having the corresponding amino acids in the relevant positions in the peptide.
+Having sequence correlations demands the classifier to be able to do model a non-linear function (XOR function). Neural network achieve this by adding a hidden layer/neurons.
 
 Associated with every edge of the neural network graph is a weight $w_i$, so the output becomes:
 
 \begin{equation}
 o = \sum{x_i \cdot w_i}
+\end{equation}
+
+The sigmoid function is used for the output of each neuron:
+
+\begin{equation}
+O = \frac{1}{1+\exp{(-o)}}
 \end{equation}
 
 The adaptation in the network is achieved by minimizing error by varying the weights. The quadratic error is defined as:
@@ -144,17 +161,16 @@ Then the weights are varied for example with the gradient descent method
 \Delta w = -\epsilon \frac{\delta E}{\delta w}
 \end{equation}
 
+\subsection{Overfitting}
 Overfitting occurs when a statistical model describes random error or noise instead of the underlying relationship.
 This can happen when a model is excessively complex, such as having too many parameters relative to the number of observations.
 To prevent overfitting a cross-validated training is used. 1/5 of the data is preserved for testing and 4/5 for training. 
-The training is stopped when the test performance is optimal. This is done for each of the 5 sections of the data and the result is 5 different sets of network weights.
+The training is stopped when the test performance is optimal. This is done for each of the 5 sections of the data and the result is 5 different sets of network weights/synapses.
 All the synapses are then used when evaluating the network.
 Optimally one would take one part of the data aside for final evaluation of the network. This part would be used in neither the training nor the testing.
 We wanted to have as large sets of peptide data as possible so we made a cross-validated traineing/testing on the whole dataset and then evaluated on randomly selected testing dataset.
 As a result our network could give slightly too good results on the testing data (as it was used in the training).
-PSSM weight matrices can quite accurately describe a sequence motif like MHC class I. In fact their results are not far of the results from the SVM method.
-The ANN's are though performing best overall.
 
-We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were most readily available for us.
+We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were readily available to us.
 
 

@@ -8,15 +8,6 @@ In the machine learning methods non-binding data is also be valuable in the esti
 
 All entries from the training data set with binding affinity over 0.426 are feeded into a program. 
 This value means that the peptide successfully binds to the MHC molecule. All peptides should be of same length.
-The Blosum frequency substitution matrix, is a
-conditional probability matrix of matching amino
-acids j given you have amino acid i
-
-\begin{equation}
-P(j|i) = \frac{P_ij}{Q_i}
-\end{equation}
-
-The matrix is used to. The result is a PSSM matrix. 
 
 Experimental data from the HLA-A*0201 allele is randomly split up in training and evaluation sections, the evaluation section being 1/5 of the training data size (618 peptides vs 2471 peptides in the training set).
 For 5 different samplings we get a Pearson correlation coefficients of {0.75323,, 0.78415, 0.78009, 0.78896, 0.76480}, the average being 0.774.
@@ -85,10 +76,10 @@ Using a small dataset the benefit of using a blosum frequency substitution matri
 \end{figure*}
 
 \subsection*{SVM}
-There exists a fairly well established programming library for SVM calculations, libsvm, but in this investigation version 3.6.3 of the java based Weka sofware is used. 
+In this investigation version 3.6.3 of the java based Weka sofware is used for SVM calculations.
 The data has to be prepared for input into the Weka program.
 The number of amino acids is 20 and the length of the peptide is 9 so each peptide is changed to a vector of length 20*9. 
-Three encoding schemes are used, blostum50, sparse and z-score. 
+Three encoding schemes are used, blosum50, sparse and z-score. 
 In the case of the blosum encoding scheme, each of the 9 sections of length 20 simply contain the data from each row in blosum matrix corresponding to the amino acid in question.
 The sparse encoding simply uses the identity substitution matrix similar to the one in the PSSM case. 
 The z-score encoding is a condensed manner to represent each amino acid, only 5 values are used to encode each amino acid based on on their properties. 
@@ -297,5 +288,6 @@ In the Fig \ref{fig:ann1}, are resumed the results for all the 35 alleles ordere
 \end{center}
 \end{table}
 
-
+PSSM weight matrices can quite accurately describe a sequence motif like MHC class I. In fact their results are not far of the results from the SVM method.
+The ANN's are though performing best overall.
 
