@@ -15,17 +15,10 @@ src/nnbackprop -nh 10 -tf b_c00$x -syn b_syn_dat_$x b_f00$x > /dev/null
 
 
 echo "NN\t$a\t$x"
-src/nnforward -s sp_syn_dat_$x  sp_f00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
+src/nnforward -s sp_syn_dat_$x  sp_c00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
 
 echo "NN Blosum\t$a\t$x"
-src/nnforward -s b_syn_dat_$x  b_f00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
-
-echo "NN\t$a\t$x"
-src/nnforward -s sp_syn_dat_$x  sp_f00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
-
-echo "NN Blosum\t$a\t$x"
-src/nnforward -s b_syn_dat_$x  b_f00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
-
+src/nnforward -s b_syn_dat_$x  b_c00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
 
 
 rm sp_c00$x

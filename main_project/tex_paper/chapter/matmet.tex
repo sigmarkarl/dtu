@@ -17,11 +17,25 @@ i being the position in the morif and j the amino acid. qj is the background fre
 The information content of a PSSM is an indicator of how different its distribution is from a uniform distribution and is calculated using Shannon's discrete entropy law (the sum part of the equation)
 
 \begin{equation}
-I = \log{ 20 } + \sum_{ij}{ p_{ij}\log{p_{ij}} }
+\label{info}
+I = \log{ 20 } + \sum_{a}{ p_{a}\log{p_{a}} }
 \end{equation}
 
-where pi,j is the probability of symbol i in position j.
+where $p_a$ is the probability of the symbol in sequence a (for some position in the peptide).
 PSSM scores can be interpreted as the sum of binding energies for all nucleotides or amino acids (symbols of the substring) aligned with the PSSM and can as such be used to estimate MHC peptide binding affinity.
+Sequence weighting methods can be used to reduce redundancy and emphasize diversity. In the case of MHC peptide binding it can be used to compensate for poor or biased sampling of sequence space.
+
+Simply put, the weight on a peptide k at position p is
+
+\begin{equation}
+w_{kp} = \frac{1}{r\cdot s}
+\end{equation}
+
+where r is the number of different amino acids in the column p, and s is the number of occurence of amino acids a in that column. The weight of the sequence k is then the sum of the weights over all positions
+
+\begin{equation}
+w_{k} = \sum_{p}{\frac{1}{r_p \cdot s_p}}
+\end{equation}
 
 \subsection*{SVM}
 Support vector machines is a set of supervised learning methods used for classification and regression analysis. 
@@ -69,20 +83,57 @@ such that
 is maximized knowing $\mathbf{w} = \sum_{i}{ \alpha_i y_i \mathbf{x_i} }$ and $\sum_{i}{\alpha_i y_i} = 0$ and $\alpha_i \geq 0$ for all $\alpha_i$.
 
 \subsection*{ANN}
-We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were most readlily available for us.
-
-Sequence weighting methods can be used to reduce redundancy and emphasize diversity. In the case of MHC peptide binding it can be used to compensate for poor or biased sampling of sequence space.
-
-Simply put, the weight on a peptide k at position p is
+Artificial neural networks are used to model complex relationships between inputs and outputs or to find patterns in data.
+Neural networks are non-linear statistical data modeling tools, in most cases an adaptive system that changes its structure based on external or internal information that flows through the network during the learning phase.
+The effect on the binding affinity of
+having a given amino acid at one
+position can be influenced by the
+amino acids at other positions in the
+peptide. Artificial neural networks are
+ideal to take such
+correlations into account. Similar to equation \ref{info} a mutual information is defined as
 
 \begin{equation}
-w_{kp} = \frac{1}{r\cdot s}
+\label{mutinfo}
+I = \sum_{a,b}{ p_{ab}\log{ \frac{ p_{ab} }{ p_a \cdot p_b } } }
 \end{equation}
 
-where r is the number of different amino acids in the column p, and s is the number of occurence of amino acids a in that column. The weight of the sequence k is then the sum of the weights over all positions
+where $p_ab$ is the probability of having amino acids of type a and b in certain positions of the peptide. $p_a$ and $p_b$ is the probabilities of having the corresponding amino acids in the relevat positions in the peptide.
+Having sequence correlations demands the classifier to be able to do model an non-linear function (XOR function). Neural network achieve this by adding a hidden layer/neurons.
+
+The sigmoid function is used for the output of each neuron:
 
 \begin{equation}
-w_{k} = \sum_{p}{\frac{1}{r_p \cdot s_p}}
-\end{equations}
+O = \frac{1}{1+\exp{(-o)}}
+\end{equation}
+
+Associated with every edge of the neural network graph is a weight $w_i$, so the output becomes:
+
+\begin{equation}
+o = \sum{x_i \cdot w_i}
+\end{equation}
+
+The adaptation in the network is achieved by minimizing error by varying the weights. The quadratic error is defined as:
+
+\begin{equation}
+E = \frac{1}{2}\sum_{\alpha i}{(O_i^\alpha - T_i^\alpha)^2}
+\end{equation}
+
+Then the weights are varied for example with the gradient descent method
+
+\begin{equation}
+\Delta w = -\epsilon \frac{\delta E}{\delta w}
+\end{equation}
+
+Overfitting occurs when a statistical model describes random error or noise instead of the underlying relationship.
+This can happen when a model is excessively complex, such as having too many parameters relative to the number of observations.
+To prevent overfitting a cross-validated training is used. 1/5 of the data is preserved for testing and 4/5 for training. 
+The training is stopped when the test performance is optimal. This is done for each of the 5 sections of the data and the result is 5 different sets of network weights.
+All the synapses are then used when evaluating the network.
+Optimally one would take one part of the data aside for final evaluation of the network. This part would be used in neither the training nor the testing.
+We wanted to have as large sets of peptide data as possible so we made a cross-validated traineing/testing on the whole dataset and then evaluated on randomly selected testing dataset.
+As a result our network could give slightly too good results on the testing data (as it was used in the training).
+
+We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were most readlily available for us.
 
 
