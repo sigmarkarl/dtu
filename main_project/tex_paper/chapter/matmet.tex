@@ -174,6 +174,7 @@ As a result our network could give slightly too good results on the testing data
 We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were readily available to us.
 To get a better grasp on the the expected quality of the results in the machine learning methods we did evaluate the fraction between binding and non-binding peptides in the dataset for each data {\ref{ftable}}
 
+<<<<<<< HEAD
 \begin{tabular}{ rlll }
 \label{ftable}
 Allele	&	binders &	non-binders & fraction of binders vs. non-binders \\
@@ -213,5 +214,53 @@ B2705	&	56	&	969	&	6\%	\\
 B4001	&	40	&	1078	&	4\%	\\
 B0801	&	20	&	708	&	3\%	\\
 \end{tabular}
+=======
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{rllrrr}
+\hline
+ & Allele	&	 binders & non-binders & \% of binders \\
+\hline
+ & A2402	&	99	&	197	&	50\%	\\
+ & A2301	&	49	&	104	&	47\%	\\
+ & A0202	&	649	&	1447	&	45\%	\\
+ & A0203	&	639	&	1443	&	44\%	\\
+ & A6801	&	498	&	1141	&	44\%	\\
+ & B4501	&	49	&	114	&	43\%	\\
+ & A2902	&	68	&	160	&	43\%	\\
+ & B5301	&	106	&	254	&	42\%	\\
+ & B1801	&	47	&	118	&	40\%	\\
+ & A0201	&	1181	&	3089	&	38\%	\\
+ & B4402	&	44	&	119	&	37\%	\\
+ & A0206	&	513	&	1437	&	36\%	\\
+ & A1101	&	693	&	1985	&	35\%	\\
+ & B5101	&	85	&	244	&	35\%	\\
+ & B4002	&	39	&	118	&	33\%	\\
+ & B5401	&	81	&	255	&	32\%	\\
+ & A3002	&	29	&	92	&	32\%	\\
+ & B3501	&	211	&	736	&	29\%	\\
+ & B4403	&	34	&	119	&	29\%	\\
+ & A6802	&	397	&	1434	&	28\%	\\
+ & A0301	&	517	&	2094	&	25\%	\\
+ & A3101	&	427	&	1869	&	23\%	\\
+ & B5701	&	11	&	59	&	19\%	\\
+ & B1501	&	179	&	978	&	18\%	\\
+ & B0702	&	208	&	1262	&	16\%	\\
+ & A3301	&	184	&	1140	&	16\%	\\
+ & A3001	&	77	&	669	&	12\%	\\
+ & A2403	&	29	&	254	&	11\%	\\
+ & B5801	&	104	&	988	&	11\%	\\
+ & A6901	&	86	&	833	&	10\%	\\
+ & A0101	&	103	&	1157	&	9\%	\\
+ & A2601	&	53	&	672	&	8\%	\\
+ & B2705	&	56	&	969	&	6\%	\\
+ & B4001	&	40	&	1078	&	4\%	\\
+ & B0801	&	20	&	708	&	3\%	\\
+\hline
+\end{tabular}
+\caption{Ftable...}\label{ftable}
+\end{center}
+\end{table}
+>>>>>>> 58e421f3d13b1ca14356bb219cf13379362792d3
 
 In the PSSM case only the binders are used, so datasets with few of them could give bad results.
