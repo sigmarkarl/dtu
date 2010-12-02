@@ -55,10 +55,34 @@ Using a small dataset the benefit of using a blosum frequency substitution matri
 \caption{PSSM table A0201}
 \end{table}
 
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+   & PSSM & A3001 &   0 & 134 & 0.68 \\ 
+   & PSSM & A3001 &   1 & 134 & 0.55 \\ 
+   & PSSM & A3001 &   2 & 134 & 0.64 \\ 
+   & PSSM & A3001 &   3 & 134 & 0.55 \\ 
+   & PSSM & A3001 &   4 & 133 & 0.56 \\ 
+  \hline
+   & PSSM SW & A3001 &   0 & 134 & 0.70 \\ 
+   & PSSM SW & A3001 &   1 & 134 & 0.56 \\ 
+   & PSSM SW & A3001 &   2 & 134 & 0.65 \\ 
+   & PSSM SW & A3001 &   3 & 134 & 0.56 \\ 
+   & PSSM SW & A3001 &   4 & 133 & 0.57 \\ 
+   \hline
+\end{tabular}
+\end{center}
+\label{tab:pssm2}
+\caption{PSSM table A3001}
+\end{table}
+
 \begin{figure*}
 \begin{center}
 \includegraphics[width=12cm]{fig/pssm1.pdf}
-\label{fig:pssm1}
+\label{tab:pssm1}
 \caption{PSSM Results}
 \end{center}
 \end{figure*}
@@ -74,7 +98,7 @@ The z-score encoding is a condensed manner to represent each amino acid, only 5 
 These properties were deduced from measured data using thin-layer chromatography and nuclear magnetic resonance and some calculated variables 
 such as side chain charge, hydrogren bond donor and acceptor properties, log P and molecular weight. 
 Each row in the input matrix has therefore length of 5*20+1 (the one being the measured affinity value)
-The same data as from the PSSM section is used for comparison. For the HLA-A*0201 dataset and sparse encoding we get the following results
+The same data as from the PSSM section is used for comparison. For the HLA-A*0201 dataset and sparse encoding we get the following displayed in table \ref{fig:svm1}.
 
 \begin{table}[ht]
 \begin{center}
@@ -88,13 +112,13 @@ The same data as from the PSSM section is used for comparison. For the HLA-A*020
  & Total Number of Instances    &          618 \\
 \hline
 \end{tabular}
-\label{fig:svm1}
+\label{tab:svm1}
 \caption{SVM Results}
 \end{center}
 \end{table}
 
 
-Here the SMOreg classifier with polynomial kernel of first degree we get just slightly better than the PSSM. Raising the degree of the kernel to 2 does not give better results
+The SMOreg classifier (Table \ref{tab:svm2}) with polynomial kernel of first degree we give just slightly better results than the PSSM. Rising the degree of the kernel to 2 does not give better results.
 
 \begin{table}[ht]
 \begin{center}
@@ -108,13 +132,15 @@ Here the SMOreg classifier with polynomial kernel of first degree we get just sl
  & Total Number of Instances    &          618 \\
 \hline
 \end{tabular}
-\label{fig:svm2}
+\label{tab:svm2}
 \caption{SVM Results}
 
 \end{center}
 \end{table}
 
-Using the blosum matrix with kernel degree of 1
+Using the blosum matrix with kernel degree of 1 we have the results displayed in Table \ref{tab:svm3}. Polynomial kernel of degree 2 has considerably worse performance for the blosum encoded data (see Tab \ref{tab:svm4}). Also the z-score encoded data with polynomial kernel of degree 1 (Tab \ref{tab:svm5}) haven't better results.
+
+
 
 \begin{table}[ht]
 \begin{center}
@@ -128,12 +154,10 @@ Using the blosum matrix with kernel degree of 1
  & Total Number of Instances     &         618  \\
 \hline
 \end{tabular}
-\label{fig:svm3}
+\label{tab:svm3}
 \caption{SVM Results}
 \end{center}
 \end{table}
-
-Polynomial kernel of degree 2 has considerably worse performance for the blosum encoded data.
 
 \begin{table}[ht]
 \begin{center}
@@ -147,12 +171,11 @@ Polynomial kernel of degree 2 has considerably worse performance for the blosum 
  & Total Number of Instances              618  \\
 \hline
 \end{tabular}
-\label{fig:svm4}
+\label{tab:svm4}
 \caption{SVM Results}
 \end{center}
 \end{table}
 
-Now we try the z-score encoded data with polynomial kernel of degree 1
 
 \begin{table}[ht]
 \begin{center}
@@ -166,12 +189,12 @@ Now we try the z-score encoded data with polynomial kernel of degree 1
  & Total Number of Instances   &           618     \\
 \hline
 \end{tabular}
-\label{fig:svm5}
+\label{tab:svm5}
 \caption{SVM Results}
 \end{center}
 \end{table}
 
-Next we try a smaller dataset, the HLA-A*3001.
+Trying the same tests in a smaller dataset, the HLA-A*3001 (Tab \ref{tab:svm6}), we nitice that a polynomial kernel of degree 2 slightly rises the prediction performance (Tab \ref{tab:svm7}).
 
 \begin{table}[ht]
 \begin{center}
@@ -185,12 +208,11 @@ Next we try a smaller dataset, the HLA-A*3001.
  & Total Number of Instances      &        134 \\
 \hline
 \end{tabular}
-\label{fig:svm6}
+\label{tab:svm6}
 \caption{SVM Results}
 \end{center}
 \end{table}
 
-Polynomial kernel of degree 2 slightly raises the prediction performance.
 
 \begin{table}[ht]
 \begin{center}
@@ -204,7 +226,7 @@ Polynomial kernel of degree 2 slightly raises the prediction performance.
  & Total Number of Instances      &        134 \\
 \hline
 \end{tabular}
-\label{fig:svm7}
+\label{tab:svm7}
 \caption{SVM Results}
 \end{center}
 \end{table}
@@ -266,4 +288,6 @@ Polynomial kernel of degree 2 slightly raises the prediction performance.
 \caption{Artificial Neuronal Network for A0201}
 \end{center}
 \end{table}
+
+
 
