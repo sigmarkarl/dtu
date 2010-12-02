@@ -1,5 +1,7 @@
 % Results
 
+\subsection{PSSM}
+
 C programs from the course were used to estimate MHC binding affinity with PSSM. 
 Here a threshold must be used to limit included peptides to the ones that actually bind to the MHC molecule. 
 In the machine learing methods non-binding data is also be valuable in the estimation.
@@ -29,6 +31,28 @@ The identity matrix gives results of with average of (0.63987 0.45267 0.55898 0.
 
 Using a small dataset the benefit of using a blosum frequency substitution matrix is greater.
 
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+273 & PSSM & A0201 &   0 & 618 & 0.74 \\ 
+  276 & PSSM w/o SW & A0201 &   1 & 618 & 0.76 \\ 
+  279 & PSSM w/o SW & A0201 &   2 & 618 & 0.76 \\ 
+  282 & PSSM w/o SW & A0201 &   3 & 618 & 0.76 \\ 
+  285 & PSSM w/o SW & A0201 &   4 & 617 & 0.75 \\ 
+  271 & PSSM w SW & A0201 &   0 & 618 & 0.75 \\ 
+  274 & PSSM w SW & A0201 &   1 & 618 & 0.78 \\ 
+  277 & PSSM w SW & A0201 &   2 & 618 & 0.78 \\ 
+  280 & PSSM w SW & A0201 &   3 & 618 & 0.79 \\ 
+  283 & PSSM w SW & A0201 &   4 & 617 & 0.76 \\ 
+   \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
 \subsection{SVM}
 There exists a fairly well established programming library for SVM calculations, libsvm, but in this investigation version 3.6.3 of the java based Weka sofware is used. 
 The data has to be prepared for input into the Weka program. 
@@ -42,19 +66,34 @@ such as side chain charge, hydrogren bond donor and acceptor properties, log P a
 Each row in the input matrix has therefore length of 5*20+1 (the one being the measured affinity value)
 The same data as from the PSSM section is used for comparison. For the HLA-A*0201 dataset and sparse encoding we get the following results
 
+\begin{figure*}
+\begin{center}
+\includegraphics[width=13cm]{fig/pssm1.pdf}
+\label{fig:pssm1}
+\caption{PSSM Brute force results}
+\end{center}
+\end{figure*}
 
-\begin{tabular}{ c r }
-Correlation coefficient &                 0.78  \\
-Mean absolute error      &                0.1524 \\
-Root mean squared error   &               0.1925 \\
-Relative absolute error    &             57.0908\%  \\
-Root relative squared error &            62.8014\%  \\
-Total Number of Instances    &          618 \\
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{ ll c r }
+\hline
+ & Correlation coefficient &                 0.78  \\
+ & Mean absolute error      &                0.1524 \\
+ & Root mean squared error   &               0.1925 \\
+ & Relative absolute error    &             57.0908\%  \\
+ & Root relative squared error &            62.8014\%  \\
+ & Total Number of Instances    &          618 \\
+\hline
 \end{tabular}
+\end{center}
+\end{table}
 
 
 Here the SMOreg classifier with polynomial kernel of first degree we get just slightly better than the PSSM. Raising the degree of the kernel to 2 does not give better results
 
+\begin{table}[ht]
+\begin{center}
 \begin{tabular}{ c r }
 Correlation coefficient &                 0.756 \\
 Mean absolute error      &                0.1535 \\
@@ -63,8 +102,13 @@ Relative absolute error   &              57.5209\% \\
 Root relative squared error &            66.4967\% \\
 Total Number of Instances    &          618 \\
 \end{tabular}
+\end{center}
+\end{table}
 
 Using the blosum matrix with kernel degree of 1
+
+\begin{table}[ht]
+\begin{center}
 \begin{tabular}{ c r }
 Correlation coefficient  &                0.7789 \\
 Mean absolute error       &               0.1533 \\
@@ -73,8 +117,13 @@ Relative absolute error   &              57.4187\% \\
 Root relative squared error  &           62.8817\% \\
 Total Number of Instances     &         618  \\
 \end{tabular}
+\end{center}
+\end{table}
 
 Polynomial kernel of degree 2 has considerably worse performance for the blosum encoded data.
+
+\begin{table}[ht]
+\begin{center}
 \begin{tabular}{ c r }	
 Correlation coefficient                  0.6692 \\
 Mean absolute error                      0.2047 \\
@@ -82,9 +131,14 @@ Root mean squared error                  0.262 \\
 Relative absolute error                 76.6914\% \\
 Root relative squared error             85.4726\% \\
 Total Number of Instances              618  \\
-\end{tabular}{ c r }
+\end{tabular}
+\end{center}
+\end{table}
 
 Now we try the z-score encoded data with polynomial kernel of degree 1
+
+\begin{table}[ht]
+\begin{center}
 \begin{tabular}{ c r }
 Correlation coefficient   &              0.6888 \\
 Mean absolute error        &              0.1802 \\
@@ -93,9 +147,13 @@ Relative absolute error    &             67.5222\% \\
 Root relative squared error &             72.6292\% \\
 Total Number of Instances   &           618     \\
 \end{tabular}
+\end{center}
+\end{table}
 
 Next we try a smaller dataset, the HLA-A*3001.
 
+\begin{table}[ht]
+\begin{center}
 \begin{tabular}{ c r }
 Correlation coefficient       &           0.7412 \\
 Mean absolute error            &          0.1008 \\
@@ -104,9 +162,13 @@ Relative absolute error        &         70.3882\% \\
 Root relative squared error    &         68.5173\% \\
 Total Number of Instances      &        134 \\
 \end{tabular}
+\end{center}
+\end{table}
 
 Polynomial kernel of degree 2 slightly raises the prediction performance.
 
+\begin{table}[ht]
+\begin{center}
 \begin{tabular}{ c r }
 Correlation coefficient        &          0.7671 \\
 Mean absolute error            &          0.0945 \\
@@ -115,3 +177,6 @@ Relative absolute error        &         65.9762\% \\
 Root relative squared error    &         66.2741\% \\
 Total Number of Instances      &        134 \\
 \end{tabular}
+\end{center}
+\end{table}
+
