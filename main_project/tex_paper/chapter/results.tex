@@ -76,10 +76,10 @@ Using a small dataset the benefit of using a blosum frequency substitution matri
 \end{figure*}
 
 \subsection*{SVM}
-There exists a fairly well established programming library for SVM calculations, libsvm, but in this investigation version 3.6.3 of the java based Weka sofware is used. 
+In this investigation version 3.6.3 of the java based Weka sofware is used for SVM calculations.
 The data has to be prepared for input into the Weka program.
 The number of amino acids is 20 and the length of the peptide is 9 so each peptide is changed to a vector of length 20*9. 
-Three encoding schemes are used, blostum50, sparse and z-score. 
+Three encoding schemes are used, blosum50, sparse and z-score. 
 In the case of the blosum encoding scheme, each of the 9 sections of length 20 simply contain the data from each row in blosum matrix corresponding to the amino acid in question.
 The sparse encoding simply uses the identity substitution matrix similar to the one in the PSSM case. 
 The z-score encoding is a condensed manner to represent each amino acid, only 5 values are used to encode each amino acid based on on their properties. 
