@@ -2,15 +2,14 @@
 
 It took more than 20 years for scientist to understand the  physiological role of MHC molecules in peptide presentation to T lymphocytes. 
 MHC molecules were initially defined as antigens that stimulate an organism’s immunologic response to transplanted organs and tissues. MHC proteins are found in all higher vertebrates. 
-In humans the MHC molecules are called Human Leukocyte Antigens (HLA).
+In humans they are called Human Leukocyte Antigens (HLA).
 
-There are two main classes of MHC molecules. Class I and Class II. The genes which encodes the various polipeptide forming each two class of MHC are placed in the genome in the same chromosome, 
-but in two different clusters encoding the two different MHC class. 
-Which means that all the genes encoding the class I MHC mlecule (HLA-A, HLA-B and HLA-C) are neighbor in a regoin of the chromosome 6, 
-while the genes encoding the class II MHC molecules (HLA-DP, HLA-DQ and HLA-DR) are close to each other in another region of the same cromosome, not far by the way.
+There are two main classes of MHC molecules. Class I and Class II. The genes which encode the various polipeptides forming the two classes of MHC are placed in the genome in the same chromosome.
+Two different clusters encode the two different MHC classes. This means that all the genes encoding the class I MHC mlecules (HLA-A, HLA-B and HLA-C) are neighbors in a region of chromosome 6,
+while the genes encoding the class II MHC molecules (HLA-DP, HLA-DQ and HLA-DR) are close to each other in another region of the same cromosome.
 
 One of the features of MHC is the exceptional allelic diversity. HLA-A and HLA-B have roughly 1000 and 1600 alleles respectively. 
-The most obvious evolutionary reason for this would be the benefit of diversity in defense of pathogens. 
+The evolutionary reason for this diversity would be the benefit in the defense of pathogens. 
 There is less than 1\% chance that a MHC molecule presents a peptide and different hosts sample different peptides from same pathogen. 
 The more diverse MHC molecule the more diversity in presented peptides. As few humans share the same set of HLA alleles, different persons react differently to a pathogen infection. 
 This increases the likelihood that at least some individuals of a population will survive an epidemic.
@@ -18,25 +17,24 @@ This increases the likelihood that at least some individuals of a population wil
 Class-I molecules are present in every cell but Class-II are found on certain immune cells, like macrophages and B-cells. 
 These so called antigen-presenting cells (APCs) ingest microbes, destroy them, and digest them into fragments, which are in turn presented by the MHC molecules on the surface of the cell.
 
-The MHC proteins serve to alert the immune system if foreign material is present inside a cell. 
+The MHC proteins serve to alert the immune system if a foreign material is present inside a cell.
 They achieve this by displaying fragmented pieces of antigens on the host cell surface. These antigens can be self or non-self. 
-If a host cell was infected by a bacterium or virus, or wascancerous, it may  display the antigens on its surface.
-
+If a host cell was infected by a bacterium or virus, or was cancerous, it may  display the antigens on its surface.
 Cells constantly process endogenous proteins and present them within the context of MHC Class-I. 
 Immune effector cells are trained not to react to self peptides during a complex process taking place in the thymus.
 
 Only certain types of peptides bind to certain types of MHC molecules. Most peptides selected by class-I molecules are 8 to 10 residues long. 
-Somewhat longer for class-II molecules. The antigenic peptide is located in a cleft existing between the α1 and α2 regions in the heavy chain of the MHC protein.
+and somewhat longer for class-II molecules. The antigenic peptide is located in a cleft existing between the \alpha1 and \alpha2 regions in the heavy chain of the MHC protein.
 
-A CTL based vaccine must include epitopes specific to each HLA allele in a population. Also it must deal with pathogen diversity, e.g. it must consist of around 1000 HLA class I epitopes. 
+A CTL based vaccine must include epitopes specific to each HLA allele in a population, also it must deal with pathogen diversity. As result a vaccine must consist of around 1000 HLA class I epitopes.
 Less than 70 HLA alleles have been characterized by binding data. Apart from predicting peptide binders in a protein sequence, it is still  mostly unsolved task of how to select the immunogenic proteins in large pathogens.
 
-The classification of MHC peptide binding is a highly complex task as the mechanics of binding are not fully understood. 
+The classification of MHC peptide binding is a complex task as the mechanics of binding are not fully understood. 
 This makes the problem an ideal task for machine learning methods. We compare binding data classification results from PSSM and the machine learning methods support vector machines (SVM) and artificial neural networks (ANN).
 
-Using amino acid properties such as hydropathy index, side-chain polarity or charge and isoelectric point is not sufficient for classification although they can give clues on which locations on the peptide are more important to successful binding than others. 
-Structural properties of the MHC molecule are therefore important in governing the binding affinity.
+Using amino acid properties such as hydropathy index, side-chain polarity or charge and isoelectric point are not sufficient for classification although they can give clues on which locations on the peptide are more important to successful binding than others. 
+Some of these properties are taken into account in the z-score amino acid encoding scheme. Structural properties of the MHC molecule are also important in governing the binding affinity.
 
-Some efforts are being made using molecular dynamics simulation and crystal structure data with no experimental data for training, although these have not proved successful.
+Some efforts are being made using molecular dynamics simulation and crystal structure data for MHC peptide binding predictions, although these have not proved successful compared to the sequence based methods.
 
 Most of the tools used in this investigation are available at CBS. We used the Weka software for the SVM calculations. [reference: http://www.cs.waikato.ac.nz/~ml/weka/]
