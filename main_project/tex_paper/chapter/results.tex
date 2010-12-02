@@ -211,8 +211,29 @@ Trying the same tests in a smaller dataset, the HLA-A*3001 (Tab \ref{tab:svm6}),
 \end{center}
 \end{table}
 
-\subsection*{ANN}
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Size & PCC & MAE \\ 
+  \hline
+ & SVM Sparse & A0201 &   618 & 0.78 & 0.1524 \\ 
+ & SVM Pol. 1$^{st}$ degree & A0201 &   618 & 0.756 & 0.1535 \\ 
+ & SVM Pol. 1$^{st}$ d + Blosum & A0201 &   618 & 0.7789 & 0.1533 \\ 
+ & SVM Pol. 2$^{nd}$ degree & A0201 &   618 & 0.6692 & 0.2047 \\ 
+ & SVM Pol. 1$^{st}$ d + z-score & A0201 &   618 & 0.6888 & 0.1802 \\ 
+ & SVM Sparse & A3001 &   134 & 0.7412 & 0.1008 \\ 
+ & SVM Pol. 2$^{nd}$ degree & A3001 &   134 & 0.7671 & 0.0945 \\ 
+   \hline
+\end{tabular}
+\end{center}
+\caption{PSSM table A0201}\label{tab:svmall}
+\end{table}
 
+
+\subsection*{ANN}
+The \textit{nnbackprop} and the \textit{nnforward} algorithms from the course were used in order to estimate the MHC binding affinity.
+In the Fig \ref{fig:ann1}, are resumed the results for all the 35 alleles ordered by number of peptides in each sample.
 \begin{figure*}
 \begin{center}
 \includegraphics[width=12cm]{fig/ann1.pdf}
