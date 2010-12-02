@@ -11,14 +11,13 @@ This value means that the peptide successfully binds to the MHC molecule. All pe
 
 Experimental data from the HLA-A*0201 allele is randomly split up in training and evaluation sections, the evaluation section being 1/5 of the training data size (618 peptides vs 2471 peptides in the training set).
 For 5 different samplings we get a Pearson correlation coefficients of {0.75323,, 0.78415, 0.78009, 0.78896, 0.76480}, the average being 0.774.
-The corresponding results without using sequence weighting are {0.73530, 0.75961, 0.75791, 0.76343, 0.74639}, with average of 0.753
-Using identity matrix instead of the blosum substitiution matrix gives similar values {0.75107, 0.77989, 0.74344, 0.78552, 0.76072} with average of 0.764.
+
+Using identity matrix instead of the blosum substitiution matrix gives similar values 0.75107, 0.77989, 0.74344 and 0.78552, 0.76072 (see Tab \ref{tab:pssm1}) with average of 0.764.
 The blosum matrix is not making a difference here as substitution frequencies should not affect much binding affinity of a peptide in a MHC molecule.
 
 We also try the smaller set HLA-A3001. It has a total of 669 experimentally verified peptides.
-Using the blosum matrix the correlation results are {0.69872, 0.55787, 0.65032, 0.55827, 0.57044}, an average of 0.607
-The corresponding results without using sequence weighting are {0.67775, 0.54853, 0.63731, 0.55026, 0.56416}, with average of 0.596
-The identity matrix gives results of with average of (0.63987 0.45267 0.55898 0.49296 0.49224) 0.527 
+Using the blosum matrix the correlation results are 0.69872, 0.55787, 0.65032, 0.55827 and 0.57044 (see Tab \ref{tab:pssm2}), an average of 0.607
+The corresponding results without using sequence weighting are 0.67775, 0.54853, 0.63731, 0.55026 and 0.56416 (see Tab \ref{tab:pssm1} second half), with average of 0.596
 
 Using a small dataset the benefit of using a blosum frequency substitution matrix is greater.
 
