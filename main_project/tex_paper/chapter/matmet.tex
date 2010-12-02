@@ -4,16 +4,16 @@
 A Position-specific scoring matrix, also called position weight matrix is a commonly used representation of motifs in biological sequences. It has one row for each symbol in the alphabet (each amino acid, for instance) and one column for each position in the motif. The score is the sum of position-specific scores for each symbol in the substring.
 
 \begin{equation}
-s = \sum_{1\leq j\leq n}{m_{s_j,j}} \\
+s = \sum_{1\leq j\leq n}{W_{i,j}} \\
 \end{equation}
 
-j represents position in the substring, sj is the symbol at position j in the substring and msj,j is the corresponding score in the weight matrix. The weight matrix is constructed using log-odds score
+j represents position in the substring, i is the symbol at position j in the substring and $W_{ij}$ is the corresponding score in the weight matrix. The weight matrix is constructed using log-odds score
 
 \begin{equation}
 W_{ij} = \log{ (\frac{p_{ij}}{q_j}) }
 \end{equation}
 
-i being the position in the morif and j the amino acid. qj is the background frequency for amno acid j
+i being the position in the motif and j the amino acid. qj is the background frequency for amno acid j
 The information content of a PSSM is an indicator of how different its distribution is from a uniform distribution and is calculated using Shannon's discrete entropy law (the sum part of the equation)
 
 \begin{equation}
@@ -37,14 +37,30 @@ where r is the number of different amino acids in the column p, and s is the num
 w_{k} = \sum_{p}{\frac{1}{r_p \cdot s_p}}
 \end{equation}
 
+Pseudo count is used to compensate for few data points and is estimated as
+
+\begin{equation}
+g_b = \sum{f_a}{q_{b|a}}
+\end{equation}
+
+where $f_a$ is the observed amino acid frequency. The $q_{a|b}$ is the probability of amino acid b given amino acid a and is aquired from a blosum substitution frequency matrix.
+
+Psuedo counts are important when only limited data is available. With large datasets only the observation should count:
+
+\begin{equation}
+p_a = \frac{\alpha \cdot f_a + \beta \cdot g_a}{\alpha + \beta}
+\end{equation}
+
+$\alpha$ is the effective number of sequences and $\beta$ is the weight on prior and concerns the size of the data set when pseudo count are taken into account.
+
 \subsection*{SVM}
 Support vector machines is a set of supervised learning methods used for classification and regression analysis. 
 The standard SVM is non-probabilistic binary linear classifier. 
-It constructs a hyperplane where the seperation is where there is largest distance to the nearest training data point of any class. 
+It constructs a hyperplane where the separation is where there is largest distance to the nearest training data point of any class. 
 Nonlinear classification can be achived by  mapping the original space to a higher dimensional feature space and/or select a kernel function to suit the problem. 
 The kernel function plays the role of the dot product in the feature space.
 
-In the linear SVM we want to find the maximum-margin hyperplane that divides the points having (class) y$_{i}$ = 1 from those having y$_i$  -1. Any hyperplane can be written as the set of points satisfying
+In the linear SVM we want to find the maximum-margin hyperplane that divides the points having (class) $y_{i}$ = 1 from those having $y_i$  -1. Any hyperplane can be written as the set of points satisfying
 
 \begin{equation}
 \mathbf{w \cdot x} - b = 0
@@ -80,7 +96,10 @@ such that
 \mathbf{Q(\alpha)} = \sum_{i=1}^{n}{\alpha_i} - \frac{1}{2}\sum_{i,j}{\alpha_i\alpha_j y_i y_j \mathbf{x_i^T x_j} }
 \end{equation}
 
-is maximized knowing $\mathbf{w} = \sum_{i}{ \alpha_i y_i \mathbf{x_i} }$ and $\sum_{i}{\alpha_i y_i} = 0$ and $\alpha_i \geq 0$ for all $\alpha_i$.
+is maximized knowing $\mathbf{w} = \sum_{i}{ \alpha_i y_i \mathbf{x_i} }$ and $\sum_{i}{\alpha_i y_i} = 0$ and $\alpha_i \geq 0$ for all $\alpha_i$.  
+A common method for solving the QP problem is the Sequential Minimal Optimization (SMO) algorithm, 
+which breaks the problem down into 2-dimensional sub-problems that may be solved analytically, eliminating the need for a numerical optimization algorithm.
+We choose the SMO method for classification in the Weka software.
 
 \subsection*{ANN}
 Artificial neural networks are used to model complex relationships between inputs and outputs or to find patterns in data.
@@ -133,7 +152,9 @@ All the synapses are then used when evaluating the network.
 Optimally one would take one part of the data aside for final evaluation of the network. This part would be used in neither the training nor the testing.
 We wanted to have as large sets of peptide data as possible so we made a cross-validated traineing/testing on the whole dataset and then evaluated on randomly selected testing dataset.
 As a result our network could give slightly too good results on the testing data (as it was used in the training).
+PSSM weight matrices can quite accurately describe a sequence motif like MHC class I. In fact their results are not far of the results from the SVM method.
+The ANN's are though performing best overall.
 
-We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were most readlily available for us.
+We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were most readily available for us.
 
 

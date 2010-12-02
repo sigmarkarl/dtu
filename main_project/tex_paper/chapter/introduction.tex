@@ -1,14 +1,17 @@
 % Introduction
 
-It took 20 years for scientist to understand the  physiological role of MHC molecules in peptide presentation to T lymochytes. 
+It took more than 20 years for scientist to understand the  physiological role of MHC molecules in peptide presentation to T lymphocytes. 
 MHC molecules were initially defined as antigens that stimulate an organism’s immunologic response to transplanted organs and tissues. MHC proteins are found in all higher vertebrates. 
 In humans the MHC molecules are called Human Leukocyte Antigens (HLA).
 
-There are two classes of MHC molecules. Each human cell expresses 6 MHC class-I alleles or one HLA-A, B and C allele from each progenitor and 6-8 class-II alleles.
+There are two main classes of MHC molecules. Class I and Class II. The genes which encodes the various polipeptide forming each two class of MHC are placed in the genome in the same chromosome, 
+but in two different clusters encoding the two different MHC class. 
+Which means that all the genes encoding the class I MHC mlecule (HLA-A, HLA-B and HLA-C) are neighbor in a regoin of the chromosome 6, 
+while the genes encoding the class II MHC molecules (HLA-DP, HLA-DQ and HLA-DR) are close to each other in another region of the same cromosome, not far by the way.
 
 One of the features of MHC is the exceptional allelic diversity. HLA-A and HLA-B have roughly 1000 and 1600 alleles respectively. 
-The most obvious evolutionary reason for this would be the benefit of diversity in defence of pathogens. 
-There is less than 1% chance that a MHC molecule presents a peptide and different hosts sample different peptides from same pathogen. 
+The most obvious evolutionary reason for this would be the benefit of diversity in defense of pathogens. 
+There is less than 1\% chance that a MHC molecule presents a peptide and different hosts sample different peptides from same pathogen. 
 The more diverse MHC molecule the more diversity in presented peptides. As few humans share the same set of HLA alleles, different persons react differently to a pathogen infection. 
 This increases the likelihood that at least some individuals of a population will survive an epidemic.
 
@@ -16,7 +19,7 @@ Class-I molecules are present in every cell but Class-II are found on certain im
 These so called antigen-presenting cells (APCs) ingest microbes, destroy them, and digest them into fragments, which are in turn presented by the MHC molecules on the surface of the cell.
 
 The MHC proteins serve to alert the immune system if foreign material is present inside a cell. 
-They achieve this by displaying fragmented pieces of anigens on the host cell surface. These antigens can be self or non-self. 
+They achieve this by displaying fragmented pieces of antigens on the host cell surface. These antigens can be self or non-self. 
 If a host cell was infected by a bacterium or virus, or wascancerous, it may  display the antigens on its surface.
 
 Cells constantly process endogenous proteins and present them within the context of MHC Class-I. 
@@ -26,12 +29,14 @@ Only certain types of peptides bind to certain types of MHC molecules. Most pept
 Somewhat longer for class-II molecules. The antigenic peptide is located in a cleft existing between the α1 and α2 regions in the heavy chain of the MHC protein.
 
 A CTL based vaccine must include epitopes specific to each HLA allele in a population. Also it must deal with pathogen diversity, e.g. it must consist of around 1000 HLA class I epitopes. 
-Less than 70 HLA alleles have been characterized by binding data. Apart from predicting peptide binders in a protein sequence, it is still  mostly unsolved task of how to select the immunognic proteins in large pathogens.
+Less than 70 HLA alleles have been characterized by binding data. Apart from predicting peptide binders in a protein sequence, it is still  mostly unsolved task of how to select the immunogenic proteins in large pathogens.
 
 The classification of MHC peptide binding is a highly complex task as the mechanics of binding are not fully understood. 
-This makes the problem an ideal task for machine learning methods. We compare binding data classification results from PSSM and the machine learing methods support vector machines (SVM) and artifical neural networks (ANN).
+This makes the problem an ideal task for machine learning methods. We compare binding data classification results from PSSM and the machine learning methods support vector machines (SVM) and artificial neural networks (ANN).
 
-Using amino acid properties such as hydropathy index, side-chain polarity or charge and isoelectric point is not sufficient for classification although they can give clues on which locations on the peptide are more important to succesful binding than others. 
+Using amino acid properties such as hydropathy index, side-chain polarity or charge and isoelectric point is not sufficient for classification although they can give clues on which locations on the peptide are more important to successful binding than others. 
 Structural properties of the MHC molecule are therefore important in governing the binding affinity.
 
-Some efforts are being made using molecular dynamics simulation and crystal structure data with no experimental data for training, although these have not proved succesful.
+Some efforts are being made using molecular dynamics simulation and crystal structure data with no experimental data for training, although these have not proved successful.
+
+Most of the tools used in this investigation are available at CBS. We used the Weka software for the SVM calculations. [reference: http://www.cs.waikato.ac.nz/~ml/weka/]
