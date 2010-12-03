@@ -21,6 +21,8 @@ We also try the smaller set HLA-A3001. It has a total of 669 experimentally veri
 Using the blosum matrix the correlation results are 0.69872, 0.55787, 0.65032, 0.55827 and 0.57044 (see Tab \ref{tab:pssm2}), an average of 0.607
 The corresponding results without using sequence weighting are 0.67775, 0.54853, 0.63731, 0.55026 and 0.56416 (see Tab \ref{tab:pssm1} second half), with average of 0.596
 
+To prevent overfitting in the creation of the PSSM matrix, we split the data into 5 parts. 4/5 are used in creating the matrix and 1/5 in evaluating it.
+
 Using a small dataset the benefit of using a blosum frequency substitution matrix is greater.
 
 \begin{table}[ht]
@@ -96,7 +98,7 @@ Trying the same tests in a smaller dataset, the HLA-A*3001 (Tab \ref{tab:svm1} i
  & Param & Allele & Size & PCC & MAE \\ 
   \hline
  & SVM Sparse & A0201 &   618 & 0.78 & 0.1524 \\ 
- & SVM Pol. 1$^{st}$ degree & A0201 &   618 & 0.756 & 0.1535 \\ 
+ & SVM Pol. 2$^{st}$ degree & A0201 &   618 & 0.756 & 0.1535 \\ 
  & SVM Pol. 1$^{st}$ d + Blosum & A0201 &   618 & 0.7789 & 0.1533 \\ 
  & SVM Pol. 2$^{nd}$ degree & A0201 &   618 & 0.6692 & 0.2047 \\ 
  & SVM Pol. 1$^{st}$ d + z-score & A0201 &   618 & 0.6888 & 0.1802 \\ 
