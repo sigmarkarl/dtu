@@ -170,8 +170,9 @@ To prevent overfitting a cross-validated training is used. 1/5 of the data is pr
 The training is stopped when the test performance is optimal. This is done for each of the 5 sections of the data and the result is 5 different sets of network weights/synapses.
 All the synapses are then used when evaluating the network.
 Optimally one would take one part of the data aside for final evaluation of the network. This part would be used in neither the training nor the testing.
-We wanted to have as large sets of peptide data as possible so we made a cross-validated traineing/testing on the whole dataset and then evaluated on randomly selected testing dataset.
-As a result our network could give slightly too good results on the testing data (as it was used in the training).
+We wanted to have as large sets of peptide data as possible. For the smaller datasets we made a cross-validated training/testing on the whole dataset and then evaluated with testing data using synapses not created with that testing dataset.
+As a result the networks for the smaller datasets are possibly slightly overfit (e.g. evaluation data is also in the the training data).
+For the larger datasets, we also took 1/5 of the data aside for the evaluation and did a 4-fold cross-validation on the remaining 4 parts.
 
 We mostly used peptide binding data from class-I MHC molecules (A and B types) as they were readily available to us.
 To get a better grasp on the the expected quality of the results in the machine learning methods we did evaluate the fraction between binding and non-binding peptides in the dataset for each data {\ref{ftable}}
