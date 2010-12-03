@@ -11,22 +11,31 @@ src/seq2inp SMM/$a/f00$x | grep -v "#" > sp_f00$x
 src/seq2inp -bl SMM/$a/f00$x | grep -v "#" > b_f00$x
 
 src/nnbackprop -nh 10 -tf sp_c00$x -syn 10_sp_syn_dat_$x sp_f00$x > /dev/null
-echo 10_sp_syn_dat_$x >> list_10_sp
+#echo 10_sp_syn_dat_$x >> list_10_sp
 
 src/nnbackprop -nh 10 -tf b_c00$x -syn 10_b_syn_dat_$x b_f00$x > /dev/null
-echo 10_b_syn_dat_$x >> list_10_b
+#echo 10_b_syn_dat_$x >> list_10_b
 
 src/nnbackprop -nh 2 -tf sp_c00$x -syn 2_sp_syn_dat_$x sp_f00$x > /dev/null 
-echo 2_sp_syn_dat_$x >> list_2_sp
+#echo 2_sp_syn_dat_$x >> list_2_sp
 
 src/nnbackprop -nh 2 -tf b_c00$x -syn 2_b_syn_dat_$x b_f00$x > /dev/null
-echo 2_b_syn_dat_$x >> list_2_b
+#echo 2_b_syn_dat_$x >> list_2_b
 
 src/nnbackprop -nh 1 -tf sp_c00$x -syn 1_sp_syn_dat_$x sp_f00$x > /dev/null
-echo 1_sp_syn_dat_$x >> list_1_sp
+#echo 1_sp_syn_dat_$x >> list_1_sp
 
 src/nnbackprop -nh 1 -tf b_c00$x -syn 1_b_syn_dat_$x b_f00$x > /dev/null
-echo 1_b_syn_dat_$x >> list_1_b
+#echo 1_b_syn_dat_$x >> list_1_b
+end
+
+echo "ermerm"
+foreach x (0 1 2 3 4)
+foreach u (0 1 2 3 4)
+if( $x != $u )
+echo 10_sp_syn_dat_$u >> list_10_sp_$x
+endif
+end
 end
 
 foreach x (0 1 2 3 4)
@@ -50,22 +59,22 @@ echo "NN 1HL Blosum\t$a\t$x"
 src/nnforward list_1_b  b_c00$x | grep -v "#" | gawk '{print $1,$3}' | src/xycorr | gawk '{OFS = "\t" ; print $5,$7}'
 
 end
-rm list_10_b
-rm list_2_b
-rm list_1_b
-rm list_10_sp
-rm list_2_sp
-rm list_1_sp
+#rm list_10_b
+#rm list_2_b
+#rm list_1_b
+#rm list_10_sp
+#rm list_2_sp
+#rm list_1_sp
 end
 
-rm sp_c00*
-rm b_c00*
-rm sp_f00*
-rm b_f00*
-rm 10_sp_syn_dat_* 
-rm 10_b_syn_dat_* 
-rm 2_sp_syn_dat_* 
-rm 2_b_syn_dat_* 
-rm 1_sp_syn_dat_* 
-rm 1_b_syn_dat_* 
+#rm sp_c00*
+#rm b_c00*
+#rm sp_f00*
+#rm b_f00*
+#rm 10_sp_syn_dat_* 
+#rm 10_b_syn_dat_* 
+#rm 2_sp_syn_dat_* 
+#rm 2_b_syn_dat_* 
+#rm 1_sp_syn_dat_* 
+#rm 1_b_syn_dat_* 
 
