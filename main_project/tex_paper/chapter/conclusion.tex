@@ -4,8 +4,8 @@ Also a great difference in the number of binding vs non-binding peptides general
 The trend for the larger datasets was the 10 hidden-layer non-blosum matrix encoded data was performing best. 
 This could demonstrate that the large datasets are covering more the space of binding/non-binding data and training without using blosum matrix encoding is more accurate.
 It is a little difficult to see from the graphs but for the small datasets, using the blosum matrix increased the predictive performance.
-For some peptides, BLOSUM encoding with a four
-neuron hidden layer can best predict the
-peptide/MHC binding, for other peptides a sparse
-encoded network with zero hidden neurons performs
-the best.
+The number of hidden neurons also affected the performance. We tried 1, 2 and 10 hidden neurons, the 10 performing best in most cases.
+
+SVM had worse Pearsons correlation coefficient in all cases compared to the ANN's. Also using a polynomial kernel function of $1_{st}$ degree was better than of $2_{nd}$ degree.
+
+The PSSM method was straight forward and performed remarkably well, alsmost the same as SVM for most cases.
