@@ -8,16 +8,16 @@ for arg in sys.argv[1:len(sys.argv)]:
 		os.system( 'src/seq2inp '+aa+' sp_c00' + xstr )
 		os.system( 'src/seq2inp -bl '+aa+' b_c00' + xstr )
 
-#		bb = 'SMM/' + arg + '/c00' + xstr + ' | grep -v "#" >'
-#		os.system( 'src/seq2inp '+bb+' sp_f00' + xstr )
-#		os.system( 'src/seq2inp -bl '+bb+' b_f00' + xstr )
+		bb = 'SMM/' + arg + '/c00' + xstr + ' | grep -v "#" >'
+		os.system( 'src/seq2inp '+bb+' sp_f00' + xstr )
+		os.system( 'src/seq2inp -bl '+bb+' b_f00' + xstr )
 
-		for y in range(x+1,5):
-			ystr = str(y)
-			for m in range(0,5):
-				if m != x and m != y:
-					os.system( 'src/seq2inp '+aa+'> sp_f00' + xstr + '_' + ystr )
-					os.system( 'src/seq2inp -bl '+aa+'> b_f00' + xstr + '_' + ystr )
+#		for y in range(x+1,5):
+#			ystr = str(y)
+#			for m in range(0,5):
+#				if m != x and m != y:
+#					os.system( 'src/seq2inp '+aa+'> sp_f00' + xstr + '_' + ystr )
+#					os.system( 'src/seq2inp -bl '+aa+'> b_f00' + xstr + '_' + ystr )
 
 	for x in range(0,5):
 		xstr = str(x)
