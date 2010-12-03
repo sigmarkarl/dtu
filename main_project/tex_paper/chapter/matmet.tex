@@ -213,7 +213,7 @@ Then the weights are varied for example with the gradient descent method
 \end{equation}
 
 \subsection*{Overfitting}
-Overfitting occurs when a statistical model describes random error or noise instead of the underlying relationship.
+Overfitting\cite{wiki:overfit} occurs when a statistical model describes random error or noise instead of the underlying relationship.
 This can happen when a model is excessively complex, such as having too many parameters relative to the number of observations.
 To prevent overfitting a cross-validated training is used. 1/5 of the data is used for testing and 4/5 for training. 
 The training is stopped when the test performance is optimal. This is done for each of the 5 sections of the data and the result is 5 different sets of network weights/synapses.
