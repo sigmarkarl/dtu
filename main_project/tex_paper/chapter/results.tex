@@ -12,19 +12,16 @@ All entries from the training data set with binding affinity over 0.426 are feed
 This value means that the peptide successfully binds to the MHC molecule. All peptides should be of same length.
 
 Experimental data from the HLA-A*0201 allele is randomly split up in training and evaluation sections, the evaluation section being 1/5 of the training data size (618 peptides vs 2471 peptides in the training set).
-For 5 different samplings we get a Pearson correlation coefficients of {0.75323,, 0.78415, 0.78009, 0.78896, 0.76480}, the average being 0.774.
-
-Using identity matrix instead of the blosum substitiution matrix gives similar values 0.75107, 0.77989, 0.74344 and 0.78552, 0.76072 (see Tab \ref{tab:pssm1}) with average of 0.764.
-The blosum matrix is not making a difference here as substitution frequencies should not affect much binding affinity of a peptide in a MHC molecule.
-
+For 5 different samplings we get a Pearson correlation coefficients of {0.75323,, 0.78415, 0.78009, 0.78896, 0.76480}, the average being 0.774 (see Tab \ref{tab:pssm1} first column).
 We also try the smaller set HLA-A3001. It has a total of 669 experimentally verified peptides.
-Using the blosum matrix the correlation results are 0.69872, 0.55787, 0.65032, 0.55827 and 0.57044 (see Tab \ref{tab:pssm2}), an average of 0.607
-The corresponding results without using sequence weighting are 0.67775, 0.54853, 0.63731, 0.55026 and 0.56416 (see Tab \ref{tab:pssm1} second half), with average of 0.596
+Using the blosum matrix the correlation results are 0.69872, 0.55787, 0.65032, 0.55827 and 0.57044 (see Tab \ref{tab:pssm1} Second Column), an average of 0.607
+The corresponding results without using sequence weighting are 0.67775, 0.54853, 0.63731, 0.55026 and 0.56416, with average of 0.596.
+From Figure \ref{fig:pssm1} it interesting the case of HLA-B4001, in which even if there are a considerable number of peptides, the algorithm have poor results (Tab \ref{tab:pssm1} third column). Looking at Table \ref{ftable} is it clear that the little percentage of binding peptides is the cause of so poor performance. 
 
 To prevent overfitting in the creation of the PSSM matrix, we split the data into 5 parts. 4/5 are used in creating the matrix and 1/5 in evaluating it.
 
 Using a small dataset the benefit of using a blosum frequency substitution matrix is greater.
-\begin{table*}\footnotesize
+\begin{table*}\scriptsize
 
 \begin{center}
 
@@ -107,7 +104,7 @@ The SMOreg classifier (Table \ref{tab:svm1} second line) with polynomial kernel 
 Using the blosum matrix with kernel degree of 1 we have almost the same results as a sparse encoding (Table \ref{tab:svm1} the 3$^{rd}$ line). Polynomial kernel of degree 2 has considerably worse performance for the blosum encoded data (see Tab \ref{tab:svm1} line 4 ). Also the z-score encoded data with polynomial kernel of degree 1 (Tab \ref{tab:svm1} line 5) haven't better results.
 Trying the same tests in a smaller dataset, the HLA-A*3001 (Tab \ref{tab:svm1} in the 6$^{th}$ line), we nitice that a polynomial kernel of degree 2 slightly rises the prediction performance (Tab \ref{tab:svm1} in the 7$^{th}$ line).
 
-\begin{table}[ht]
+\begin{table}[ht]\scriptsize
 \begin{center}
 \begin{tabular}{rllrrr}
   \hline
@@ -123,16 +120,8 @@ Trying the same tests in a smaller dataset, the HLA-A*3001 (Tab \ref{tab:svm1} i
    \hline
 \end{tabular}
 \end{center}
-\caption{PSSM table A0201}\label{tab:svm1}
+\caption{Result table for SVM with various kernel and various encoding schema. Thethree allelese A0201, A3001 and B4001 were cosidered.}\label{tab:svm1}
 \end{table}
-
-
-\subsection*{ANN}
-
-
-
-The \textit{nnbackprop} and the \textit{nnforward} algorithms from the course were used in order to estimate the MHC binding affinity.
-In the Fig \ref{fig:ann1}, are resumed the results for all the 35 alleles ordered by number of peptides in each sample.
 
 \begin{table*}[h]\scriptsize
 \begin{center}
@@ -267,9 +256,20 @@ In the Fig \ref{fig:ann1}, are resumed the results for all the 35 alleles ordere
 \end{tabular}
 \end{center}
 
-\caption{Artificial Neuronal Network for A0201}\label{tab:nn1}
+\caption{Summary of the Artificial Neural Network algorithm results for three alleles: A0201, A3001 and B4001. Refearing to the data in Tab \ref{ftable} we can see that even if B4001 have a grat number of peptides in the dataset, only the 4\% is binding. By the way the performance of the ANN algorithm it is still better compared to the other algorithms in this article.}\label{tab:nn1}
 
 \end{table*}
+
+\subsection*{ANN}
+
+
+
+The \textit{nnbackprop} and the \textit{nnforward} algorithms from the course were used in order to estimate the MHC binding affinity.
+In the figure \ref{fig:ann1} are summarized the results for all the 35 alleles, ordered by the number of peptides in each sample.
+The back propagation algorithm was tested with 10, 2 and 1 hidden layers, on data with and without Blosum encoding. The total combination of the given options amount then to 6 different configuration for each allele.
+In table \ref{tab:nn1} are listed the results for each separate test for the three alleles A0201, A3001 and B4001.
+
+
 
 PSSM weight matrices can quite accurately describe a sequence motif like MHC class I. In fact their results are not far of the results from the SVM method.
 The ANN's are though performing best overall.
