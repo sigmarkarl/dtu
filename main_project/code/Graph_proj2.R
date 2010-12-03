@@ -23,7 +23,7 @@ plot_algo <- function (tab=NULL,exp=FALSE,approx=FALSE,xbyname=FALSE)
 		min_size = 0
 		max_size = length(unique(tab$Allele))
 	}	
-	plot(x=c(min_size,max_size),y=c(min_pcc,max_pcc),type="n",xlab="Size",ylab="PPC")
+	plot(x=c(min_size,max_size),y=c(0.4,max_pcc),type="n",xlab="Size",ylab="PPC")
 	legend(x="bottomright",legend=tab_p,lty=c(1:tab_lp),col=c(1:tab_lp),bty="n")
 	
 	for (i in 1:tab_lp) {
