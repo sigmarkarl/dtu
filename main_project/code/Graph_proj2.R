@@ -2,9 +2,10 @@ PSSM <- read.table("tab_pssm",header=F,sep="\t",as.is=T)
 names(PSSM) <- c("Param","Allele","Sample","Size","PCC")
 
 NN <- read.table("tab_nn_new",header=F,sep="\t",as.is=T)
+NN = (na.exclude(NN))
 names(NN) <- c("Param","Allele","Sample","Size","PCC")
 
-plot_algo <- function (tab=NULL,exp=FALSE,approx=FALSE) 
+plot_algo <- function (tab=NULL,exp=FALSE,approx=FALSE,xbyname=FALSE) 
 {
 
 	if (exp == TRUE) {
@@ -15,25 +16,33 @@ plot_algo <- function (tab=NULL,exp=FALSE,approx=FALSE)
 	max_pcc <- max(tab$PCC)
 	min_size <- min(tab$Size)
 	max_size <- max(tab$Size)
-
+	tab_s <- unique(tab$Sample)
 	tab_p <- unique(tab$Param)
 	tab_lp <- length(tab_p)
-	
+	if (xbyname==TRUE) {
+		min_size = 0
+		max_size = length(unique(tab$Allele))
+	}	
 	plot(x=c(min_size,max_size),y=c(min_pcc,max_pcc),type="n",xlab="Size",ylab="PPC")
-	legend(x="bottomright",legend=tab_p,lty=c(1:tab_lp),col=c(1:tab_lp),bty="n")
+	legend(x="bottomright",legend=tab_p,pch=c(1:tab_lp),col=c(1:tab_lp),bty="n")
 	
 	for (i in 1:tab_lp) {
 
 		tab_part <- tab[tab$"Param"== tab_p[i],]
 		tab_part <- tab_part[order(tab_part$Size),]
-		
-		if (approx==TRUE) {
-			library(akima) ## Used to interpolate the points...(can be better)
-			tab_lines = aspline(x=tab_part$Size,y=tab_part$PCC)
-		} else {
-			tab_lines = cbind(x=tab_part$Size,y=tab_part$PCC)
+		xvals = tab_part$Size
+		if (xbyname==TRUE) {
+			xvals = c(1:max_size)
 		}
-		lines(tab_lines,col=i,lty=i)
+#		if (approx==TRUE) {
+#			library(akima) ## Used to interpolate the points...(can be better)
+#			tab_lines = aspline(x=xvals,y=tab_part$PCC)
+#		} else {
+		for (s in 1:length(tab_s)) {
+			tab_lines = cbind(x=xvals,y=tab_part$PCC[tab_part$Sample==tab_s[s]])
+#		}
+			points(tab_lines,col=i,pch=i)
+		}
 	} 
 }
 
