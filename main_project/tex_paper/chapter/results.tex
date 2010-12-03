@@ -1,6 +1,15 @@
 % Results
 
 
+
+Although quite successful the results of the machine learning methods do not give one much insight into the 'mechanical' workings of the MHC binding.
+PSSM weight matrices can also quite accurately describe a sequence motif like MHC class I. In fact their results are not far of the results from the SVM method. The ANN's are though performing best overall.
+As a pattern recognition tool, ANN with peptide binding data could give some clues for further study on the crystal structury of the MHC proteins.
+As stated in the class exercise slides, the ANN's seem to have had a bad reputation. 
+It is our guess that the good performance of ANN's in this case is because they are well suited to solve the MHC peptide binding problem. 
+Also the correct use and training of the ANN's in terms of overfitting is an helping factor.
+By the way in this section we will list the results obtained testing the PSSM, SVM and ANN algorithms on 35 HLA alleles.
+
 \subsection*{PSSM}
 
 
@@ -13,10 +22,10 @@ This value means that the peptide successfully binds to the MHC molecule. All pe
 
 Experimental data from the HLA-A*0201 allele is randomly split up in training and evaluation sections, the evaluation section being 1/5 of the training data size (618 peptides vs 2471 peptides in the training set).
 For 5 different samplings we get a Pearson correlation coefficients of {0.75323,, 0.78415, 0.78009, 0.78896, 0.76480}, the average being 0.774 (see Tab \ref{tab:pssm1} first column).
-We also try the smaller set HLA-A3001. It has a total of 669 experimentally verified peptides.
+We also try the smaller set HLA-A*3001. It has a total of 669 experimentally verified peptides.
 Using the blosum matrix the correlation results are 0.69872, 0.55787, 0.65032, 0.55827 and 0.57044 (see Tab \ref{tab:pssm1} Second Column), an average of 0.607
 The corresponding results without using sequence weighting are 0.67775, 0.54853, 0.63731, 0.55026 and 0.56416, with average of 0.596.
-From Figure \ref{fig:pssm1} it interesting the case of HLA-B4001, in which even if there are a considerable number of peptides, the algorithm have poor results (Tab \ref{tab:pssm1} third column). Looking at Table \ref{ftable} is it clear that the little percentage of binding peptides is the cause of so poor performance. 
+From Figure \ref{fig:pssm1} it interesting the case of HLA-B*4001, in which even if there are a considerable number of peptides, the algorithm have poor results (Tab \ref{tab:pssm1} third column). Looking at Table \ref{ftable} is it clear that the little percentage of binding peptides is the cause of so poor performance. 
 
 To prevent overfitting in the creation of the PSSM matrix, we split the data into 5 parts. 4/5 are used in creating the matrix and 1/5 in evaluating it.
 
@@ -123,7 +132,7 @@ Trying the same tests in a smaller dataset, the HLA-A*3001 (Tab \ref{tab:svm1} i
 \caption{Result table for SVM with various kernel and various encoding schema. Thethree allelese A0201, A3001 and B4001 were cosidered.}\label{tab:svm1}
 \end{table}
 
-\begin{table*}[h]\scriptsize
+\begin{table*}[hb]\scriptsize
 \begin{center}
 \begin{tabular}{rrr}
 
@@ -271,6 +280,5 @@ In table \ref{tab:nn1} are listed the results for each separate test for the thr
 
 
 
-PSSM weight matrices can quite accurately describe a sequence motif like MHC class I. In fact their results are not far of the results from the SVM method.
-The ANN's are though performing best overall.
+
 
