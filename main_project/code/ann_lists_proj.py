@@ -46,3 +46,5 @@ for arg in sys.argv[1:len(sys.argv)]:
 			print( 'NN '+nhstr+'HL Blosum\t'+arg+'\t'+xstr )
 			run = 'src/nnforward list_'+nhstr+'_b'+xstr+' b_c00'+xstr+' | grep -v "#" | gawk \'{print $1,$3}\' | src/xycorr | gawk \'{OFS = "\t" ; print $5,$7}\''
 			os.system( run )
+
+os.system( "rm list*" )
