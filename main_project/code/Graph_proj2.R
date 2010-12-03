@@ -1,4 +1,4 @@
-PSSM <- read.table("tab_pssm",header=F,sep="\t",as.is=T)
+PSSM <- read.table("~/dtu/main_project/tabs/tab_pssm",header=F,sep="\t",as.is=T)
 names(PSSM) <- c("Param","Allele","Sample","Size","PCC")
 
 NN <- read.table("~/dtu/main_project/tabs/tab_nn",header=F,sep="\t",as.is=T)
