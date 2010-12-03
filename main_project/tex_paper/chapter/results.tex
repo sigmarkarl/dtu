@@ -12,21 +12,21 @@ All entries from the training data set with binding affinity over 0.426 are feed
 This value means that the peptide successfully binds to the MHC molecule. All peptides should be of same length.
 
 Experimental data from the HLA-A*0201 allele is randomly split up in training and evaluation sections, the evaluation section being 1/5 of the training data size (618 peptides vs 2471 peptides in the training set).
-For 5 different samplings we get a Pearson correlation coefficients of {0.75323,, 0.78415, 0.78009, 0.78896, 0.76480}, the average being 0.774.
-
-Using identity matrix instead of the blosum substitiution matrix gives similar values 0.75107, 0.77989, 0.74344 and 0.78552, 0.76072 (see Tab \ref{tab:pssm1}) with average of 0.764.
-The blosum matrix is not making a difference here as substitution frequencies should not affect much binding affinity of a peptide in a MHC molecule.
-
+For 5 different samplings we get a Pearson correlation coefficients of {0.75323,, 0.78415, 0.78009, 0.78896, 0.76480}, the average being 0.774 (see Tab \ref{tab:pssm1} first column).
 We also try the smaller set HLA-A3001. It has a total of 669 experimentally verified peptides.
-Using the blosum matrix the correlation results are 0.69872, 0.55787, 0.65032, 0.55827 and 0.57044 (see Tab \ref{tab:pssm2}), an average of 0.607
-The corresponding results without using sequence weighting are 0.67775, 0.54853, 0.63731, 0.55026 and 0.56416 (see Tab \ref{tab:pssm1} second half), with average of 0.596
+Using the blosum matrix the correlation results are 0.69872, 0.55787, 0.65032, 0.55827 and 0.57044 (see Tab \ref{tab:pssm1} Second Column), an average of 0.607
+The corresponding results without using sequence weighting are 0.67775, 0.54853, 0.63731, 0.55026 and 0.56416, with average of 0.596.
+From Figure \ref{fig:pssm1} it interesting the case of HLA-B4001, in which even if there are a considerable number of peptides, the algorithm have poor results (Tab \ref{tab:pssm1} third column). Looking at Table \ref{ftable} is it clear that the little percentage of binding peptides is the cause of so poor performance. 
 
 To prevent overfitting in the creation of the PSSM matrix, we split the data into 5 parts. 4/5 are used in creating the matrix and 1/5 in evaluating it.
 
 Using a small dataset the benefit of using a blosum frequency substitution matrix is greater.
+\begin{table*}\scriptsize
 
-\begin{table}[ht]
 \begin{center}
+
+\begin{tabular}{rrr}
+
 \begin{tabular}{rllrrr}
   \hline
  & Param & Allele & Sample & Size & PCC \\ 
@@ -44,12 +44,7 @@ Using a small dataset the benefit of using a blosum frequency substitution matri
  & PSSM w SW & A0201 &   4 & 617 & 0.76 \\ 
    \hline
 \end{tabular}
-\end{center}
-\caption{PSSM table A0201}\label{tab:pssm1}
-\end{table}
 
-\begin{table}[ht]
-\begin{center}
 \begin{tabular}{rllrrr}
   \hline
  & Param & Allele & Sample & Size & PCC \\ 
@@ -67,11 +62,29 @@ Using a small dataset the benefit of using a blosum frequency substitution matri
    & PSSM SW & A3001 &   4 & 133 & 0.57 \\ 
    \hline
 \end{tabular}
+
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+   & PSSM & B4001 &   0 & 216 & 0.19 \\ 
+   & PSSM & B4001 &   1 & 216 & 0.24 \\ 
+   & PSSM & B4001 &   2 & 216 & 0.19 \\ 
+   & PSSM & B4001 &   3 & 215 & 0.38 \\ 
+   & PSSM & B4001 &   4 & 215 & 0.29 \\ 
+\hline
+   & PSSM SW & B4001 &   0 & 216 & 0.23 \\ 
+   & PSSM SW & B4001 &   1 & 216 & 0.29 \\ 
+   & PSSM SW & B4001 &   2 & 216 & 0.24 \\ 
+   & PSSM SW & B4001 &   3 & 215 & 0.41 \\ 
+   & PSSM SW & B4001 &   4 & 215 & 0.32 \\ 
+   \hline
+\end{tabular}
+
+\end{tabular}
 \end{center}
-\caption{PSSM table A3001}\label{tab:pssm2}
-\end{table}
-
-
+\caption{Summary of the PSSM results for three most significant alleles, A0201, A3001 and B4001. Looking also at the data in Tab \ref{ftable} we can see that even if B4001 have a grat number of peptides in the dataset, only the 4\% is binding. This is translate in the results with a really bad estimation of the binding}\label{tab:pssm1}
+\end{table*}
 
 \subsection*{SVM}
 In this investigation version 3.6.3 of the java based Weka sofware is used for SVM calculations.
@@ -91,7 +104,7 @@ The SMOreg classifier (Table \ref{tab:svm1} second line) with polynomial kernel 
 Using the blosum matrix with kernel degree of 1 we have almost the same results as a sparse encoding (Table \ref{tab:svm1} the 3$^{rd}$ line). Polynomial kernel of degree 2 has considerably worse performance for the blosum encoded data (see Tab \ref{tab:svm1} line 4 ). Also the z-score encoded data with polynomial kernel of degree 1 (Tab \ref{tab:svm1} line 5) haven't better results.
 Trying the same tests in a smaller dataset, the HLA-A*3001 (Tab \ref{tab:svm1} in the 6$^{th}$ line), we nitice that a polynomial kernel of degree 2 slightly rises the prediction performance (Tab \ref{tab:svm1} in the 7$^{th}$ line).
 
-\begin{table}[ht]
+\begin{table}[ht]\scriptsize
 \begin{center}
 \begin{tabular}{rllrrr}
   \hline
@@ -107,19 +120,13 @@ Trying the same tests in a smaller dataset, the HLA-A*3001 (Tab \ref{tab:svm1} i
    \hline
 \end{tabular}
 \end{center}
-\caption{PSSM table A0201}\label{tab:svm1}
+\caption{Result table for SVM with various kernel and various encoding schema. Thethree allelese A0201, A3001 and B4001 were cosidered.}\label{tab:svm1}
 \end{table}
 
-
-\subsection*{ANN}
-
-
-
-The \textit{nnbackprop} and the \textit{nnforward} algorithms from the course were used in order to estimate the MHC binding affinity.
-In the Fig \ref{fig:ann1}, are resumed the results for all the 35 alleles ordered by number of peptides in each sample.
-
-\begin{table}[ht]
+\begin{table*}[h]\scriptsize
 \begin{center}
+\begin{tabular}{rrr}
+
 \begin{tabular}{rllrrr}
   \hline
  & Param & Allele & Sample & Size & PCC \\ 
@@ -161,9 +168,108 @@ In the Fig \ref{fig:ann1}, are resumed the results for all the 35 alleles ordere
    & NN 2HL Blosum & A0201 &   4 & 617 & 0.87 \\ 
    \hline
 \end{tabular}
-\caption{Artificial Neuronal Network for A0201}\label{tab:nn1}
+
+
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+   & NN 10HL & A3001 &   0 & 134 & 0.81 \\ 
+   & NN 10HL & A3001 &   1 & 134 & 0.66 \\ 
+   & NN 10HL & A3001 &   2 & 134 & 0.80 \\ 
+   & NN 10HL & A3001 &   3 & 134 & 0.67 \\ 
+   & NN 10HL & A3001 &   4 & 133 & 0.71 \\ 
+\hline
+   & NN 10HL Blosum & A3001 &   0 & 134 & 0.82 \\ 
+   & NN 10HL Blosum & A3001 &   1 & 134 & 0.65 \\ 
+   & NN 10HL Blosum & A3001 &   2 & 134 & 0.78 \\ 
+   & NN 10HL Blosum & A3001 &   3 & 134 & 0.68 \\ 
+   & NN 10HL Blosum & A3001 &   4 & 133 & 0.62 \\ 
+\hline
+   & NN 1HL & A3001 &   0 & 134 & 0.83 \\ 
+   & NN 1HL & A3001 &   1 & 134 & 0.66 \\ 
+   & NN 1HL & A3001 &   2 & 134 & 0.81 \\ 
+   & NN 1HL & A3001 &   3 & 134 & 0.67 \\ 
+   & NN 1HL & A3001 &   4 & 133 & 0.72 \\ 
+\hline
+   & NN 1HL Blosum & A3001 &   0 & 134 & 0.84 \\ 
+   & NN 1HL Blosum & A3001 &   1 & 134 & 0.66 \\ 
+   & NN 1HL Blosum & A3001 &   2 & 134 & 0.80 \\ 
+   & NN 1HL Blosum & A3001 &   3 & 134 & 0.67 \\ 
+   & NN 1HL Blosum & A3001 &   4 & 133 & 0.59 \\ 
+\hline
+   & NN 2HL & A3001 &   0 & 134 & 0.82 \\ 
+   & NN 2HL & A3001 &   1 & 134 & 0.66 \\ 
+   & NN 2HL & A3001 &   2 & 134 & 0.81 \\ 
+   & NN 2HL & A3001 &   3 & 134 & 0.67 \\ 
+   & NN 2HL & A3001 &   4 & 133 & 0.71 \\ 
+\hline
+   & NN 2HL Blosum & A3001 &   0 & 134 & 0.84 \\ 
+   & NN 2HL Blosum & A3001 &   1 & 134 & 0.66 \\ 
+   & NN 2HL Blosum & A3001 &   2 & 134 & 0.80 \\ 
+   & NN 2HL Blosum & A3001 &   3 & 134 & 0.68 \\ 
+   & NN 2HL Blosum & A3001 &   4 & 133 & 0.60 \\ 
+   \hline
+\end{tabular}
+
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+   & NN 10HL & B4001 &   0 & 216 & 0.58 \\ 
+   & NN 10HL & B4001 &   1 & 216 & 0.65 \\ 
+   & NN 10HL & B4001 &   2 & 216 & 0.60 \\ 
+   & NN 10HL & B4001 &   3 & 215 & 0.59 \\ 
+   & NN 10HL & B4001 &   4 & 215 & 0.65 \\ 
+\hline
+   & NN 10HL Blosum & B4001 &   0 & 216 & 0.61 \\ 
+   & NN 10HL Blosum & B4001 &   1 & 216 & 0.62 \\ 
+   & NN 10HL Blosum & B4001 &   2 & 216 & 0.56 \\ 
+   & NN 10HL Blosum & B4001 &   3 & 215 & 0.60 \\ 
+   & NN 10HL Blosum & B4001 &   4 & 215 & 0.60 \\ 
+\hline
+   & NN 1HL & B4001 &   0 & 216 & 0.59 \\ 
+   & NN 1HL & B4001 &   1 & 216 & 0.67 \\ 
+   & NN 1HL & B4001 &   2 & 216 & 0.64 \\ 
+   & NN 1HL & B4001 &   3 & 215 & 0.63 \\ 
+   & NN 1HL & B4001 &   4 & 215 & 0.68 \\ 
+\hline
+   & NN 1HL Blosum & B4001 &   0 & 216 & 0.64 \\ 
+   & NN 1HL Blosum & B4001 &   1 & 216 & 0.59 \\ 
+   & NN 1HL Blosum & B4001 &   2 & 216 & 0.55 \\ 
+   & NN 1HL Blosum & B4001 &   3 & 215 & 0.63 \\ 
+   & NN 1HL Blosum & B4001 &   4 & 215 & 0.58 \\ 
+\hline
+   & NN 2HL & B4001 &   0 & 216 & 0.60 \\ 
+   & NN 2HL & B4001 &   1 & 216 & 0.66 \\ 
+   & NN 2HL & B4001 &   2 & 216 & 0.63 \\ 
+   & NN 2HL & B4001 &   3 & 215 & 0.62 \\ 
+   & NN 2HL & B4001 &   4 & 215 & 0.67 \\ 
+\hline
+   & NN 2HL Blosum & B4001 &   0 & 216 & 0.64 \\ 
+   & NN 2HL Blosum & B4001 &   1 & 216 & 0.60 \\ 
+   & NN 2HL Blosum & B4001 &   2 & 216 & 0.56 \\ 
+   & NN 2HL Blosum & B4001 &   3 & 215 & 0.63 \\ 
+   & NN 2HL Blosum & B4001 &   4 & 215 & 0.59 \\ 
+   \hline
+\end{tabular}
+\end{tabular}
 \end{center}
-\end{table}
+
+\caption{Summary of the Artificial Neural Network algorithm results for three alleles: A0201, A3001 and B4001. Refearing to the data in Tab \ref{ftable} we can see that even if B4001 have a grat number of peptides in the dataset, only the 4\% is binding. By the way the performance of the ANN algorithm it is still better compared to the other algorithms in this article.}\label{tab:nn1}
+
+\end{table*}
+
+\subsection*{ANN}
+
+
+
+The \textit{nnbackprop} and the \textit{nnforward} algorithms from the course were used in order to estimate the MHC binding affinity.
+In the figure \ref{fig:ann1} are summarized the results for all the 35 alleles, ordered by the number of peptides in each sample.
+The back propagation algorithm was tested with 10, 2 and 1 hidden layers, on data with and without Blosum encoding. The total combination of the given options amount then to 6 different configuration for each allele.
+In table \ref{tab:nn1} are listed the results for each separate test for the three alleles A0201, A3001 and B4001.
+
+
 
 PSSM weight matrices can quite accurately describe a sequence motif like MHC class I. In fact their results are not far of the results from the SVM method.
 The ANN's are though performing best overall.
