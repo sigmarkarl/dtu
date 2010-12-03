@@ -1,7 +1,7 @@
-PSSM <- read.table("~/dtu/main_project/tabs/tab_pssm",header=F,sep="\t",as.is=T)
+PSSM <- read.table("tab_pssm",header=F,sep="\t",as.is=T)
 names(PSSM) <- c("Param","Allele","Sample","Size","PCC")
 
-NN <- read.table("~/dtu/main_project/tabs/tab_nn",header=F,sep="\t",as.is=T)
+NN <- read.table("tab_nn_new",header=F,sep="\t",as.is=T)
 names(NN) <- c("Param","Allele","Sample","Size","PCC")
 
 plot_algo <- function (tab=NULL,exp=FALSE,approx=FALSE) 
@@ -52,7 +52,6 @@ boxplot_algo <- function (tab=NULL)
 
 		tab_part <- tab[tab$"Param"== tab_p[i],]
 		tab_part <- tab_part[order(tab_part$Size),]
-	
 		bxpobj <- as.numeric(tab_part$PCC[tab_part$Sample==samp[1]])
 		if (length(samp) > 1) {
 			barpos <- c(1:tab_lp)
@@ -66,7 +65,8 @@ boxplot_algo <- function (tab=NULL)
 				bxpobj <- cbind(bxpobj,as.numeric(tab_part$PCC[tab_part$Sample==samp[l]]))
 			}
 			if (i == 1) {
-				boxplot(t(bxpobj),boxwex = bwex,at = 1:nrow(bxpobj) + barpos[i],col=i, names = alleles[,"Allele"],outline=F,ylab="PCC")
+				names_x = unique(tab_part$Allele)	
+				boxplot(t(bxpobj),boxwex = bwex,at = 1:nrow(bxpobj) + barpos[i],col=i, names = names_x,outline=F,ylab="PCC")
 			
 
 ## to reduce the names size on x is possible to add the parameter to boxplot like : cex.axis=0.2
