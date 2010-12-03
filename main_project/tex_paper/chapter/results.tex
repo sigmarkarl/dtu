@@ -280,7 +280,9 @@ The \textit{nnbackprop} and the \textit{nnforward} algorithms from the course we
 In the figure \ref{fig:ann1} and figure \ref{fig:ann2} are summarized the results for all the 35 alleles, ordered by the number of peptides in each sample.
 The back propagation algorithm was tested with 10, 2 and 1 hidden layers, on data with and without Blosum encoding. The total combination of the given options amount then to 6 different configuration for each allele.
 In table \ref{tab:nn1} are listed the results for each separate test for the three alleles A0201, A3001 and B4001.
-
+Regardless the relative option of the algorithm ANN is working much better then PSSM and SVM. We can note in figure \ref{fig:ann2} that in few cases the use of Blosum encoding is stand out respect the sparse encoding. But generally the two encodings performs equally, especially with a larger nuber of peptide bindings data.
+Another interesting fact is that in table \ref{tab:nn1} we can see that artificial neural network somehow is less effected by the low percentage of binding peptides in the dataset (Tab \ref{tab:nn1}, HLA-B*4001 third column).
+As general observation is apparent that with the increasing of the size of the sample, the variation in the results narrows. 
 
 
 
