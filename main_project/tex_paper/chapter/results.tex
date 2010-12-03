@@ -110,17 +110,20 @@ Trying the same tests in a smaller dataset, the HLA-A*3001 (Tab \ref{tab:svm1} i
   \hline
  & Param & Allele & Size & PCC & MAE \\ 
   \hline
- & SVM Sparse & A0201 &   618 & 0.78 & 0.1524 \\ 
+ & SVM Pol. 1$^{st}$ d + Sparse & A0201 &   618 & 0.78 & 0.1524 \\ 
  & SVM Pol. 2$^{st}$ degree & A0201 &   618 & 0.756 & 0.1535 \\ 
  & SVM Pol. 1$^{st}$ d + Blosum & A0201 &   618 & 0.7789 & 0.1533 \\ 
  & SVM Pol. 2$^{nd}$ degree & A0201 &   618 & 0.6692 & 0.2047 \\ 
  & SVM Pol. 1$^{st}$ d + z-score & A0201 &   618 & 0.6888 & 0.1802 \\ 
  & SVM Sparse & A3001 &   134 & 0.7412 & 0.1008 \\ 
- & SVM Pol. 2$^{nd}$ degree & A3001 &   134 & 0.7671 & 0.0945 \\ 
+ & SVM Pol. 1$^{nd}$ d + Blosum & A3001 &   134 & 0.7671 & 0.0945 \\ 
+ & SVM Pol. 1$^{nd}$ d + Sparse & B4001 &   216 & 0.4876 & 0.0373 \\ 
+ & SVM Pol. 1$^{nd}$ d + Blosum & B4001 &   216 & 0.4456 & 0.0387 \\ 
+ & SVM Pol. 1$^{nd}$ d + Zscore & B4001 &   216 & 0.2397 & 0.0400 \\ 
    \hline
 \end{tabular}
 \end{center}
-\caption{Result table for SVM with various kernel and various encoding schema. Thethree allelese A0201, A3001 and B4001 were cosidered.}\label{tab:svm1}
+\caption{Result table for SVM with various kernel and various encoding schema. The three alleles A0201, A3001 and B4001 were cosidered.}\label{tab:svm1}
 \end{table}
 
 \begin{table*}[h]\scriptsize
