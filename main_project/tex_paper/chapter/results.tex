@@ -1,6 +1,8 @@
 % Results
 
+
 \subsection*{PSSM}
+
 
 C programs from the course were used to estimate MHC binding affinity with PSSM. 
 Here a threshold must be used to limit included peptides to the ones that actually bind to the MHC molecule. 
@@ -67,12 +69,7 @@ Using a small dataset the benefit of using a blosum frequency substitution matri
 \caption{PSSM table A3001}\label{tab:pssm2}
 \end{table}
 
-\begin{figure*}
-\begin{center}
-\includegraphics[width=12cm]{fig/pssm1.pdf}
-\caption{PSSM Results}\label{fig:pssm1}
-\end{center}
-\end{figure*}
+
 
 \subsection*{SVM}
 In this investigation version 3.6.3 of the java based Weka sofware is used for SVM calculations.
@@ -113,14 +110,12 @@ Trying the same tests in a smaller dataset, the HLA-A*3001 (Tab \ref{tab:svm1} i
 
 
 \subsection*{ANN}
+
+
+
 The \textit{nnbackprop} and the \textit{nnforward} algorithms from the course were used in order to estimate the MHC binding affinity.
 In the Fig \ref{fig:ann1}, are resumed the results for all the 35 alleles ordered by number of peptides in each sample.
-\begin{figure*}
-\begin{center}
-\includegraphics[width=12cm]{fig/ann1.pdf}
-\caption{Artificial Neuronal Network Results}\label{fig:ann1}
-\end{center}
-\end{figure*}
+
 
 \begin{table}[ht]
 \begin{center}
