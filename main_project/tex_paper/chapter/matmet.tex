@@ -45,7 +45,7 @@ In all cases the Pearson's correlation coefficient was used to evaluate and comp
  & B0801	&	20	&	708	&	3\%	\\
 \hline
 \end{tabular}
-\caption{Content of bindigs and not bindigs peptides for each allele dataset. The samples are in decreasing order of the percentage of binding peptides.}\label{ftable}
+\caption{Content of bindings and not bindings peptides for each allele dataset. The samples are in decreasing order of the percentage of binding peptides.}\label{ftable}
 \end{center}
 \end{table}
 
@@ -60,7 +60,7 @@ The weight matrix is constructed using log-odds score
 W_{ij} = \log{ (\frac{p_{ij}}{q_j}) }
 \end{equation}
 
-i being the position in the motif and j the amino acid. $q_j$ is the background frequency for amno acid j. 
+i being the position in the motif and j the amino acid. $q_j$ is the background frequency for ammino acid j. 
 The score of a sequence is simply the sum of the position-specific scores for each symbol in the substring.
 
 \begin{equation}
@@ -78,7 +78,7 @@ Simply put, the weight on a peptide k at position p is
 w_{kp} = \frac{1}{r\cdot s}
 \end{equation}
 
-where r is the number of different amino acids in the column p, and s is the number of occurence of amino acids a in that column. The weight of the sequence k is then the sum of the weights over all positions
+where r is the number of different amino acids in the column p, and s is the number of occurrence of amino acids a in that column. The weight of the sequence k is then the sum of the weights over all positions
 
 \begin{equation}
 w_{k} = \sum_{p}{\frac{1}{r_p \cdot s_p}}
@@ -90,7 +90,7 @@ Pseudo count is used to compensate for few data points and is estimated as
 g_b = \sum{f_a}{q_{b|a}}
 \end{equation}
 
-where $f_a$ is the observed amino acid frequency. The $q_{a|b}$ is the probability of amino acid b given amino acid a and is aquired from a Blosum substitution frequency matrix.
+where $f_a$ is the observed amino acid frequency. The $q_{a|b}$ is the probability of amino acid b given amino acid a and is acquired from a Blosum substitution frequency matrix.
 The Blosum substitution matrix, is a
 conditional probability matrix of matching amino
 acids j given you have amino acid i
@@ -101,7 +101,7 @@ P(j|i) = \frac{P_ij}{Q_i}
 
 the matrix is used to for the pseudo count in creation of the PSSM matrix. 
 
-Psuedo counts are important when only limited data is available. With large datasets only the observation should count:
+Pseudo counts are important when only limited data is available. With large datasets only the observation should count:
 
 \begin{equation}
 p_a = \frac{\alpha \cdot f_a + \beta \cdot g_a}{\alpha + \beta}
@@ -123,7 +123,7 @@ where $p_a$ is the probability of the symbol a in sequence (for some position in
 Support vector machines is a set of supervised learning methods used for classification and regression analysis. 
 The standard SVM is non-probabilistic binary linear classifier. 
 It constructs a hyperplane where the separation is where there is largest distance to the nearest training data point of any class. 
-Nonlinear classification can be achived by  mapping the original space to a higher dimensional feature space and/or select a kernel function to suit the problem. 
+Non-linear classification can be achieved by  mapping the original space to a higher dimensional feature space and/or select a kernel function to suit the problem. 
 The kernel function then plays the role of the dot product in the feature space.
 
 In the linear SVM we want to find the maximum-margin hyperplane that divides the points having (class) $y_{i}$ = 1 from those having $y_i = -1$. Any hyperplane can be written as the set of points \b{x} satisfying
@@ -171,7 +171,7 @@ We choose the SMO method for classification in the Weka software.
 
 \subsection*{ANN}
 Artificial neural networks are used to model complex relationships between inputs and outputs or to find patterns in data.
-Neural networks are non-linear statistical data modeling tools, in most cases an adaptive system that changes its structure based on external or internal information that flows through the network during the learning phase.
+Neural networks are non-linear statistical data modelling tools, in most cases an adaptive system that changes its structure based on external or internal information that flows through the network during the learning phase.
 The effect on the binding affinity of
 having a given amino acid at one
 position can be influenced by the
@@ -233,7 +233,7 @@ In the PSSM case only the binders are used, so datasets with few of them could g
 \begin{figure*}[ht]
 \begin{center}
 \includegraphics[width=18cm]{fig/pssmLN1.pdf}
-\caption{Plot of the average Pearson Correlation Coefficent of the 5 test for the PSSM algorithm on each of the 35 alleles. The alleles are ordered by the number of binding peptide inside the data, the order is the following:
+\caption{Plot of the average Pearson Correlation Coefficient of the 5 test for the PSSM algorithm on each of the 35 alleles. The alleles are ordered by the number of binding peptide inside the data, the order is the following:
 B5701, A3002, A2301, B4501, B1801, B4002, B4403, B4402, A2902, A2402, B5101, A2403, B5301, B5401, A3001, A2601, B0801, B3501, A6901, B2705, B1501, B5801, B4001, A6801, A3301, A0101, B0702, A6802, A0206, A0203, A0202, A3101, A1101, A0301 and A0201.}\label{fig:pssm1}
 \end{center}
 \end{figure*}
@@ -241,7 +241,7 @@ B5701, A3002, A2301, B4501, B1801, B4002, B4403, B4402, A2902, A2402, B5101, A24
 \begin{figure*}[ht]
 \begin{center}
 \includegraphics[width=18cm]{fig/annLNzoom.pdf}
-\caption{Plot of the average Pearson Correlation Coefficent of the 5 test for the Artificial Neural Network algorithm on each of the 35 alleles. The alleles are ordered by the number of peptide in the dataset. The order is the following:
+\caption{Plot of the average Pearson Correlation Coefficient of the 5 test for the Artificial Neural Network algorithm on each of the 35 alleles. The alleles are ordered by the number of peptide in the dataset. The order is the following:
 B5701, A3002, A2301, B4501, B1801, B4002, B4403, B4402, A2902, A2402, B5101, A2403, B5301, B5401, A3001, A2601, B0801, B3501, A6901, B2705, B1501, B5801, B4001, A6801, A3301, A0101, B0702, A6802, A0206, A0203, A0202, A3101, A1101, A0301 and A0201.}\label{fig:ann1}
 \end{center}
 \end{figure*}
@@ -249,7 +249,7 @@ B5701, A3002, A2301, B4501, B1801, B4002, B4403, B4402, A2902, A2402, B5101, A24
 \begin{figure*}[ht]
 \begin{center}
 \includegraphics[width=18cm]{fig/annBX1.pdf}
-\caption{Boxplot of the Pearson Correlation Coefficent of test with the ANN algorithm on the 35 different alleles. The alleles are ordered by the number of peptide in the dataset. The order in the y axis is the following:
+\caption{Boxplot of the Pearson Correlation Coefficient of test with the ANN algorithm on the 35 different alleles. The alleles are ordered by the number of peptide in the dataset. The order in the y axis is the following:
 B5701, A3002, A2301, B4501, B1801, B4002, B4403, B4402, A2902, A2402, B5101, A2403, B5301, B5401, A3001, A2601, B0801, B3501, A6901, B2705, B1501, B5801, B4001, A6801, A3301, A0101, B0702, A6802, A0206, A0203, A0202, A3101, A1101, A0301 and A0201.}\label{fig:ann2}
 \end{center}
 \end{figure*}
