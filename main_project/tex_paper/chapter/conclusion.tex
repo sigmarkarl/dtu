@@ -1,11 +1,13 @@
 %Conclusion
 As to be expected the prediction performance of the machine learning algorithms was better when trained on the larger datasets.
 Also a great difference in the number of binding vs non-binding peptides generally degraded the performance.
-The trend for the larger datasets was the 10 hidden-layer non-blosum matrix encoded data was performing best. 
-This could demonstrate that the large datasets are covering more the space of binding/non-binding data and training without using blosum matrix encoding is more accurate.
-It is a little difficult to see from the graphs but for the small datasets, using the blosum matrix increased the predictive performance.
-The number of hidden neurons also affected the performance. We tried 1, 2 and 10 hidden neurons, the 10 performing best in most cases.
+For the small datasets and datasets with small number of binding peptides, the ANN's performed best by far.
+Also in general the ANN's had considerably better performance than the SVM's using SMO classification.
+The trend for the larger datasets was the non-blosum matrix encoded data had simiar performance as the blosum encoded data. 
+This could demonstrate that the large datasets are covering more the space of binding/non-binding data and training without using blosum matrix encoding is equally accurate.
+It is a little difficult to see from the graphs but for the smaller datasets, using the blosum matrix increased the predictive performance.
+The number of hidden neurons also affected the performance. We tried 1, 2 and 10 hidden neurons, but it was highly varying which number of hidden neurons performed best.
 
 SVM had worse Pearsons correlation coefficient in all cases compared to the ANN's. Also using a polynomial kernel function of $1^{st}$ degree was better than of $2^{nd}$ degree.
 
-The PSSM method was straight forward and performed remarkably well, alsmost the same as SVM for most cases.
+The PSSM method was straight forward and performed remarkably well, although worse than the machine learning methods.
