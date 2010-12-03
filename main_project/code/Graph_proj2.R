@@ -24,13 +24,14 @@ plot_algo <- function (tab=NULL,exp=FALSE,approx=FALSE,xbyname=FALSE)
 		max_size = length(unique(tab$Allele))
 	}	
 	plot(x=c(min_size,max_size),y=c(min_pcc,max_pcc),type="n",xlab="Size",ylab="PPC")
-	legend(x="bottomright",legend=tab_p,pch=c(1:tab_lp),col=c(1:tab_lp),bty="n")
+	legend(x="bottomright",legend=tab_p,lty=c(1:tab_lp),col=c(1:tab_lp),bty="n")
 	
 	for (i in 1:tab_lp) {
 
 		tab_part <- tab[tab$"Param"== tab_p[i],]
 		tab_part <- tab_part[order(tab_part$Size),]
 		xvals = tab_part$Size
+		tab_lines = matrix(nrow=35,ncol=2,0)
 		if (xbyname==TRUE) {
 			xvals = c(1:max_size)
 		}
@@ -39,10 +40,11 @@ plot_algo <- function (tab=NULL,exp=FALSE,approx=FALSE,xbyname=FALSE)
 #			tab_lines = aspline(x=xvals,y=tab_part$PCC)
 #		} else {
 		for (s in 1:length(tab_s)) {
-			tab_lines = cbind(x=xvals,y=tab_part$PCC[tab_part$Sample==tab_s[s]])
+			tab_lines = tab_lines + cbind(x=xvals,y=tab_part$PCC[tab_part$Sample==tab_s[s]])
 #		}
-			points(tab_lines,col=i,pch=i)
 		}
+		lines(tab_lines/length(tab_s),col=i,lty=i)
+
 	} 
 }
 
@@ -73,18 +75,20 @@ boxplot_algo <- function (tab=NULL)
 			for (l in 2:length(samp)) {
 				bxpobj <- cbind(bxpobj,as.numeric(tab_part$PCC[tab_part$Sample==samp[l]]))
 			}
+			bxcolor=i
 			if (i == 1) {
-				names_x = unique(tab_part$Allele)	
-				boxplot(t(bxpobj),boxwex = bwex,at = 1:nrow(bxpobj) + barpos[i],col=i, names = names_x,outline=F,ylab="PCC")
+				names_x = unique(tab_part$Allele)
+				bxcolor = 0 	
+				boxplot(t(bxpobj),boxwex = bwex,at = 1:nrow(bxpobj) + barpos[i],col=bxcolor, names = names_x,outline=F,ylab="PCC")
 			
 
 ## to reduce the names size on x is possible to add the parameter to boxplot like : cex.axis=0.2
 			} else {
-				boxplot(t(bxpobj),boxwex = bwex,at = 1:nrow(bxpobj) + barpos[i],col=i,add=T, names = alleles[,"nulls"],outline=F)
+				boxplot(t(bxpobj),boxwex = bwex,at = 1:nrow(bxpobj) + barpos[i],col=bxcolor,add=T, names = alleles[,"nulls"],outline=F)
 			}
 		}
 	}
 	#return(bxpobj)
-	legend(x="bottomright",unique(tab$Param),fill=c(1:tab_lp),bty="n")
+	legend(x="bottomright",unique(tab$Param),fill=c(0,2:tab_lp),bty="n")
 }
 
