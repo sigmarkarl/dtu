@@ -131,8 +131,10 @@
 \begin{frame}
  \begin{itemize}
 \item<1> Using sequence weighting providest better results in most cases.
-\item<2> The B4001 clearly visible, large dataset, low number of binders, PCC just over 0.3
+\item<2> The B4001 clearly visible, large dataset, low number of binders, PCC around 0.3
 \item<3> Small datasets provide PSSM with good prediction performance, pseudo counts helps.
+\item<4> Using same datasets in all methods, the PSSM results were (average PCC) 0.30 with and 0.26 without sequence weighting for B4001
+\item<5> 0.61 and 0.60 for A3001, 0.75 and 0.77 for A0201.
 \end{itemize}
 \end{frame}
 
@@ -147,7 +149,6 @@
 \end{frame}
 
 \begin{frame}
-
 \begin{table}[hb]\scriptsize
 \begin{center}
 
@@ -282,6 +283,18 @@
 \end{table}
 \end{frame}
 
+\begin{frame}
+\begin{itemize}
+\item<1> PSSM method almost as good as best result from SVM using largest dataset A0201 (pcc 0.77 vs 0.78)
+\item<2> Maybe bad choose of kernel function/parameters, or PSSM method simply accurate.
+\item<3> SVM has the winning in dataset with few binders, best pcc 0.49 for B4001 using SVM compared to 0.3 with PSSM.
+\item<4> Also for the relatively small dataset A3001, SVM performs better than PSSM (pcc 0.77 vs 0.61)
+\item<5> For the few datasets we tested SVM on, using Blosum encoded data did not provide better results. (Further evidence needed to be able to accurately comment on this)
+\item<6> First order polynomial kernel function performed better than $2^{nd}$ order in all cases.
+\item<7> Z-score encoded data not performing as well as we would hope as it is based on structural/functional info on the amino acids.
+\end{itemize}
+\end{frame}
+
 \subsection{ANN}
 \begin{frame}
 \begin{figure}[ht]
@@ -289,6 +302,15 @@
 \includegraphics[width=10cm]{fig/annBX1.pdf}
 \end{center}
 \end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item<1> The ANN's have best overall performance of the three methods.
+\item<2> For the large dataset A0201, performance for 2 and 10 hidden layers, with and without blosum matrix showed very similar results, pcc around 0.86
+\item<3> This is substancially better than the other methods, even though we were more conservative in terms of the overfitting problem when training the ANN's (no cross-validation used in SVM)
+\item<4> The best results for the B4001 dataset was pcc 0.64, also much better than with the other methods. Not much deviation in the results for all types of networks (2/10 hidden layers, blosum/no blosum) (all >= 0.6)
+\end{itemize}
 \end{frame}
 
 \end{document} 
