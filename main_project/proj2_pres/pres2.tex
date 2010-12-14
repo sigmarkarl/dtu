@@ -135,15 +135,98 @@
  \begin{figure}[ht]
   \begin{center}
    \includegraphics[width=10cm]{fig/pssmLN1.pdf}
-   \caption{Plot of the average Pearson Correlation Coefficient of the 5 test for the PSSM algorithm on each of the 35 alleles. The alleles are ordered by the size of the dataset, the order is the following:
-	B5701, A3002, A2301, B4501, B1801, B4002, B4403, B4402, A2902, A2402, B5101, A2403, B5301, B5401, A3001, A2601, B0801, B3501, A6901, B2705, B1501, B5801, B4001, A6801, A3301, A0101, B0702, A6802, A0206, A0203, A0202, A3101, A1101, A0301 and A0201.}\label{fig:pssm1}
   \end{center}
  \end{figure}
+\end{frame}
+
+\begin{frame} 
 \begin{itemize}
 \item<1> Using sequence weighting provides better results in most cases.
 \item<2> The B4001 clearly visible, large dataset, low number of binders, PCC just over 0.3
 \item<3> Small datasets provide PSSM with good prediction performance, pseudo counts helps.
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\begin{table}\scriptsize
+
+\begin{center}
+
+
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+ & PSSM w/o SW & A0201 &   0 & 618 & 0.74 \\ 
+ & PSSM w/o SW & A0201 &   1 & 618 & 0.76 \\ 
+ & PSSM w/o SW & A0201 &   2 & 618 & 0.76 \\ 
+ & PSSM w/o SW & A0201 &   3 & 618 & 0.76 \\ 
+ & PSSM w/o SW & A0201 &   4 & 617 & 0.75 \\ 
+\hline
+ & PSSM w SW & A0201 &   0 & 618 & 0.75 \\ 
+ & PSSM w SW & A0201 &   1 & 618 & 0.78 \\ 
+ & PSSM w SW & A0201 &   2 & 618 & 0.78 \\ 
+ & PSSM w SW & A0201 &   3 & 618 & 0.79 \\ 
+ & PSSM w SW & A0201 &   4 & 617 & 0.76 \\ 
+   \hline
+\end{tabular}
+
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\begin{table}\scriptsize
+
+\begin{center}
+
+
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+   & PSSM & A3001 &   0 & 134 & 0.68 \\ 
+   & PSSM & A3001 &   1 & 134 & 0.55 \\ 
+   & PSSM & A3001 &   2 & 134 & 0.64 \\ 
+   & PSSM & A3001 &   3 & 134 & 0.55 \\ 
+   & PSSM & A3001 &   4 & 133 & 0.56 \\ 
+  \hline
+   & PSSM SW & A3001 &   0 & 134 & 0.70 \\ 
+   & PSSM SW & A3001 &   1 & 134 & 0.56 \\ 
+   & PSSM SW & A3001 &   2 & 134 & 0.65 \\ 
+   & PSSM SW & A3001 &   3 & 134 & 0.56 \\ 
+   & PSSM SW & A3001 &   4 & 133 & 0.57 \\ 
+   \hline
+\end{tabular}
+
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\begin{table}\scriptsize
+
+\begin{center}
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+   & PSSM & B4001 &   0 & 216 & 0.19 \\ 
+   & PSSM & B4001 &   1 & 216 & 0.24 \\ 
+   & PSSM & B4001 &   2 & 216 & 0.19 \\ 
+   & PSSM & B4001 &   3 & 215 & 0.38 \\ 
+   & PSSM & B4001 &   4 & 215 & 0.29 \\ 
+\hline
+   & PSSM SW & B4001 &   0 & 216 & 0.23 \\ 
+   & PSSM SW & B4001 &   1 & 216 & 0.29 \\ 
+   & PSSM SW & B4001 &   2 & 216 & 0.24 \\ 
+   & PSSM SW & B4001 &   3 & 215 & 0.41 \\ 
+   & PSSM SW & B4001 &   4 & 215 & 0.32 \\ 
+   \hline
+\end{tabular}
+\end{center}
+\end{table}
 \end{frame}
 
 
