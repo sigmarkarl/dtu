@@ -42,6 +42,21 @@
   \tableofcontents[currentsection]
 \end{frame}
 
+\begin{frame}
+  \frametitle{Methods}
+  \begin{itemize}
+    \item<1> We looked at three methods from the class used for MHC peptide binding prediction.
+    \item<2>  The Position specific scoring matrix (PSSM), Support vector machines (SVM) and Artificial neural networks (ANN).
+    \item<3> Generating PSSM weight matrix just uses data from positive binders (> 0.426 binding coefficient)
+    \item<4> The other two, SVM and ANN are machine learning methods, non-binders also useful.
+    \item<5> Pearsons correlation coefficient to evaluate the predictive performance of the methods.
+    \item<6> its invariant in terms of location and scale and should therefore be ideal comparing different methods.
+	\begin{equation}
+		pcc = \frac{ \sum_n{(x-x_m)(y-y_m) } }{ \sqrt{ \sum_n{(x-x_m)^2}\cdot\sum_{n}{(y-y_m)^2} } }
+	\end{equation}
+  \end{itemize}
+\end{frame}
+
 \section{Lists}
 \begin{frame}
   \frametitle{A slide with a list}
