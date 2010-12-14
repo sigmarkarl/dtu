@@ -51,6 +51,39 @@
 
 \section{PSSM}
 \begin{frame}
+ \frametitle{PSSM (PWM)}
+ \begin{columns}
+  \begin{column}{5cm}
+   \begin{block}\centering
+    PSSM is used to represent a motif pattern.
+    Is a good method to estimate the relevance 
+    of the position of an aminoacids in a MHC binding. 
+   \end{block}
+   \pause
+   \begin{block}\centering
+   Uses \textit{Pseudo Counts} when few data are available:
+    \begin{equation}
+     p_a = \frac{\alpha \cdot f_a + \beta \cdot g_a}{\alpha + \beta}
+    \end{equation}
+   \end{block}
+   \pause
+  \end{column}
+  \begin{column}{5cm}
+   \begin{block}\centering
+    \textit{Sequence Weighting} can be used to reduce redoundancy:
+    \begin{equation}
+     w_{k} = \sum_{p}{\frac{1}{r_p \cdot s_p}}
+    \end{equation}
+
+   \end{block}
+   \pause
+   \begin{block}\centering
+   
+   \end{block}
+  
+  
+  \end{column}
+ \end{columns}
 
 \end{frame}
 
@@ -64,6 +97,24 @@
 
 \end{frame}
 
+\section{Results}
+\begin{frame}
 
+\end{frame}
+
+\subsection{PSSM}
+\begin{frame}
+
+\end{frame}
+
+\subsection{SVM}
+\begin{frame}
+
+\end{frame}
+
+\subsection{ANN}
+\begin{frame}
+
+\end{frame}
 
 \end{document} 
