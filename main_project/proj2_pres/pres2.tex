@@ -74,6 +74,17 @@
   \end{itemize}
 \end{frame}
 
+\subsection{Overfitting}
+\begin{frame}
+  \begin{itemize}
+    \item<1> PSSM weight matrix can be overfitted. We used different sets for creating the matrix and evaluating its predictive performance, average of 5 different split of training/testing datasets
+    \item<2> Similar method used in SVM evaluation. SVM training was slow, so in some cases we just went with one run.
+    \item<3> ANN's, the nnforward program provided in the course is able to take a list of synapses as input. Synapses where testing performance was optimal were selected.
+    \item<4> For the the small datasets 5-fold cross validation was used but still evaluated on some of the data used in the training/esting procedure. We also tried cross-validation and evaluation on data used in neither training or testing for the large datasets.
+  \end{itemize}
+\end{frame}
+
+
 \subsection{Methods}
 \begin{frame}
  \frametitle{PSSM (PWM)}
