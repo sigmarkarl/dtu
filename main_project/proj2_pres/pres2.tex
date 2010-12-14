@@ -6,6 +6,7 @@
 \usepackage{breakurl}
 \usepackage{graphicx}
 
+\def\supertiny{ \font\supertinyfont = cmr10 at 4pt \relax \supertinyfont} 
 \usetheme{Algo}
 %\usetheme{Warsaw}
 
@@ -128,6 +129,7 @@
 
 \subsection{PSSM}
 \begin{frame}
+<<<<<<< HEAD
 \begin{figure*}[ht]
 \begin{center}
 \includegraphics[width=18cm]{fig/pssmLN1.pdf}
@@ -138,16 +140,193 @@ B5701, A3002, A2301, B4501, B1801, B4002, B4403, B4402, A2902, A2402, B5101, A24
 \item<1> Using sequence weighting providest better results in most cases.
 \item<2> The B4001 clearly visible, large dataset, low number of binders, PCC just over 0.3
 \item<3> Small datasets provide PSSM with good prediction performance, pseudo counts helps.
+=======
+ \begin{figure}[ht]
+  \begin{center}
+   \includegraphics[width=10cm]{fig/pssmLN1.pdf}
+   \caption{Plot of the average Pearson Correlation Coefficient of the 5 test for the PSSM algorithm on each of the 35 alleles. The alleles are ordered by the number of binding peptide inside the data, the order is the following:
+   B5701, A3002, A2301, B4501, B1801, B4002, B4403, B4402, A2902, A2402, B5101, A2403, B5301, B5401, A3001, A2601, B0801, B3501, A6901, B2705, B1501, B5801, B4001, A6801, A3301, A0101, B0702, A6802, A0206, A0203, A0202, A3101, A1101, A0301 and A0201.}\label{fig:pssm1}
+  \end{center}
+ \end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{table}[hb]\supertiny
+\begin{center}
+\begin{tabular}{rrr}
+
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+   & NN 10HL & A0201 &   0 & 618 & 0.84 \\ 
+   & NN 10HL & A0201 &   1 & 618 & 0.87 \\ 
+   & NN 10HL & A0201 &   2 & 618 & 0.86 \\ 
+   & NN 10HL & A0201 &   3 & 618 & 0.86 \\ 
+   & NN 10HL & A0201 &   4 & 617 & 0.87 \\ 
+   \hline
+   & NN 10HL Blosum & A0201 &   0 & 618 & 0.83 \\ 
+   & NN 10HL Blosum & A0201 &   1 & 618 & 0.86 \\ 
+   & NN 10HL Blosum & A0201 &   2 & 618 & 0.85 \\ 
+   & NN 10HL Blosum & A0201 &   3 & 618 & 0.86 \\ 
+   & NN 10HL Blosum & A0201 &   4 & 617 & 0.86 \\ 
+   \hline
+   & NN 1HL & A0201 &   0 & 618 & 0.84 \\ 
+   & NN 1HL & A0201 &   1 & 618 & 0.87 \\ 
+   & NN 1HL & A0201 &   2 & 618 & 0.86 \\ 
+   & NN 1HL & A0201 &   3 & 618 & 0.86 \\ 
+   & NN 1HL & A0201 &   4 & 617 & 0.87 \\ 
+   \hline
+   & NN 1HL Blosum & A0201 &   0 & 618 & 0.84 \\ 
+   & NN 1HL Blosum & A0201 &   1 & 618 & 0.87 \\ 
+   & NN 1HL Blosum & A0201 &   2 & 618 & 0.86 \\ 
+   & NN 1HL Blosum & A0201 &   3 & 618 & 0.86 \\ 
+   & NN 1HL Blosum & A0201 &   4 & 617 & 0.87 \\ 
+   \hline
+   & NN 2HL & A0201 &   0 & 618 & 0.84 \\ 
+   & NN 2HL & A0201 &   1 & 618 & 0.87 \\ 
+   & NN 2HL & A0201 &   2 & 618 & 0.86 \\ 
+   & NN 2HL & A0201 &   3 & 618 & 0.86 \\ 
+   & NN 2HL & A0201 &   4 & 617 & 0.87 \\ 
+   \hline
+   & NN 2HL Blosum & A0201 &   0 & 618 & 0.85 \\ 
+   & NN 2HL Blosum & A0201 &   1 & 618 & 0.87 \\ 
+   & NN 2HL Blosum & A0201 &   2 & 618 & 0.85 \\ 
+   & NN 2HL Blosum & A0201 &   3 & 618 & 0.87 \\ 
+   & NN 2HL Blosum & A0201 &   4 & 617 & 0.87 \\ 
+   \hline
+\end{tabular}
+
+
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+   & NN 10HL & A3001 &   0 & 134 & 0.81 \\ 
+   & NN 10HL & A3001 &   1 & 134 & 0.66 \\ 
+   & NN 10HL & A3001 &   2 & 134 & 0.80 \\ 
+   & NN 10HL & A3001 &   3 & 134 & 0.67 \\ 
+   & NN 10HL & A3001 &   4 & 133 & 0.71 \\ 
+\hline
+   & NN 10HL Blosum & A3001 &   0 & 134 & 0.82 \\ 
+   & NN 10HL Blosum & A3001 &   1 & 134 & 0.65 \\ 
+   & NN 10HL Blosum & A3001 &   2 & 134 & 0.78 \\ 
+   & NN 10HL Blosum & A3001 &   3 & 134 & 0.68 \\ 
+   & NN 10HL Blosum & A3001 &   4 & 133 & 0.62 \\ 
+\hline
+   & NN 1HL & A3001 &   0 & 134 & 0.83 \\ 
+   & NN 1HL & A3001 &   1 & 134 & 0.66 \\ 
+   & NN 1HL & A3001 &   2 & 134 & 0.81 \\ 
+   & NN 1HL & A3001 &   3 & 134 & 0.67 \\ 
+   & NN 1HL & A3001 &   4 & 133 & 0.72 \\ 
+\hline
+   & NN 1HL Blosum & A3001 &   0 & 134 & 0.84 \\ 
+   & NN 1HL Blosum & A3001 &   1 & 134 & 0.66 \\ 
+   & NN 1HL Blosum & A3001 &   2 & 134 & 0.80 \\ 
+   & NN 1HL Blosum & A3001 &   3 & 134 & 0.67 \\ 
+   & NN 1HL Blosum & A3001 &   4 & 133 & 0.59 \\ 
+\hline
+   & NN 2HL & A3001 &   0 & 134 & 0.82 \\ 
+   & NN 2HL & A3001 &   1 & 134 & 0.66 \\ 
+   & NN 2HL & A3001 &   2 & 134 & 0.81 \\ 
+   & NN 2HL & A3001 &   3 & 134 & 0.67 \\ 
+   & NN 2HL & A3001 &   4 & 133 & 0.71 \\ 
+\hline
+   & NN 2HL Blosum & A3001 &   0 & 134 & 0.84 \\ 
+   & NN 2HL Blosum & A3001 &   1 & 134 & 0.66 \\ 
+   & NN 2HL Blosum & A3001 &   2 & 134 & 0.80 \\ 
+   & NN 2HL Blosum & A3001 &   3 & 134 & 0.68 \\ 
+   & NN 2HL Blosum & A3001 &   4 & 133 & 0.60 \\ 
+   \hline
+\end{tabular}
+
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Sample & Size & PCC \\ 
+  \hline
+   & NN 10HL & B4001 &   0 & 216 & 0.58 \\ 
+   & NN 10HL & B4001 &   1 & 216 & 0.65 \\ 
+   & NN 10HL & B4001 &   2 & 216 & 0.60 \\ 
+   & NN 10HL & B4001 &   3 & 215 & 0.59 \\ 
+   & NN 10HL & B4001 &   4 & 215 & 0.65 \\ 
+\hline
+   & NN 10HL Blosum & B4001 &   0 & 216 & 0.61 \\ 
+   & NN 10HL Blosum & B4001 &   1 & 216 & 0.62 \\ 
+   & NN 10HL Blosum & B4001 &   2 & 216 & 0.56 \\ 
+   & NN 10HL Blosum & B4001 &   3 & 215 & 0.60 \\ 
+   & NN 10HL Blosum & B4001 &   4 & 215 & 0.60 \\ 
+\hline
+   & NN 1HL & B4001 &   0 & 216 & 0.59 \\ 
+   & NN 1HL & B4001 &   1 & 216 & 0.67 \\ 
+   & NN 1HL & B4001 &   2 & 216 & 0.64 \\ 
+   & NN 1HL & B4001 &   3 & 215 & 0.63 \\ 
+   & NN 1HL & B4001 &   4 & 215 & 0.68 \\ 
+\hline
+   & NN 1HL Blosum & B4001 &   0 & 216 & 0.64 \\ 
+   & NN 1HL Blosum & B4001 &   1 & 216 & 0.59 \\ 
+   & NN 1HL Blosum & B4001 &   2 & 216 & 0.55 \\ 
+   & NN 1HL Blosum & B4001 &   3 & 215 & 0.63 \\ 
+   & NN 1HL Blosum & B4001 &   4 & 215 & 0.58 \\ 
+\hline
+   & NN 2HL & B4001 &   0 & 216 & 0.60 \\ 
+   & NN 2HL & B4001 &   1 & 216 & 0.66 \\ 
+   & NN 2HL & B4001 &   2 & 216 & 0.63 \\ 
+   & NN 2HL & B4001 &   3 & 215 & 0.62 \\ 
+   & NN 2HL & B4001 &   4 & 215 & 0.67 \\ 
+\hline
+   & NN 2HL Blosum & B4001 &   0 & 216 & 0.64 \\ 
+   & NN 2HL Blosum & B4001 &   1 & 216 & 0.60 \\ 
+   & NN 2HL Blosum & B4001 &   2 & 216 & 0.56 \\ 
+   & NN 2HL Blosum & B4001 &   3 & 215 & 0.63 \\ 
+   & NN 2HL Blosum & B4001 &   4 & 215 & 0.59 \\ 
+   \hline
+\end{tabular}
+\end{tabular}
+\end{center}
+
+\caption{Summary of the Artificial Neural Network algorithm results for three alleles: A0201, A3001 and B4001. Referring to the data in Tab \ref{ftable} we can see that even if B4001 have a great number of peptides in the dataset, only the 4\% is binding. By the way the performance of the ANN algorithm it is still better compared to the other algorithms in this article.}\label{tab:nn1}
+
+\end{table}
+
+
+>>>>>>> 0b6c12accbe85abeb262eb37224a51e95868dfc7
 \end{frame}
 
 \subsection{SVM}
 \begin{frame}
+\begin{table}[ht]\scriptsize
+\begin{center}
+\begin{tabular}{rllrrr}
+  \hline
+ & Param & Allele & Size & PCC & MAE \\ 
+  \hline
+ & SVM Pol. 1$^{st}$ d + Sparse & A0201 &   618 & 0.78 & 0.1524 \\ 
+ & SVM Pol. 2$^{st}$ degree & A0201 &   618 & 0.756 & 0.1535 \\ 
+ & SVM Pol. 1$^{st}$ d + Blosum & A0201 &   618 & 0.7789 & 0.1533 \\ 
+ & SVM Pol. 2$^{nd}$ degree & A0201 &   618 & 0.6692 & 0.2047 \\ 
+ & SVM Pol. 1$^{st}$ d + z-score & A0201 &   618 & 0.6888 & 0.1802 \\ 
+ & SVM Sparse & A3001 &   134 & 0.7412 & 0.1008 \\ 
+ & SVM Pol. 1$^{nd}$ d + Blosum & A3001 &   134 & 0.7671 & 0.0945 \\ 
+ & SVM Pol. 1$^{nd}$ d + Sparse & B4001 &   216 & 0.4876 & 0.0373 \\ 
+ & SVM Pol. 1$^{nd}$ d + Blosum & B4001 &   216 & 0.4456 & 0.0387 \\ 
+ & SVM Pol. 1$^{nd}$ d + Zscore & B4001 &   216 & 0.2397 & 0.0400 \\ 
+   \hline
+\end{tabular}
+\end{center}
+\caption{Result table for SVM with various kernel and various encoding schema. The three alleles A0201, A3001 and B4001 were considered.}\label{tab:svm1}
+\end{table}
 
 \end{frame}
 
 \subsection{ANN}
 \begin{frame}
-
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=10cm]{fig/annBX1.pdf}
+\caption{Boxplot of the Pearson Correlation Coefficient of test with the ANN algorithm on the 35 different alleles. The alleles are ordered by the number of peptide in the dataset. The order in the y axis is the following:
+B5701, A3002, A2301, B4501, B1801, B4002, B4403, B4402, A2902, A2402, B5101, A2403, B5301, B5401, A3001, A2601, B0801, B3501, A6901, B2705, B1501, B5801, B4001, A6801, A3301, A0101, B0702, A6802, A0206, A0203, A0202, A3101, A1101, A0301 and A0201.}\label{fig:ann2}
+\end{center}
+\end{figure}
 \end{frame}
 
 \end{document} 
