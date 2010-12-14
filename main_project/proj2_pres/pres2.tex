@@ -70,13 +70,6 @@
   \begin{itemize}
     \item<1> All 35 MHC datasets from course used in PSSM and ANN.
     \item<2>  Looked specifically into datasets containing relatively few binders (B4001) to stress the difference between methods using and not using non-binding data.
-    \item<3> Generating PSSM weight matrix just uses data from positive binders (> 0.426 binding coefficient)
-    \item<4> The other two, SVM and ANN are machine learning methods, non-binders also useful.
-    \item<5> Pearsons correlation coefficient to evaluate the predictive performance of the methods.
-    \item<6> its invariant in terms of location and scale and should therefore be ideal comparing different methods.
-	\begin{equation}
-		pcc = \frac{ \sum_n{(x-x_m)(y-y_m) } }{ \sqrt{ \sum_n{(x-x_m)^2}\cdot\sum_{n}{(y-y_m)^2} } }
-	\end{equation}
   \end{itemize}
 \end{frame}
 
@@ -135,7 +128,16 @@
 
 \subsection{PSSM}
 \begin{frame}
-
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[width=18cm]{fig/pssmLN1.pdf}
+\caption{Plot of the average Pearson Correlation Coefficient of the 5 test for the PSSM algorithm on each of the 35 alleles. The alleles are ordered by the size of the dataset, the order is the following:
+B5701, A3002, A2301, B4501, B1801, B4002, B4403, B4402, A2902, A2402, B5101, A2403, B5301, B5401, A3001, A2601, B0801, B3501, A6901, B2705, B1501, B5801, B4001, A6801, A3301, A0101, B0702, A6802, A0206, A0203, A0202, A3101, A1101, A0301 and A0201.}\label{fig:pssm1}
+\end{center}
+\end{figure*}
+\item<1> Using sequence weighting providest better results in most cases.
+\item<2> The B4001 clearly visible, large dataset, low number of binders, PCC just over 0.3
+\item<3> Small datasets provide PSSM with good prediction performance, pseudo counts helps.
 \end{frame}
 
 \subsection{SVM}
