@@ -1,0 +1,54 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+%\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/theme/beamerthemeSingapore.sty,v 1.10 2007/01/28 20:48:30 tantau Exp $
+
+
+%\DeclareOptionBeamer{compress}{\beamer@compresstrue}
+%\ProcessOptionsBeamer
+  
+
+\mode<presentation>
+
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{itemize items}[ball]
+\setbeamertemplate{footline}[logo]
+\setbeamercolor{item projected}{bg=red}
+
+\setbeamercolor{section in head/foot}{use=structure,bg=red!25!bg}
+\setbeamercolor{title}{fg=red!60!bg}
+\setbeamercolor{frametitle}{fg=red!60!bg}
+
+
+\useinnertheme[shadow=true]{rounded}
+\useoutertheme[footline=authortitle,subsection=false]{miniframes}
+
+
+
+\AtBeginDocument{%
+  {
+    \usebeamercolor{section in head/foot}
+  }
+  
+  \pgfdeclareverticalshading{beamer@headfade}{\paperwidth}
+  {%
+    color(0cm)=(bg);
+    color(1.25cm)=(section in head/foot.bg)%
+  }
+
+  \setbeamercolor{section in head/foot}{bg=}
+}
+
+\setbeamerfont{block title}{size={}}
+\addtoheadtemplate{\pgfuseshading{beamer@headfade}\vskip-1.25cm}{}
+
+%\beamertemplatedotitem
+
+\mode
+<all>
