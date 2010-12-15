@@ -51,14 +51,14 @@
 \end{frame}
 \section{Introduction}
 \begin{frame}
-  \frametitle{Methods}
+  \frametitle{Introduction}
   \begin{itemize}
-    \item<1> We looked at three methods from the class used for MHC peptide binding prediction.
-    \item<2>  The Position specific scoring matrix (PSSM), Support vector machines (SVM) and Artificial neural networks (ANN).
-    \item<3> Generating PSSM weight matrix just uses data from positive binders (> 0.426 binding coefficient)
-    \item<4> The other two, SVM and ANN are machine learning methods, non-binders also useful.
-    \item<5> Pearsons correlation coefficient to evaluate the predictive performance of the methods.
-    \item<6> its invariant in terms of location and scale and should therefore be ideal comparing different methods.
+    \item<1> We looked at three methods from the class used for MHC peptide binding prediction:
+          The Position specific scoring matrix (PSSM), Support vector machines (SVM) and Artificial neural networks (ANN).
+    \item<2> Generating PSSM weight matrix just uses data from positive binders (> 0.426 binding coefficient).
+    \item<2> The other two, SVM and ANN are machine learning methods, non-binders also useful.
+    \item<3> Pearsons correlation coefficient to evaluate the predictive performance of the methods.
+    \item<3> its invariant in terms of location and scale and should therefore be ideal comparing different methods.
 	\begin{equation}
 		pcc = \frac{ \sum_n{(x-x_m)(y-y_m) } }{ \sqrt{ \sum_n{(x-x_m)^2}\cdot\sum_{n}{(y-y_m)^2} } }
 	\end{equation}
@@ -67,10 +67,11 @@
 
 \subsection{Data}
 \begin{frame}
+ \frametitle{Data}
   \begin{itemize}
-    \item<1> All 35 MHC datasets from course used in PSSM and ANN.
-    \item<2>  Looked specifically into datasets containing relatively few binders (B4001) to stress the difference between methods using and not using non-binding data.
-    \item<3> Also compared results of smaller datasets.
+    \item All 35 MHC datasets from course used in PSSM and ANN. \pause
+    \item  Looked specifically into datasets containing relatively few binders (B4001) to stress the difference between methods using and not using non-binding data. \pause
+    \item Also compared results of smaller datasets. 
   \end{itemize}
 \end{frame}
 
@@ -121,21 +122,22 @@
  \begin{columns}
   \begin{column}{5cm}
    \begin{block}\centering
- 
-   \end{block}
-   \pause
-   \begin{block}\centering
-
+    The linear SVM method is a non-probabilistic binary classifier.
+    It construct an hyperplane where the separation were done by maximize the margins:
+    \begin{equation}
+     M = \frac{2}{||w||}
+    \end{equation}
    \end{block}
    \pause
   \end{column}
   \begin{column}{5cm}
    \begin{block}\centering
-
-   \end{block}
-   \pause
+    Maximize the margin M is th same as minimize $ \frac{1}{2}||w||^{2}$, 
+    so the solution involves a Quadratic optimization Problem.
+   \end{block} 
    \begin{block}\centering
-   
+    A common solution for QP is the Sequential Minimal Optimization (SMO)
+    which breaks down the problem in a 2-dimensional space. 
    \end{block}
   \end{column}
  \end{columns}
@@ -165,7 +167,7 @@
    \end{block}
    \pause
    \begin{block}\centering
-   For every edge of the neural network layer, a weight $w_i$ is associated:
+   For every edge of the neural network layer, a weight $w_i$ is associated. The resulting output:
     \begin{equation}
      o = \sum{x_i \cdot w_i}
     \end{equation}
@@ -178,11 +180,11 @@
 \section{PSSM}
 \begin{frame}
  \begin{itemize}
-\item<1> Using sequence weighting providest better results in most cases.
-\item<2> The B4001 clearly visible, large dataset, low number of binders, PCC around 0.3
-\item<3> Small datasets provide PSSM with good prediction performance, pseudo counts helps.
-\item<4> Using same datasets in all methods, the PSSM results were (average PCC) 0.30 with and 0.26 without sequence weighting for B4001
-\item<5> 0.61 and 0.60 for A3001, 0.75 and 0.77 for A0201.
+\item Using sequence weighting providest better results in most cases. \pause
+\item The B4001 clearly visible, large dataset, low number of binders, PCC arond 0.3. \pause
+\item Small datasets provide PSSM with good prediction performance, pseudo counts helps. \pause
+\item Using same datasets in all methods, PSSM results were (average PCC) 0.30 with and 0.26 without sequence weighting for B4001. \pause
+\item 0.61 and 0.60 for A3001, 0.75 and 0.77 for A0201.
 \end{itemize}
 \end{frame}
 
@@ -220,21 +222,12 @@
  \end{figure}
 \end{frame}
 
-\begin{frame} 
-\begin{itemize}
-\item<1> Using sequence weighting provides better results in most cases.
-\item<2> The B4001 clearly visible, large dataset, low number of binders, PCC just over 0.3
-\item<3> Small datasets provide PSSM with good prediction performance, pseudo counts helps.
-\end{itemize}
-\end{frame}
+
 
 \begin{frame}
-
+\frametitle{PSSM on A0201}
 \begin{table}\scriptsize
-
 \begin{center}
-
-
 \begin{tabular}{rllrrr}
   \hline
  & Param & Allele & Sample & Size & PCC \\ 
@@ -252,17 +245,14 @@
  & PSSM SW & A0201 &   4 & 617 & 0.76 \\ 
    \hline
 \end{tabular}
-
 \end{center}
 \end{table}
 \end{frame}
 
 \begin{frame}
+\frametitle{PSSM on A3001}
 \begin{table}\scriptsize
-
 \begin{center}
-
-
 \begin{tabular}{rllrrr}
   \hline
  & Param & Allele & Sample & Size & PCC \\ 
@@ -280,14 +270,13 @@
    & PSSM SW & A3001 &   4 & 133 & 0.57 \\ 
    \hline
 \end{tabular}
-
 \end{center}
 \end{table}
 \end{frame}
 
 \begin{frame}
+\frametitle{PSSM on B4001}
 \begin{table}\scriptsize
-
 \begin{center}
 \begin{tabular}{rllrrr}
   \hline
@@ -310,10 +299,18 @@
 \end{table}
 \end{frame}
 
+\begin{frame} 
+\begin{itemize}
+\item Using sequence weighting provides better results in most cases. \pause
+\item The B4001 clearly visible, large dataset, low number of binders, PCC just over 0.3. \pause
+\item Small datasets provide PSSM with good prediction performance, pseudo counts helps. \pause
+\end{itemize}
+\end{frame}
 
 \section{SVM}
+
+\begin{frame} 
  \frametitle{SVM}
-\begin{frame}
 \begin{table}[ht]\scriptsize
 \begin{center}
 \begin{tabular}{rllrrr}
@@ -348,6 +345,32 @@
 \end{figure}
 \end{frame}
 
+\begin{frame}
+\frametitle{ANN results for all the 35 Alleles}
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=10cm]{fig/ann_tag1.pdf}
+\end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{ANN results for all the 35 Alleles}
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=10cm]{fig/ann_tag2.pdf}
+\end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{ANN results for all the 35 Alleles}
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=10cm]{fig/ann_tag3.pdf}
+\end{center}
+\end{figure}
+\end{frame}
 
 \begin{frame}
 \begin{table}[hb]\scriptsize
@@ -460,29 +483,6 @@
 \end{frame}
 
 
- \frametitle{SVM}
-\begin{frame}
-\begin{table}[ht]\scriptsize
-\begin{center}
-\begin{tabular}{rllrrr}
-  \hline
- & Param & Allele & Size & PCC & MAE \\ 
-  \hline
- & SVM Pol. 1$^{st}$ d + Sparse & A0201 &   618 & 0.78 & 0.1524 \\ 
- & SVM Pol. 2$^{st}$ degree & A0201 &   618 & 0.756 & 0.1535 \\ 
- & SVM Pol. 1$^{st}$ d + Blosum & A0201 &   618 & 0.7789 & 0.1533 \\ 
- & SVM Pol. 2$^{nd}$ degree & A0201 &   618 & 0.6692 & 0.2047 \\ 
- & SVM Pol. 1$^{st}$ d + z-score & A0201 &   618 & 0.6888 & 0.1802 \\ 
- & SVM Sparse & A3001 &   134 & 0.7412 & 0.1008 \\ 
- & SVM Pol. 1$^{nd}$ d + Blosum & A3001 &   134 & 0.7671 & 0.0945 \\ 
- & SVM Pol. 1$^{nd}$ d + Sparse & B4001 &   216 & 0.4876 & 0.0373 \\ 
- & SVM Pol. 1$^{nd}$ d + Blosum & B4001 &   216 & 0.4456 & 0.0387 \\ 
- & SVM Pol. 1$^{nd}$ d + Zscore & B4001 &   216 & 0.2397 & 0.0400 \\ 
-   \hline
-\end{tabular}
-\end{center}
-\end{table}
-\end{frame}
 
 \section{Conclusion}
 \begin{frame}
@@ -490,7 +490,7 @@
 \begin{itemize}
 \item PSSM method almost as good as best result from SVM using largest dataset A0201 (pcc 0.77 vs 0.78). \pause
 \item Maybe bad choose of kernel function/parameters, or PSSM method simply accurate. \pause
-\item SVM has the winning in dataset with few binders, best pcc 0.49 for B4001 using SVM compared to 0.3 with PSSM. \pause
+\item SVM has the winning in dataset with few binders, best pcc 0.49 for B4001 using SVM compared to 0.3 with PSSM.
 \end{itemize}
 \end{frame}
 
@@ -500,7 +500,7 @@
 \item Also for the relatively small dataset A3001, SVM performs better than PSSM (pcc 0.77 vs 0.61). \pause
 \item For the few datasets we tested SVM on, using Blosum encoded data did not provide better results. (Further evidence needed to be able to accurately comment on this). \pause
 \item First order polynomial kernel function performed better than $2^{nd}$ order in all cases. \pause
-\item Z-score encoded data not performing as well as we would hope as it is based on structural/functional info on the amino acids. \pause
+\item Z-score encoded data not performing as well as we would hope as it is based on structural/functional info on the amino acids.
 \end{itemize}
 \end{frame}
 
