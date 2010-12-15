@@ -78,6 +78,7 @@
 \subsection{Overfitting}
 \begin{frame}
   \begin{itemize}
+   \frametitle{Overfitting}
     \item<1> PSSM weight matrix can be overfitted. We used different sets for creating the matrix and evaluating its predictive performance, average of 5 different split of training/testing datasets
     \item<2> Similar method used in SVM evaluation. SVM training was slow, so in some cases we just went with one run.
     \item<3> ANN's, the nnforward program provided in the course is able to take a list of synapses as input. Synapses where testing performance was optimal were selected.
@@ -192,7 +193,7 @@
 \begin{frame}
  \frametitle{PSSM}
  \begin{itemize}
-\item Using sequence weighting providest better results in most cases. \pause
+\item Using sequence weighting provide better results in most cases. \pause
 \item The B4001 clearly visible, large dataset, low number of binders, PCC arond 0.3. \pause
 \item Small datasets provide PSSM with good prediction performance, pseudo counts helps. \pause
 \item Using same datasets in all methods, PSSM results were (average PCC) 0.30 with and 0.26 without sequence weighting for B4001. \pause
